@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Menu from "./Menu/Menu";
+import WhatsAppButton from "./WhatsAppButton";
 import { ReactLenis } from "lenis/react";
 import Loader from "@/components/Loader";
 
@@ -66,6 +67,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
              <div className={isLoading ? "opacity-0 h-screen overflow-hidden" : ""}>
                 <Menu />
                 {children}
+                <WhatsAppButton />
              </div>
         </ReactLenis>
     );    

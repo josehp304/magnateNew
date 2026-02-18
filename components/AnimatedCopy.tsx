@@ -1,11 +1,13 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+}
 
 export default function AnimatedCopy({
     children,
@@ -28,8 +30,16 @@ export default function AnimatedCopy({
         () => {
             if (!containerRef.current) return;
 
-            // ... (Cleanup previous state)
-            splitRefs.current = [];
+            // Clean up previous splits if they exist (though useGSAP typically handles cleanup on unmount)
+            // But explicitly reverting is safer for DOM structure consistency
+            if (splitRefs.current.length > 0) {
+                 splitRefs.current.forEach(({ wordSplit, charSplit }) => {
+                    charSplit.revert();
+                    wordSplit.revert();
+                 });
+                 splitRefs.current = [];
+            }
+
             lastScrollProgress.current = 0;
             colorTransitionTimers.current.clear();
             completedChars.current.clear();
@@ -41,6 +51,7 @@ export default function AnimatedCopy({
                 if (childElements.length > 0) {
                     elements = childElements;
                 } else {
+                    // If no children elements (e.g. just text node), use wrapper
                     elements = [containerRef.current];
                 }
             } else {
@@ -49,15 +60,18 @@ export default function AnimatedCopy({
 
             // Initialize SplitText
             elements.forEach((element) => {
-                const wordSplit = SplitText.create(element, {
-                    type: "words",
-                    wordsClass: "word",
-                });
-                const charSplit = SplitText.create(wordSplit.words, {
-                    type: "chars",
-                    charsClass: "char",
-                });
-                splitRefs.current.push({ wordSplit, charSplit });
+                // Ensure element has text content before splitting
+                if (element.textContent?.trim()) {
+                    const wordSplit = new SplitText(element, {
+                        type: "words",
+                        wordsClass: "word",
+                    });
+                    const charSplit = new SplitText(wordSplit.words, {
+                        type: "chars",
+                        charsClass: "char",
+                    });
+                    splitRefs.current.push({ wordSplit, charSplit });
+                }
             });
 
             const allChars = splitRefs.current.flatMap(({ charSplit }) => charSplit.chars);
@@ -65,8 +79,6 @@ export default function AnimatedCopy({
 
             // Helper for delayed transition
             const scheduleFinalTransition = (char: Element, index: number) => {
-                // Logic to setTimeout and gsap.to(char, { color: colorFinal })
-                // Store timer in colorTransitionTimers
                 if (colorTransitionTimers.current.has(index)) {
                     clearTimeout(colorTransitionTimers.current.get(index));
                 }
@@ -88,60 +100,43 @@ export default function AnimatedCopy({
                 colorTransitionTimers.current.set(index, timer);
             };
 
-            ScrollTrigger.create({
+            const trigger = ScrollTrigger.create({
                 trigger: containerRef.current,
                 start: "top 90%",
                 end: "top 20%",
                 scrub: 1,
                 onUpdate: (self) => {
-                    // Logic to compare self.progress with lastScrollProgress
-                    // Determine current char index
-                    // Update colors based on index & scroll direction
-                    // Call scheduleFinalTransition for passed chars
-
                     const progress = self.progress;
                     const totalChars = allChars.length;
                     const isScrollingDown = progress >= lastScrollProgress.current;
-                    // Calculate scan index
                     const currentCharIndex = Math.floor(progress * totalChars);
 
                     allChars.forEach((char, index) => {
                         if (isScrollingDown) {
-                            // Scrolling DOWN
                             if (index === currentCharIndex) {
-                                // Current scan head -> Accent color
-                                // Clear any pending final transition so it stays accent
                                 if (colorTransitionTimers.current.has(index)) {
                                     clearTimeout(colorTransitionTimers.current.get(index)!);
                                     colorTransitionTimers.current.delete(index);
                                 }
                                 gsap.set(char, { color: colorAccent });
                             } else if (index < currentCharIndex) {
-                                // Passed by scanner -> Schedule final color
                                 if (!completedChars.current.has(index) && !colorTransitionTimers.current.has(index)) {
                                     scheduleFinalTransition(char, index);
                                 } else if (completedChars.current.has(index)) {
-                                    // Already done, ensure it stays final
                                     gsap.set(char, { color: colorFinal });
                                 }
                             } else {
-                                // Ahead of scanner -> Initial color
                                 gsap.set(char, { color: colorInitial });
                             }
                         } else {
-                            // Scrolling UP
                             if (index >= currentCharIndex) {
-                                // Receding scanner -> Reset to Initial
                                 if (colorTransitionTimers.current.has(index)) {
                                     clearTimeout(colorTransitionTimers.current.get(index)!);
                                     colorTransitionTimers.current.delete(index);
                                 }
                                 completedChars.current.delete(index);
-                                gsap.set(char, { color: colorInitial }); // Immediate reset
+                                gsap.set(char, { color: colorInitial });
                             } else {
-                                // Remaining passed chars -> Should be Final or transitioning
-                                // If we scroll up but not past this char, its state generally stays
-                                // But to be safe, if completed, ensure Final.
                                 if (completedChars.current.has(index)) {
                                     gsap.set(char, { color: colorFinal });
                                 }
@@ -152,13 +147,30 @@ export default function AnimatedCopy({
                     lastScrollProgress.current = progress;
                 }
             });
+
+            // Cleanup function for this effect
+            return () => {
+                trigger.kill();
+                colorTransitionTimers.current.forEach(timer => clearTimeout(timer));
+                // Crucial: Revert SplitText changes to restore original DOM structure
+                // This prevents React from getting confused when removing/updating nodes
+                if (splitRefs.current.length > 0) {
+                     splitRefs.current.forEach(({ wordSplit, charSplit }) => {
+                        charSplit.revert();
+                        wordSplit.revert();
+                     });
+                     splitRefs.current = [];
+                }
+            };
         },
-        { scope: containerRef, dependencies: [colorInitial, colorAccent, colorFinal] }
+        { scope: containerRef, dependencies: [colorInitial, colorAccent, colorFinal, children] } // Added children as dependency to re-run if text changes
     );
 
-    // Render logic
-    if (React.Children.count(children) === 1 && React.isValidElement(children)) {
-        return React.cloneElement(children as React.ReactElement<any>, { ref: containerRef });
-    }
-    return <div ref={containerRef} data-copy-wrapper="true">{children}</div>;
+    // Instead of cloning elements (which is risky if children changes),
+    // always wrap in a div that we control. This isolates SplitText manipulation from React's parent reconciliation.
+    return (
+        <div ref={containerRef} data-copy-wrapper="true">
+            {children}
+        </div>
+    );
 }

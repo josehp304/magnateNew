@@ -57,7 +57,7 @@ const testimonials = [
         quote: "The technical depth and strategic oversight provided by Magnate are unmatched. It accelerated our digital transformation.",
         gradient: "linear-gradient(135deg, #22c55e, #14b8a6)"
     },
-     {
+    {
         id: 7,
         name: "Anna Sergey",
         role: "Lead Designer",
@@ -92,6 +92,7 @@ const Testimonials = () => {
         return () => window.removeEventListener("resize", updateGap);
     }, []);
 
+
     useEffect(() => {
         // Initialize Lenis
         const lenis = new Lenis({
@@ -115,50 +116,62 @@ const Testimonials = () => {
             const section = sectionRef.current;
 
             if (word && cards && section) {
-                // Initial padding calculation for cards to start well-positioned
-                const startPadding = window.innerWidth * 0.1; // 10vw padding start
-
-                // Scroll Distances
+                // Determine widths
                 const wordWidth = word.scrollWidth;
-                const cardsWidth = cards.scrollWidth + startPadding;
+                const cardsWidth = cards.scrollWidth;
                 const viewportWidth = window.innerWidth;
 
-                const wordScrollDistance = wordWidth - viewportWidth;
-                const cardsScrollDistance = cardsWidth - viewportWidth;
+                // 2) Stop Condition (IMPORTANT)
+                // The animation must stop when the last letter of “TESTIMONIALS”
+                // aligns exactly with the right edge of the screen.
+                // Formula: Total Width of Word - Viewport Width
+                // If wordWidth < viewportWidth, result is negative, meaning no scroll needed.
+                const wordScrollDistance = Math.max(0, wordWidth - viewportWidth);
 
-                // Determine total scroll distance based on the longer element
-                // Or if we want to ensure cards finish scrolling, use cardsScrollDistance if it's larger
-                const totalScrollDistance = Math.max(wordScrollDistance, cardsScrollDistance);
+                // Calculate horizontal scroll distance for cards
+                // We want to scroll enough so the last card is fully visible
+                // Adding some padding (e.g., 100px) ensures the last card isn't stuck at the exact edge
+                const cardsScrollDistance = Math.max(0, cardsWidth - viewportWidth + 100);
 
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: section,
-                        start: "top top",
-                        end: `+=${totalScrollDistance}`,
-                        scrub: true,
-                        pin: true,
-                        invalidateOnRefresh: true,
-                        anticipatePin: 1,
+                // Use the larger distance to determine the total scroll height of the section
+                const maxScroll = Math.max(wordScrollDistance, cardsScrollDistance);
+
+                // 4) Edge Cases: Only animate if there is distance to scroll
+                if (maxScroll > 0) {
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top top",
+                            end: () => `+=${maxScroll}`, 
+                            scrub: 1, 
+                            pin: true,
+                            invalidateOnRefresh: true,
+                            anticipatePin: 1,
+                        }
+                    });
+
+                    // Animate Word
+                    // Force the duration to be proportional to distance so it feels consistent
+                    // But effectively we want the animation to complete exactly when we scroll 'maxScroll' amount.
+                    // Since both are inserted at 0, they both span whatever explicit duration we give.
+                    // If we want them to finish at exactly the same time (end of scroll), we just let them both run for duration: 1.
+                    
+                    if (wordScrollDistance > 0) {
+                        tl.to(word, {
+                            x: -wordScrollDistance, 
+                            ease: "none",
+                            duration: 1
+                        }, 0);
                     }
-                });
 
-                // Phase 1 & 2 combined using durations:
-                // If word stops earlier, its duration should be proportional to its distance relative to total
-                
-                if (wordScrollDistance > 0) {
-                    tl.to(word, {
-                        x: -wordScrollDistance,
-                        ease: "none",
-                        duration: wordScrollDistance 
-                    }, 0);
-                }
-
-                if (cardsScrollDistance > 0) {
-                    tl.to(cards, {
-                        x: -cardsScrollDistance,
-                        ease: "none",
-                        duration: cardsScrollDistance
-                    }, 0);
+                    // Animate Cards
+                    if (cardsScrollDistance > 0) {
+                        tl.to(cards, {
+                            x: -cardsScrollDistance,
+                            ease: "none",
+                            duration: 1
+                        }, 0);
+                    }
                 }
             }
         }, sectionRef);
@@ -168,7 +181,14 @@ const Testimonials = () => {
             lenis.destroy();
             gsap.ticker.remove(lenis.raf);
         };
-    }, [gap]); // Re-run when gap changes
+    }, []); // Removed [gap] dependency to avoid re-running mid-scroll unnecessarily, or rely on resize listener inside.
+
+    // Handle Resize separately to refresh ST
+    useEffect(() => {
+        const handleResize = () => ScrollTrigger.refresh();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <section 
@@ -182,10 +202,15 @@ const Testimonials = () => {
             
             <div ref={containerRef} className="relative h-full w-full">
                 
+
                 {/* Background Word Layer */}
                 <div 
                     ref={wordRef}
-                    className={`${playfair.className} absolute top-1/2 left-0 -translate-y-1/2 text-[100vh] leading-none font-black text-white/5 whitespace-nowrap z-0 pointer-events-none select-none will-change-transform`}
+                    className={`${playfair.className} absolute top-1/2 left-0 -translate-y-1/2 text-[45vh] md:text-[60vh] leading-none font-black text-white/5 whitespace-nowrap z-0 pointer-events-none select-none will-change-transform`}
+                     style={{
+                         color: 'rgba(255, 255, 255, 0.08)',
+                         textShadow: '0 0 40px rgba(255,255,255,0.05)'
+                    }}
                 >
                     TESTIMONIALS
                 </div>

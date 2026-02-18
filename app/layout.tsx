@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { ViewTransitions } from "next-view-transitions";
 import { Inter, Manrope } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
-import WhatsAppButton from "../components/WhatsAppButton";
 import "./globals.css";
 import "./storage-polyfill";
 
@@ -36,7 +35,6 @@ export default function RootLayout({
       >
         <ViewTransitions>
           <ClientLayout>{children}</ClientLayout>
-          <WhatsAppButton />
         </ViewTransitions>
       </body>
     </html>

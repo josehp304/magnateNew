@@ -22,6 +22,7 @@ interface MenuProps {
 const Menu = ({ onMenuStateChange }: MenuProps) => {
     const [isAnimating, setIsAnimating] = useState(false);
     const [currentPath, setCurrentPath] = useState("/");
+    const [scrolled, setScrolled] = useState(false);
     const router = useTransitionRouter();
 
     const menuRef = useRef<HTMLDivElement>(null);
@@ -35,6 +36,14 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
 
     const menuItemsRef = useRef<HTMLDivElement>(null);
     const menuFooterColsRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -301,54 +310,48 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
 
     return (
         <>
-            <div className="nav-container">
-                <div className="nav" ref={navRef}>
+            <div 
+                className={`nav-container transition-all duration-500 ease-out border-b ${
+                    scrolled 
+                        ? "bg-[#0c0026]/70 backdrop-blur-md border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.3)] !mix-blend-normal" 
+                        : "bg-transparent border-transparent"
+                }`}
+                style={{ pointerEvents: scrolled ? "auto" : "none" }}
+            >
+                <div 
+                    className={`nav transition-all duration-500 ease-out ${scrolled ? "py-4" : "p-6"}`}
+                    ref={navRef}
+                >
                     <div className="dummy"></div>
 
                     {/* Desktop Navigation */}
-                    <div className="flex-1 hidden lg:flex justify-end items-center gap-8 pointer-events-auto">
-                         {[
+                    <div className="flex-1 hidden lg:flex justify-end items-center gap-10 pointer-events-auto">
+                        {[
                             { path: "/", label: "Home" },
+                            { path: "/courses", label: "Courses" },
+                            { path: "/testimonials", label: "Testimonials" },
                             { path: "/aboutus", label: "About Us" },
-                            { path: "/studio", label: "Studio" },
-                            { path: "/archive", label: "Archive" },
-                            { path: "/contact", label: "Contact" },
+                            { path: "/student-login", label: "Student Login" },
                         ].map((item) => (
                             <div className="revealer" key={item.path}>
                                 <a
                                     href={item.path}
-                                    className="sm caps mono text-white hover:opacity-70 transition-opacity duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[1px] after:bottom-0 after:left-0 after:bg-white after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                                    className="relative text-white/80 hover:text-white text-sm font-[family-name:var(--font-inter)] font-semibold tracking-wide transition-all duration-300 ease-out py-1 group"
                                     onClick={(e) => {
                                         e.preventDefault();
                                         navigateTo(item.path);
                                     }}
                                 >
-                                    {item.label}
+                                    <span className="relative z-10">{item.label}</span>
+                                    <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white transform scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100 group-hover:origin-left"></span>
                                 </a>
                             </div>
                         ))}
-                         <div className="revealer ml-4">
-                            <a 
-                                href="/get-free-demo" 
-                                className="sm caps mono text-black bg-zinc-700 px-5 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300 font-semibold"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    navigateTo("/get-free-demo");
-                                }}
-                            >
-                                Get Free Demo
-                            </a>
-                        </div>
                     </div>
 
                     {/* Mobile/Tablet Menu Toggle */}
                     <div className="flex-1 flex justify-end lg:hidden pointer-events-auto">
                         <div className="nav-menu-toggle-open">
-                            <div className="nav-menu-demo">
-                                <div className="revealer">
-                                    <a href="/get-free-demo" className="sm caps mono">Get Free Demo</a>
-                                </div>
-                            </div>
                             <div className="revealer" onClick={openMenu}>
                                 <p className="sm caps mono" ref={menuBtnRef}>
                                     Menu
@@ -360,7 +363,11 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                 </div>
 
             </div>
-            <div className="nav-logo mix-blend-difference">
+            <div 
+                className={`nav-logo mix-blend-difference transition-all duration-500 ease-out z-[20001] fixed ${
+                    scrolled ? "!top-4 !left-4" : "!top-6 !left-6"
+                }`}
+            >
                 <div className="revealer">
                     <a
                         href="/"
@@ -401,13 +408,11 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                     </div>
                     <div className="menu-overlay-items" ref={menuItemsRef}>
                         {[
-                            { path: "/", label: "index," },
-                            // { path: "/courses", label: "courses," },
-                            { path: "/aboutus", label: "about us," },
-                            { path: "/studio", label: "studio," },
-                            { path: "/archive", label: "archive," },
-                            { path: "/contact", label: "contact" },
-
+                            { path: "/", label: "Home" },
+                            { path: "/courses", label: "Courses" },
+                            { path: "/testimonials", label: "Testimonials" },
+                            { path: "/aboutus", label: "About Us" },
+                            { path: "/student-login", label: "Student Login" },
                         ].map((item) => (
                             <div className="revealer" key={item.path}>
                                 <a
@@ -421,14 +426,6 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 </a>
                             </div>
                         ))}
-                        <div className="free-demo-menu">
-                            <a href="/get-free-demo" onClick={(e) => {
-                                e.preventDefault();
-                                navigateTo("/get-free-demo");
-                            }}>
-                                <h1>Get Free Demo</h1>
-                            </a>
-                        </div>
                     </div>
                     <div className="menu-footer" ref={menuFooterColsRef}>
                         <div className="menu-footer-col">

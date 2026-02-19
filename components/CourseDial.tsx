@@ -25,6 +25,7 @@ export default function CourseDial({ items }: CourseDialProps) {
     const scrollTracker = useRef({ current: 0 });
     const containerRef = useRef<HTMLDivElement>(null);
     const triggerRef = useRef<HTMLDivElement>(null);
+    const wrapperRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
         if (!triggerRef.current) return;
@@ -41,6 +42,8 @@ export default function CourseDial({ items }: CourseDialProps) {
                 end: `+=${totalScrollDistance}`,
                 pin: true,
                 scrub: 1,
+                // optimized for next.js navigation
+                pinType: "transform", 
                 onUpdate: (self) => {
                     // Update the active index state based on progress
                     const progress = self.progress;
@@ -78,11 +81,14 @@ export default function CourseDial({ items }: CourseDialProps) {
         };
 
         gsap.ticker.add(updateLoop);
+        
         return () => {
             gsap.ticker.remove(updateLoop);
+            // Explicitly kill ScrollTrigger instances to prevent ghost elements
+            ScrollTrigger.getAll().forEach(t => t.kill());
             tl.kill();
         };
-    }, [items]);
+    }, { scope: wrapperRef, dependencies: [items] });
 
     const navigate = (nextIndex: number) => {
         // Since we are driven by scroll, this is tricky. 
@@ -102,20 +108,17 @@ export default function CourseDial({ items }: CourseDialProps) {
             if (items[i].link) {
                 router.push(items[i].link!);
             }
-        } else {
-            // Optional: Scroll to that index. 
-            // To implement this, we'd need to scrollTo the window position.
-            // For now, let's focus on the primary user request which is "scrolling matches course".
         }
     };
 
     return (
-        <div ref={triggerRef}>
-            <main
-                ref={containerRef}
-                className="relative w-full h-screen overflow-hidden bg-[#050505] text-white selection:bg-cyan-500/30"
-            >
-                {/* Background Images */}
+        <div ref={wrapperRef} className="course-dial-wrapper">
+            <div ref={triggerRef}>
+                <main
+                    ref={containerRef}
+                    className="relative w-full h-screen overflow-hidden bg-[#050505] text-white selection:bg-cyan-500/30"
+                >
+                    {/* Background Images */}
                 {items.map((course, i) => (
                     <div
                         key={i}
@@ -195,6 +198,7 @@ export default function CourseDial({ items }: CourseDialProps) {
                     <div className="w-[1px] h-16 bg-gradient-to-b from-white to-transparent" />
                 </div>
             </main>
+            </div>
         </div>
     );
 }

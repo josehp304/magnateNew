@@ -41,7 +41,7 @@ export interface CourseData {
         skillsTitle: string;
         skillsDescription: string;
         skills: OverviewSkill[];
-        ctaText: string;
+        ctaText?: string;
     };
     videoTestimonials: TestimonialVideo[];
     tools: {

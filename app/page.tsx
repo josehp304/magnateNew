@@ -116,9 +116,9 @@ export default function Home() {
       <WhoWeAre />
       <About />
       {/* <ProcessCards /> */}
-      {/* <HoverImageLinks items={[{ label: "Google", img: "/img1.jpg " }, { label: "Netflix", img: "/img2.jpg" }, { label: "Zepto", img: "/img3.jpg" }, { label: "Spotify", img: "/img4.jpg" }]}></HoverImageLinks> */}
-      <CourseDial items={courseItems} />
-      <Testimonials /> 
+      <div id="course-dial">
+        <CourseDial items={courseItems} />
+      </div>
       <Footer />
 
       {/* Modals and Overlays */}

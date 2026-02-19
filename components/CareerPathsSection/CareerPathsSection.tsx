@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Briefcase, TrendingUp } from 'lucide-react';
 
 export interface Company {
     name: string;
@@ -32,331 +34,109 @@ interface CareerPathsSectionProps {
 }
 
 const CareerPathsSection = ({ title, subtitle, description, careers, stats }: CareerPathsSectionProps) => {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
     return (
-        <section
-            className="py-32 relative overflow-hidden"
-            style={{ backgroundColor: 'var(--bg-dark)' }}
-        >
-            {/* Decorative Background Elements */}
-            <div
-                className="absolute top-20 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
-                style={{ backgroundColor: 'var(--accent-primary)' }}
-            />
-            <div
-                className="absolute bottom-40 left-0 w-80 h-80 rounded-full blur-3xl opacity-10"
-                style={{ backgroundColor: 'var(--accent-secondary)' }}
-            />
+        <section className="py-24 md:py-32 bg-[#0a0a0a] relative overflow-hidden">
+             {/* Background Gradients */}
+             <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-emerald-900/10 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header Section */}
-                <div className="mb-24">
-                    <div className="flex items-start justify-between mb-12 flex-col md:flex-row gap-8 md:gap-0">
-                        <div className="max-w-2xl">
-                            <span
-                                className="text-sm font-bold tracking-[0.3em] mb-4 block"
-                                style={{ color: 'var(--accent-primary)' }}
-                            >
-                                {subtitle}
-                            </span>
-                            <h2
-                                className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6"
-                                style={{ color: 'var(--text-primary)' }}
-                            >
-                                {title}
-                            </h2>
-                            <p
-                                className="text-xl leading-relaxed"
-                                style={{ color: 'var(--text-secondary)' }}
-                            >
-                                {description}
-                            </p>
-                        </div>
+                <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-12">
+                    <div className="max-w-3xl">
+                        <span className="inline-block px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-sm font-medium mb-6">
+                            {subtitle.toUpperCase()}
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+                            {title}
+                        </h2>
+                        <p className="text-lg text-neutral-400 leading-relaxed font-light">
+                            {description}
+                        </p>
+                    </div>
 
-                        {/* Floating Stats */}
-                        <div className="hidden lg:block space-y-4">
-                            <div
-                                className="p-6 rounded-2xl backdrop-blur-sm"
-                                style={{
-                                    backgroundColor: 'var(--bg-card)',
-                                    border: '1px solid var(--border-color)'
-                                }}
-                            >
-                                <div
-                                    className="text-5xl font-bold mb-1"
-                                    style={{ color: 'var(--accent-primary)' }}
-                                >
-                                    {stats.placementRate}
-                                </div>
-                                <div
-                                    className="text-sm"
-                                    style={{ color: 'var(--text-secondary)' }}
-                                >
-                                    placement rate
-                                </div>
-                            </div>
-                            <div
-                                className="p-6 rounded-2xl backdrop-blur-sm"
-                                style={{
-                                    backgroundColor: 'var(--bg-card)',
-                                    border: '1px solid var(--border-color)'
-                                }}
-                            >
-                                <div
-                                    className="text-5xl font-bold mb-1"
-                                    style={{ color: 'var(--accent-primary)' }}
-                                >
-                                    {stats.avgSalary}
-                                </div>
-                                <div
-                                    className="text-sm"
-                                    style={{ color: 'var(--text-secondary)' }}
-                                >
-                                    avg. starting
-                                </div>
-                            </div>
+                    {/* Quick Stats Grid */}
+                    <div className="flex gap-6 shrink-0">
+                        <div className="p-6 rounded-2xl bg-[#111] border border-white/5 text-center min-w-[140px]">
+                            <div className="text-3xl font-bold text-emerald-400 mb-1">{stats.placementRate}</div>
+                            <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">Placement Rate</div>
+                        </div>
+                        <div className="p-6 rounded-2xl bg-[#111] border border-white/5 text-center min-w-[140px]">
+                            <div className="text-3xl font-bold text-emerald-400 mb-1">{stats.avgSalary}</div>
+                            <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">Avg Salary</div>
                         </div>
                     </div>
                 </div>
 
-                {/* Career Grid - Masonry Style */}
-                <div className="grid md:grid-cols-12 gap-6">
-                    {careers.map((career, index) => {
-                        const isLarge = career.featured;
-                        const colSpan = isLarge ? 'md:col-span-6' : 'md:col-span-4';
-
-                        return (
-                            <div
-                                key={index}
-                                className={`${colSpan} group cursor-pointer`}
-                                onMouseEnter={() => setHoveredIndex(index)}
-                                onMouseLeave={() => setHoveredIndex(null)}
-                                style={{
-                                    transform: hoveredIndex === index ? 'translateY(-8px)' : 'translateY(0)',
-                                    transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
-                                }}
-                            >
-                                <div
-                                    className="relative h-full p-8 rounded-3xl overflow-hidden"
-                                    style={{
-                                        backgroundColor: 'var(--bg-card)',
-                                        border: hoveredIndex === index
-                                            ? `2px solid ${career.color}`
-                                            : '2px solid var(--border-color)',
-                                        transition: 'all 0.4s ease'
-                                    }}
-                                >
-                                    {/* Background Glow on Hover */}
-                                    <div
-                                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                                        style={{
-                                            background: `radial-gradient(circle at 50% 0%, ${career.color}15 0%, transparent 70%)`
-                                        }}
-                                    />
-
-                                    <div className="relative z-10">
-                                        {/* Header */}
-                                        <div className="flex items-start justify-between mb-6">
-                                            <div>
-                                                <h3
-                                                    className={`font-bold mb-2 ${isLarge ? 'text-3xl' : 'text-2xl'}`}
-                                                    style={{ color: 'var(--text-primary)' }}
-                                                >
-                                                    {career.title}
-                                                </h3>
-                                                <div className="flex items-center gap-2">
-                                                    <div
-                                                        className="w-2 h-2 rounded-full"
-                                                        style={{ backgroundColor: career.demand === 'critical' ? '#ff6b6b' : career.color }}
-                                                    />
-                                                    <span
-                                                        className="text-xs font-medium uppercase tracking-wider"
-                                                        style={{ color: 'var(--text-secondary)' }}
-                                                    >
-                                                        {career.demand} demand
-                                                    </span>
-                                                </div>
-                                            </div>
-
-                                            {/* Growth Badge */}
-                                            <div
-                                                className="px-3 py-1 rounded-full text-xs font-bold"
-                                                style={{
-                                                    backgroundColor: '#4ade8020',
-                                                    color: '#4ade80'
-                                                }}
-                                            >
+                {/* Career Grid - Bento Style */}
+                <div className="grid md:grid-cols-3 gap-6">
+                    {careers.map((career, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className={`${career.featured ? 'md:col-span-2' : ''} group relative overflow-hidden rounded-3xl bg-[#111] border border-white/5 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-900/10 p-8`}
+                        >
+                            <div className="relative z-10 flex flex-col h-full justify-between">
+                                <div>
+                                    <div className="flex justify-between items-start mb-6">
+                                        <h3 className="text-2xl font-bold text-white group-hover:text-emerald-100 transition-colors">
+                                            {career.title}
+                                        </h3>
+                                        {/* Icon or Badge */}
+                                        <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                                            <Briefcase className="w-5 h-5" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="grid grid-cols-2 gap-4 mb-8">
+                                        <div>
+                                            <p className="text-neutral-500 text-xs uppercase tracking-wider mb-1">Avg. Salary</p>
+                                            <p className="text-white font-mono font-medium">₹{(career.salary/100000).toFixed(1)} LPA</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-neutral-500 text-xs uppercase tracking-wider mb-1">Growth</p>
+                                            <p className="text-emerald-400 font-bold flex items-center gap-1">
+                                                <TrendingUp className="w-3 h-3" /> 
                                                 +{career.growth}%
-                                            </div>
+                                            </p>
                                         </div>
+                                    </div>
+                                </div>
 
-                                        {/* Salary */}
-                                        <div className="mb-6">
-                                            <div
-                                                className={`font-bold mb-1 ${isLarge ? 'text-6xl' : 'text-5xl'}`}
-                                                style={{ color: career.color }}
-                                            >
-                                                ${career.salary}K
-                                            </div>
-                                            <div
-                                                className="text-sm"
-                                                style={{ color: 'var(--text-secondary)' }}
-                                            >
-                                                average annual salary
-                                            </div>
-                                        </div>
+                                <div>
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {career.skills.slice(0, 3).map((skill, idx) => (
+                                            <span key={idx} className="px-3 py-1 rounded bg-white/5 text-neutral-400 text-xs group-hover:bg-white/10 transition-colors">
+                                                {skill}
+                                            </span>
+                                        ))}
+                                        {career.skills.length > 3 && (
+                                            <span className="px-3 py-1 rounded bg-white/5 text-neutral-500 text-xs">
+                                                +{career.skills.length - 3}
+                                            </span>
+                                        )}
+                                    </div>
 
-                                        {/* Skills */}
-                                        <div className="flex flex-wrap gap-2 mb-6">
-                                            {career.skills.map((skill, skillIndex) => (
-                                                <span
-                                                    key={skillIndex}
-                                                    className="px-3 py-1 rounded-lg text-xs font-medium backdrop-blur-sm"
-                                                    style={{
-                                                        backgroundColor: career.color + '20',
-                                                        color: 'var(--text-primary)',
-                                                        border: `1px solid ${career.color}30`
-                                                    }}
-                                                >
-                                                    {skill}
-                                                </span>
+                                    {/* Companies */}
+                                    <div className="pt-6 border-t border-white/5 flex items-center justify-between">
+                                        <span className="text-xs text-neutral-500">Hiring Partners</span>
+                                        <div className="flex -space-x-2">
+                                            {career.companies.slice(0, 4).map((company, idx) => (
+                                                <div key={idx} className="w-8 h-8 rounded-full bg-white/10 border-2 border-[#111] flex items-center justify-center text-[10px] font-bold text-white" title={company.name}>
+                                                    {company.name[0]}
+                                                </div>
                                             ))}
-                                        </div>
-
-                                        {/* Companies */}
-                                        <div className="pt-6 border-t" style={{ borderColor: 'var(--border-color)' }}>
-                                            <div
-                                                className="text-xs font-semibold mb-3 tracking-wider"
-                                                style={{ color: 'var(--text-secondary)' }}
-                                            >
-                                                HIRED BY
-                                            </div>
-                                            <div className="flex items-center gap-3">
-                                                {career.companies.map((company, companyIndex) => (
-                                                    <div
-                                                        key={companyIndex}
-                                                        className="relative group/logo"
-                                                        title={company.name}
-                                                    >
-                                                        <img
-                                                            src={company.logo}
-                                                            alt={company.name}
-                                                            className="w-8 h-8 rounded-lg object-contain transition-all duration-300 group-hover/logo:scale-110"
-                                                            style={{
-                                                                backgroundColor: 'var(--text-primary)',
-                                                                padding: '6px',
-                                                                filter: 'grayscale(100%) brightness(0) invert(1)',
-                                                                opacity: 0.6
-                                                            }}
-                                                            onMouseEnter={(e) => {
-                                                                e.currentTarget.style.filter = 'none';
-                                                                e.currentTarget.style.opacity = '1';
-                                                            }}
-                                                            onMouseLeave={(e) => {
-                                                                e.currentTarget.style.filter = 'grayscale(100%) brightness(0) invert(1)';
-                                                                e.currentTarget.style.opacity = '0.6';
-                                                            }}
-                                                        />
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-
-                                        {/* Hover Arrow */}
-                                        <div
-                                            className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300"
-                                            style={{
-                                                transform: hoveredIndex === index ? 'translate(0, 0)' : 'translate(-10px, 10px)'
-                                            }}
-                                        >
-                                            <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                style={{ color: career.color }}
-                                            >
-                                                <path
-                                                    d="M7 17L17 7M17 7H7M17 7V17"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        );
-                    })}
-                </div>
-
-                {/* Bottom CTA */}
-                <div className="mt-32 text-center">
-                    <div
-                        className="inline-block p-12 rounded-[3rem] relative overflow-hidden"
-                        style={{ backgroundColor: 'var(--bg-card)' }}
-                    >
-                        {/* Accent Border */}
-                        <div
-                            className="absolute inset-0 rounded-[3rem] p-[2px]"
-                            style={{
-                                background: `linear-gradient(135deg, ${careers[0]?.color}, ${careers[1]?.color || careers[0]?.color})`,
-                                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                                WebkitMaskComposite: 'xor',
-                                maskComposite: 'exclude'
-                            }}
-                        />
-
-                        <div className="relative z-10">
-                            <h3
-                                className="text-4xl font-bold mb-4"
-                                style={{ color: 'var(--text-primary)' }}
-                            >
-                                Ready to start your journey?
-                            </h3>
-                            <p
-                                className="text-lg mb-8 max-w-xl mx-auto"
-                                style={{ color: 'var(--text-secondary)' }}
-                            >
-                                Join 500+ companies actively hiring our graduates
-                            </p>
-                            <button
-                                className="group px-10 py-5 rounded-full font-bold text-lg relative overflow-hidden"
-                                style={{
-                                    backgroundColor: 'var(--accent-primary)',
-                                    color: 'var(--bg-dark)'
-                                }}
-                            >
-                                <span className="relative z-10 flex items-center gap-2">
-                                    Explore All Opportunities
-                                    <svg
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        className="group-hover:translate-x-1 transition-transform"
-                                    >
-                                        <path
-                                            d="M5 12H19M19 12L12 5M19 12L12 19"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
-                                </span>
-                                <div
-                                    className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity"
-                                    style={{
-                                        background: `linear-gradient(90deg, var(--accent-primary), var(--accent-secondary))`
-                                    }}
-                                />
-                            </button>
-                        </div>
-                    </div>
+                            
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>

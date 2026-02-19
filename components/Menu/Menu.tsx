@@ -328,7 +328,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                     <div className="flex-1 hidden lg:flex justify-end items-center gap-10 pointer-events-auto">
                         {[
                             { path: "/", label: "Home" },
-                            { path: "/courses", label: "Courses" },
+                            { path: "/#course-dial", label: "Courses" },
                             { path: "/testimonials", label: "Testimonials" },
                             { path: "/aboutus", label: "About Us" },
                             { path: "/student-login", label: "Student Login" },
@@ -409,7 +409,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                     <div className="menu-overlay-items" ref={menuItemsRef}>
                         {[
                             { path: "/", label: "Home" },
-                            { path: "/courses", label: "Courses" },
+                            { path: "/#course-dial", label: "Courses" },
                             { path: "/testimonials", label: "Testimonials" },
                             { path: "/aboutus", label: "About Us" },
                             { path: "/student-login", label: "Student Login" },

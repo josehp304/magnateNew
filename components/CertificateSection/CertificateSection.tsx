@@ -28,115 +28,108 @@ const CertificateSection = ({
     description,
     features,
     roleName,
-    backgroundColor = 'var(--background)',
+    backgroundColor = '#0a0a0a',
     recipientName = 'John Doe',
     date = 'Feb 14, 2026'
 }: CertificateSectionProps) => {
     return (
-        <section className="py-8 md:py-10 relative overflow-hidden" style={{ backgroundColor }}>
-            {/* Background Pattern - Dot Grid Top Right */}
-            <div
-                className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none"
-                style={{
-                    backgroundImage: 'radial-gradient(circle, var(--secondary-magenta) 1px, transparent  1px)',
-                    backgroundSize: '12px 12px'
-                }}
-            />
+        <section className="py-24 md:py-32 relative overflow-hidden bg-[#0a0a0a]">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
                 {/* Left Column: Content */}
                 <div>
-                    <h2 className="text-2xl md:text-4xl font-bold mb-4 text-[var(--foreground)] font-sans">
+                     <span className="inline-block px-4 py-1.5 rounded-full border border-purple-500/20 bg-purple-500/5 text-purple-400 text-sm font-medium mb-6">
+                        CERTIFICATION
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight leading-tight">
                         {title}
                     </h2>
-                    <p className="text-base text-[var(--text-muted)] mb-8 max-w-lg leading-relaxed">
+                    <p className="text-lg text-neutral-400 mb-10 max-w-lg leading-relaxed font-light">
                         {description}
                     </p>
 
                     <div className="space-y-6">
                         {features.map((feature, index) => (
-                            <div key={index} className="flex gap-4 items-start">
-                                {/* Icon */}
-                                <div className="pt-0.5 text-[var(--secondary-magenta)]">
-                                    {/* Default icon or passed icon if we had a way to pass SVGs easily from data */}
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <path d="M9 12l2 2 4-4" />
-                                    </svg>
+                            <div key={index} className="flex gap-4 items-start group">
+                                <div className="mt-1 w-10 h-10 rounded-full bg-[#111] border border-white/5 flex items-center justify-center text-purple-400 group-hover:border-purple-500/30 group-hover:bg-purple-900/10 transition-all">
+                                    <CheckCircle2 className="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <h3 className="text-base font-bold text-[var(--foreground)] mb-1">{feature.title}</h3>
-                                    <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+                                    <h3 className="text-lg font-bold text-white mb-1 group-hover:text-purple-200 transition-colors">{feature.title}</h3>
+                                    <p className="text-neutral-500 text-sm leading-relaxed">
                                         {feature.description}
                                     </p>
                                 </div>
                             </div>
                         ))}
                     </div>
+                    
+                    <button className="mt-10 px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-neutral-200 transition-colors flex items-center gap-2">
+                        Get Certified
+                        <Award className="w-4 h-4 ml-1" />
+                    </button>
                 </div>
 
-                {/* Right Column: Certificate Mockup Container */}
-                <div className="relative flex justify-center items-center">
-                    {/* Dark Background Container with Grid */}
-                    <div className="relative w-[90%] md:w-[80%] aspect-[4/3] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm p-4 md:p-8 flex items-center justify-center overflow-hidden shadow-2xl">
-                        {/* Grid Pattern inside the dark container */}
-                        <div className="absolute inset-0 opacity-20 pointer-events-none"
-                            style={{
-                                backgroundImage: `linear-gradient(var(--border-color) 1px, transparent 1px), linear-gradient(90deg, var(--border-color) 1px, transparent 1px)`,
-                                backgroundSize: '20px 20px'
-                            }}
-                        />
+                {/* Right Column: Premium Certificate Mockup */}
+                <div className="relative perspective-1000">
+                     {/* Decorative Elements behind Certificate */}
+                    <div className="absolute -inset-4 bg-gradient-to-tr from-purple-500/20 to-indigo-500/20 rounded-xl blur-xl opacity-50" />
+                    
+                    <div className="relative bg-[#111] border border-white/10 rounded-xl p-2 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                        {/* Certificate Border Container */}
+                        <div className="bg-[#0a0a0a] border border-white/5 rounded-lg p-8 md:p-10 relative overflow-hidden aspect-[1.4/1] flex flex-col justify-between">
+                            
+                            {/* Watermark */}
+                            <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
+                                <Award className="w-64 h-64 text-white" />
+                            </div>
 
-                        {/* The Certificate Card - Scaled Down */}
-                        <div className="relative bg-[var(--background)] border border-[var(--secondary-cyan)] w-[85%] max-w-sm aspect-[1.4/1] shadow-2xl p-4 md:p-6 flex flex-col justify-between transform scale-90"
-                            style={{ fontFamily: "'Courier Prime', 'Courier New', monospace" }}
-                        >
-                            {/* Watermark Grid on Cert */}
-                            <div className="absolute inset-x-0 bottom-0 h-16 opacity-10 pointer-events-none"
-                                style={{
-                                    backgroundImage: 'radial-gradient(var(--secondary-cyan) 1px, transparent 1px)',
-                                    backgroundSize: '10px 10px'
-                                }}
-                            />
-
-                            {/* Top Section */}
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <div className="bg-[var(--secondary-magenta)] text-white text-[8px] font-bold px-1 py-0.5 inline-block mb-1">
-                                        Magnate Academy
+                            {/* Header */}
+                            <div className="flex justify-between items-start border-b border-white/5 pb-6">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                                        M
                                     </div>
-                                    <div className="text-[8px] text-[var(--text-muted)] uppercase tracking-widest mb-0.5">Professional Certification</div>
-                                    <div className="text-[10px] text-[var(--text-secondary)]">Date: {date}</div>
+                                    <div>
+                                        <div className="text-xs font-bold text-purple-400 tracking-[0.2em] uppercase">Magnate Academy</div>
+                                        <div className="text-[10px] text-neutral-500">Excellence in Education</div>
+                                    </div>
                                 </div>
-                                <div className="border border-[var(--secondary-cyan)] rounded-full w-6 h-6 flex items-center justify-center">
-                                    <div className="w-3 h-3 rounded-full border border-[var(--secondary-cyan)] bg-[var(--secondary-cyan)]/20"></div>
+                                <div className="text-right">
+                                    <div className="text-[10px] text-neutral-500 uppercase tracking-wider">Certificate ID</div>
+                                    <div className="text-xs font-mono text-white">MAG-2024-8569</div>
                                 </div>
                             </div>
 
-                            {/* Middle Section: Name */}
-                            <div className="text-center my-2">
-                                <h2 className="text-lg md:text-xl font-bold text-[var(--foreground)] mb-1 tracking-tight">{recipientName}</h2>
-                                <div className="h-px w-full bg-[var(--border-color)] my-1"></div>
-                                <h3 className="text-sm text-[var(--secondary-cyan)] font-bold uppercase tracking-wider">{roleName}</h3>
+                            {/* Body */}
+                            <div className="text-center py-8">
+                                <p className="text-sm text-neutral-400 mb-2 font-light">This is to certify that</p>
+                                <h3 className="text-3xl md:text-4xl font-serif text-white mb-4 tracking-wide">{recipientName}</h3>
+                                <p className="text-sm text-neutral-400 mb-6 font-light">has successfully completed the professional course in</p>
+                                <h4 className="text-xl md:text-2xl font-bold text-purple-400 mb-2">{roleName}</h4>
+                                <p className="text-xs text-neutral-500 max-w-md mx-auto">
+                                    Testing proficiency in advanced concepts, practical implementation, and industry-standard practices.
+                                </p>
                             </div>
 
-                            {/* Bottom Section: Footer/Details */}
-                            <div className="flex justify-between items-end border-t border-[var(--border-color)] pt-2 mt-auto">
-                                <div className="flex gap-2 items-center">
-                                    {/* QR Code Placeholder */}
-                                    <div className="w-6 h-6 bg-[var(--bg-card)] border border-[var(--border-color)] p-0.5">
-                                        <div className="w-full h-full bg-[var(--foreground)] opacity-20"></div>
-                                    </div>
-                                    <div className="text-[6px] text-[var(--text-muted)] leading-tight">
-                                        ID: MAG-2024-FSD <br />
-                                        Verified Certificate
-                                    </div>
-                                </div>
+                            {/* Footer */}
+                            <div className="flex justify-between items-end pt-6 border-t border-white/5">
                                 <div>
-                                    {/* Signature */}
-                                    <div className="text-right">
-                                        <div className="font-handwriting text-[var(--foreground)] text-sm italic" style={{ fontFamily: 'cursive' }}>Akhil U.</div>
-                                        <div className="text-[6px] text-[var(--text-muted)] uppercase tracking-wider border-t border-[var(--border-color)] mt-0.5 pt-0.5 inline-block">Director Signature</div>
+                                    <div className="h-px w-32 bg-white/20 mb-2"></div>
+                                    <p className="text-xs text-white font-medium">Head of Education</p>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                     <div className="text-right">
+                                        <p className="text-[10px] text-neutral-500 uppercase tracking-wider mb-1">Date of Issue</p>
+                                        <p className="text-xs text-white font-medium">{date}</p>
+                                    </div>
+                                    {/* Gold/Premium Seal Mockup */}
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-800 shadow-lg flex items-center justify-center relative">
+                                        <div className="absolute inset-1 border border-yellow-400/30 rounded-full" />
+                                        <Award className="w-6 h-6 text-yellow-100" />
                                     </div>
                                 </div>
                             </div>

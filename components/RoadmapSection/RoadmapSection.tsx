@@ -1,11 +1,9 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { CheckCircle, Code, Database, Server, Layout, GitBranch, Terminal } from 'lucide-react';
-
-// For props interface, we need to know what 'icon' can be
-// Since we pass <Layout /> directly in data, it is React.ReactNode.
+import React, { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { gsap } from 'gsap';
+import { CheckCircle, Circle, ArrowDown } from 'lucide-react';
 
 export interface RoadmapItem {
     type: 'node' | 'checkpoint';
@@ -28,81 +26,112 @@ interface RoadmapSectionProps {
 }
 
 const RoadmapSection = ({ title, description, roadmapData }: RoadmapSectionProps) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const lineRef = useRef<HTMLDivElement>(null);
+
+    // Parallax or scroll progress for the connecting line
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start center", "end center"]
+    });
+
+    const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
     return (
-        <section className="py-24 bg-[var(--background)] overflow-hidden">
-            <div className="max-w-5xl mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[var(--foreground)]">
+        <section ref={containerRef} className="py-32 bg-[#0a0a0a] relative overflow-hidden">
+             {/* Ambient Background */}
+             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-600/5 rounded-full blur-[100px] pointer-events-none -z-10" />
+
+            <div className="max-w-5xl mx-auto px-6 relative z-10">
+                <div className="text-center mb-24">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
                         {title}
                     </h2>
-                    <p className="text-lg text-[var(--text-muted)] max-w-2xl mx-auto">
+                    <p className="text-lg text-neutral-400 max-w-2xl mx-auto font-light leading-relaxed">
                         {description}
                     </p>
                 </div>
 
                 <div className="relative">
-                    {/* Vertical Line */}
-                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-[var(--border-color)] transform md:-translate-x-1/2" />
+                    {/* Central Line Background (Dim) */}
+                    <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[2px] bg-white/5 transform md:-translate-x-1/2" />
+                    
+                    {/* Active Line (Progress) */}
+                    <motion.div 
+                        style={{ height: lineHeight }}
+                        className="absolute left-[20px] md:left-1/2 top-0 w-[2px] bg-indigo-500/50 transform md:-translate-x-1/2 shadow-[0_0_15px_rgba(99,102,241,0.5)] origin-top"
+                    />
 
-                    {roadmapData.map((phase, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className={`relative flex flex-col md:flex-row gap-8 mb-16 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                                }`}
-                        >
-                            {/* Timeline Dot */}
-                            <div className="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-[var(--bg-dark)] border-4 border-[var(--accent-primary)] transform -translate-x-1/2 flex items-center justify-center z-10 mt-1">
-                                {/* Inner dot handled by border */}
-                            </div>
-
-                            {/* Content Card */}
-                            <div className="ml-12 md:ml-0 md:w-1/2 pl-4 md:px-4">
-                                <div className={`
-                            p-5 md:p-6 rounded-2xl bg-[var(--bg-dark)] border border-white/10 hover:border-[var(--accent-primary)] transition-colors
-                            ${index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'}
-                        `}>
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="p-3 rounded-lg bg-white/5">
-                                            {phase.icon}
-                                        </div>
-                                        <div>
-                                            <h3 className="text-xl font-bold text-[var(--foreground)]">{phase.phase}</h3>
-                                            <p className="text-sm text-[var(--text-muted)]">{phase.description}</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex flex-wrap gap-3">
-                                        {phase.items.map((item, idx) => (
-                                            <div
-                                                key={idx}
-                                                className={`
-                                            px-4 py-2 rounded-lg text-sm font-medium border
-                                            ${item.type === 'checkpoint'
-                                                        ? 'w-full border-dashed border-[var(--text-muted)] text-[var(--text-muted)] flex items-center gap-2 justify-center mt-2'
-                                                        : 'bg-white/5 border-white/10 text-[var(--foreground)] shadow-sm'
-                                                    }
-                                            ${item.label === 'PostgreSQL' || item.label === 'Redis' ? 'bg-yellow-900/20 text-yellow-500 border-yellow-500/30' : ''}
-                                        `}
-                                            >
-                                                {item.type === 'checkpoint' && <CheckCircle className="w-4 h-4" />}
-                                                {item.label}
-                                            </div>
-                                        ))}
-                                    </div>
+                    <div className="space-y-16 md:space-y-24">
+                        {roadmapData.map((phase, index) => (
+                            <div 
+                                key={index}
+                                className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+                            >
+                                {/* Timeline Node / Dot */}
+                                <div className="absolute left-[20px] md:left-1/2 w-4 h-4 rounded-full bg-[#0a0a0a] border-2 border-indigo-500 transform -translate-x-1/2 flex items-center justify-center z-10 mt-6 shadow-[0_0_10px_rgba(99,102,241,0.5)]">
+                                    <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full" />
                                 </div>
-                            </div>
 
-                            {/* Empty space for the other side */}
-                            <div className="hidden md:block md:w-1/2" />
-                        </motion.div>
-                    ))}
+                                {/* Content Card */}
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 30, x: index % 2 === 0 ? -30 : 30 }}
+                                    whileInView={{ opacity: 1, y: 0, x: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                    className="ml-12 md:ml-0 md:w-1/2 md:px-12"
+                                >
+                                    <div className={`
+                                        group relative p-8 rounded-2xl bg-[#111] border border-white/5 hover:border-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/10
+                                        ${index % 2 === 0 ? 'text-left' : 'md:text-left'} // Always left align text inside card for readability
+                                    `}>
+                                        {/* Card Hover Glow */}
+                                        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
+
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-4 mb-6">
+                                                <div className="p-3 rounded-xl bg-white/5 text-indigo-400 group-hover:text-indigo-300 transition-colors">
+                                                    {phase.icon}
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-xl font-bold text-white group-hover:text-indigo-100 transition-colors">
+                                                        {phase.phase}
+                                                    </h3>
+                                                    <p className="text-sm font-light text-neutral-500">
+                                                        {phase.description}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex flex-wrap gap-2">
+                                                {phase.items.map((item, idx) => (
+                                                    <span
+                                                        key={idx}
+                                                        className={`
+                                                            px-3 py-1.5 rounded-md text-xs font-medium border transition-colors
+                                                            ${item.type === 'checkpoint'
+                                                                ? 'w-full mt-2 border-dashed border-indigo-500/30 bg-indigo-500/5 text-indigo-300 flex items-center justify-center gap-2'
+                                                                : 'bg-white/[0.03] border-white/5 text-neutral-300 hover:bg-white/[0.08] hover:border-white/10'
+                                                            }
+                                                        `}
+                                                    >
+                                                        {item.type === 'checkpoint' && <CheckCircle className="w-3 h-3" />}
+                                                        {item.label}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Empty space balancing */}
+                                <div className="hidden md:block md:w-1/2" />
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div >
-        </section >
+            </div>
+        </section>
     );
 };
 

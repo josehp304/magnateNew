@@ -1,5 +1,11 @@
 
-import { OverviewFeature, OverviewSkill } from '@/components/OverviewSection/OverviewSection';
+import { OverviewFeature } from '@/components/OverviewSection/OverviewSection';
+
+export interface OverviewSkill {
+    title: string;
+    description: string;
+}
+
 import { TestimonialVideo } from '@/components/VideoTestimonials/VideoTestimonials';
 import { Tool } from '@/components/ToolsSection/ToolsSection';
 import { GuideStep } from '@/components/GuideSection/GuideSection';

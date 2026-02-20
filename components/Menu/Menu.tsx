@@ -150,12 +150,27 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
     const navigateTo = (path: string) => {
         if (isAnimating) return;
 
-        if (isExactPath(path)) {
-            closeMenu();
-            return;
-        }
-
         closeMenu();
+
+        // Check if it's an anchor link
+        if (path.includes("#")) {
+            const [targetPath, hash] = path.split("#");
+            const currentPath = window.location.pathname;
+
+            // Handle root path variations
+            const normalizedTarget = targetPath === "" ? "/" : targetPath;
+            const normalizedCurrent = currentPath; // Don't modify currentPath blindly
+
+            // If we are already on the page where the section exists
+            // e.g. targetPath="/" or "" and currentPath="/"
+            if (normalizedTarget === normalizedCurrent) {
+                const element = document.getElementById(hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+                return;
+            }
+        }
 
         setTimeout(() => {
             router.push(path, {
@@ -329,8 +344,8 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                         {[
                             { path: "/", label: "Home" },
                             { path: "/#course-dial", label: "Courses" },
-                            { path: "/testimonials", label: "Testimonials" },
-                            { path: "/aboutus", label: "About Us" },
+                            { path: "/#testimonials", label: "Testimonials" },
+                            { path: "/#about", label: "About Us" },
                             { path: "/student-login", label: "Student Login" },
                         ].map((item) => (
                             <div className="revealer" key={item.path}>
@@ -347,6 +362,19 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 </a>
                             </div>
                         ))}
+                        <div className="revealer">
+                             <a
+                                 href="/contact" 
+                                 className="px-6 py-2.5 bg-white text-black text-sm font-bold font-[family-name:var(--font-manrope)] rounded-full hover:bg-gray-200 transition-transform hover:scale-105 active:scale-95 shadow-lg"
+                                 style={{ color: 'black' }}
+                                 onClick={(e) => {
+                                      e.preventDefault();
+                                      navigateTo("/contact"); 
+                                 }}
+                             >
+                                 Get Free Demo
+                             </a>
+                        </div>
                     </div>
 
                     {/* Mobile/Tablet Menu Toggle */}
@@ -410,8 +438,8 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                         {[
                             { path: "/", label: "Home" },
                             { path: "/#course-dial", label: "Courses" },
-                            { path: "/testimonials", label: "Testimonials" },
-                            { path: "/aboutus", label: "About Us" },
+                            { path: "/#testimonials", label: "Testimonials" },
+                            { path: "/#about", label: "About Us" },
                             { path: "/student-login", label: "Student Login" },
                         ].map((item) => (
                             <div className="revealer" key={item.path}>
@@ -426,6 +454,19 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 </a>
                             </div>
                         ))}
+                        <div className="revealer" style={{ marginTop: '2rem' }}>
+                             <a
+                                 href="/contact"
+                                 onClick={(e) => {
+                                     e.preventDefault();
+                                     navigateTo("/contact");
+                                 }}
+                                 className="inline-block px-8 py-3 bg-white text-black text-lg font-bold uppercase tracking-wide rounded-full hover:scale-105 transition-transform"
+                                 style={{ color: 'black' }}
+                             >
+                                 Get Free Demo
+                             </a>
+                         </div>
                     </div>
                     <div className="menu-footer" ref={menuFooterColsRef}>
                         <div className="menu-footer-col">

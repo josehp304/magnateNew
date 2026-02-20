@@ -33,7 +33,36 @@ export default function CourseDial({ items }: CourseDialProps) {
         // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
-        const totalScrollDistance = items.length * 500; // Adjust for scroll length sensitivity
+        // Use progress listener instead of ticker for direct binding to scroll
+        const updateCards = (progress: number) => {
+             const currentIndex = progress * (items.length - 1);
+
+            itemsRef.current.forEach((el, i) => {
+                if (!el) return;
+
+                const offset = i - currentIndex;
+                const absOffset = Math.abs(offset);
+
+                // Calculations for the fan effect
+                const y = offset * 240; // Vertical spacing
+                const x = -Math.pow(absOffset, 2) * 50; // Curve 
+                const scale = 1 - absOffset * 0.15; 
+                const opacity = 1 - absOffset * 0.4;
+                const zIndex =  Math.round(100 - absOffset * 10);
+
+                gsap.set(el, {
+                    y: y,
+                    x: x,
+                    scale: Math.max(0, scale),
+                    opacity: Math.max(0, opacity),
+                    zIndex: zIndex,
+                    transformOrigin: "left center",
+                    pointerEvents: absOffset < 0.5 ? "auto" : "none" // Only clickable when near center
+                });
+            });
+        };
+
+        const totalScrollDistance = items.length * 1000;
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -41,52 +70,28 @@ export default function CourseDial({ items }: CourseDialProps) {
                 start: "top top",
                 end: `+=${totalScrollDistance}`,
                 pin: true,
+                pinSpacing: true, 
                 scrub: 1,
-                // optimized for next.js navigation
-                pinType: "transform", 
+                anticipatePin: 1,
+                refreshPriority: 1, // Ensure this instantiates before subsequent pinned sections
                 onUpdate: (self) => {
-                    // Update the active index state based on progress
                     const progress = self.progress;
-                    const newIndex = Math.round(progress * (items.length - 1));
+                    // Clamp index
+                    const newIndex = Math.min(Math.max(Math.round(progress * (items.length - 1)), 0), items.length - 1);
                     setIndex(newIndex);
-                }
+                    updateCards(progress); 
+                },
+                // Force invalidate on refresh to recalculate positions
+                invalidateOnRefresh: true,
             }
         });
 
-        tl.to(scrollTracker.current, {
-            current: items.length - 1,
-            ease: "none",
-        });
-
-        // Visual update loop
-        const updateLoop = () => {
-            itemsRef.current.forEach((el, i) => {
-                if (!el) return;
-
-                const offset = i - scrollTracker.current.current;
-                const y = offset * 240;
-                const x = -Math.pow(Math.abs(offset), 2) * 25;
-                const scale = 1 - Math.abs(offset) * 0.15;
-                const opacity = 1 - Math.abs(offset) * 0.4;
-
-                gsap.set(el, {
-                    y,
-                    x,
-                    scale: Math.max(0, scale),
-                    opacity: Math.max(0, opacity),
-                    zIndex: Math.round(100 - Math.abs(offset)),
-                    transformOrigin: "left center"
-                });
-            });
-        };
-
-        gsap.ticker.add(updateLoop);
+        // Initial call
+        updateCards(0);
         
         return () => {
-            gsap.ticker.remove(updateLoop);
-            // Explicitly kill ScrollTrigger instances to prevent ghost elements
-            ScrollTrigger.getAll().forEach(t => t.kill());
-            tl.kill();
+             // Cleanup
+             tl.kill();
         };
     }, { scope: wrapperRef, dependencies: [items] });
 
@@ -105,15 +110,13 @@ export default function CourseDial({ items }: CourseDialProps) {
 
     const handleClick = (i: number) => {
         if (i === index) {
-            if (items[i].link) {
-                router.push(items[i].link!);
-            }
+            if (items[i].link) router.push(items[i].link!);
         }
     };
 
     return (
-        <div ref={wrapperRef} className="course-dial-wrapper">
-            <div ref={triggerRef}>
+        <div ref={wrapperRef} className="course-dial-wrapper bg-[#050505]">
+            <div ref={triggerRef} className="min-h-screen">
                 <main
                     ref={containerRef}
                     className="relative w-full h-screen overflow-hidden bg-[#050505] text-white selection:bg-cyan-500/30"

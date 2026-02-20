@@ -80,11 +80,11 @@ const CertificateSection = ({
                     
                     <div className="relative bg-[#111] border border-white/10 rounded-xl p-2 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
                         {/* Certificate Border Container */}
-                        <div className="bg-[#0a0a0a] border border-white/5 rounded-lg p-8 md:p-10 relative overflow-hidden aspect-[1.4/1] flex flex-col justify-between">
+                        <div className="bg-[#0a0a0a] border border-white/5 rounded-lg p-6 md:p-10 relative overflow-hidden aspect-[1.4/1] flex flex-col justify-between">
                             
                             {/* Watermark */}
                             <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
-                                <Award className="w-64 h-64 text-white" />
+                                <Award className="w-48 h-48 md:w-64 md:h-64 text-white" />
                             </div>
 
                             {/* Header */}

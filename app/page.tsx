@@ -113,11 +113,18 @@ export default function Home() {
       </section>
 
       {/* Kept other sections */}
-      <WhoWeAre />
-      <About />
+      <div id="who-we-are">
+        <WhoWeAre />
+      </div>
+      <div id="about">
+        <About />
+      </div>
       {/* <ProcessCards /> */}
       <div id="course-dial">
         <CourseDial items={courseItems} />
+      </div>
+      <div id="testimonials">
+        <Testimonials />
       </div>
       <Footer />
 

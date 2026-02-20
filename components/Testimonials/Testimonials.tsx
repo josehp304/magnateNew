@@ -6,7 +6,6 @@ import { Playfair_Display } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import Lenis from "lenis";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -78,7 +77,6 @@ const Testimonials = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const wordRef = useRef<HTMLDivElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
-    const lenisRef = useRef<Lenis | null>(null);
     const [gap, setGap] = useState(120);
 
     // Calculate Gap Logic
@@ -94,21 +92,6 @@ const Testimonials = () => {
 
 
     useEffect(() => {
-        // Initialize Lenis
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            touchMultiplier: 2,
-        });
-        lenisRef.current = lenis;
-
-        // Sync Lenis with ScrollTrigger
-        lenis.on("scroll", ScrollTrigger.update);
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        });
-        gsap.ticker.lagSmoothing(0);
-
         // GSAP Setup
         const ctx = gsap.context(() => {
             const word = wordRef.current;
@@ -167,7 +150,7 @@ const Testimonials = () => {
                     // Animate Cards
                     if (cardsScrollDistance > 0) {
                         tl.to(cards, {
-                            x: -cardsScrollDistance,
+                            x: -cardsScrollDistance, 
                             ease: "none",
                             duration: 1
                         }, 0);
@@ -178,8 +161,6 @@ const Testimonials = () => {
 
         return () => {
             ctx.revert();
-            lenis.destroy();
-            gsap.ticker.remove(lenis.raf);
         };
     }, []); // Removed [gap] dependency to avoid re-running mid-scroll unnecessarily, or rely on resize listener inside.
 

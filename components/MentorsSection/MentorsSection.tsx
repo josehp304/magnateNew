@@ -26,24 +26,22 @@ const MentorsSection = ({ title, description, mentors }: MentorsSectionProps) =>
     const scrollRef = React.useRef<HTMLDivElement>(null);
 
     return (
-        <section className="py-24 md:py-32 bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden">
+        <section className="py-16 md:py-32 bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden">
              {/* Background Decoration */}
              <div className="absolute right-0 top-1/4 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6">
-                <div className="mb-20 text-center md:text-left">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+                <div className="mb-12 md:mb-20 text-center md:text-left">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-white tracking-tight">
                         {title}
                     </h2>
-                    <p className="text-lg text-neutral-400 max-w-2xl font-light leading-relaxed">
+                    <p className="text-base md:text-lg text-neutral-400 max-w-2xl font-light leading-relaxed mx-auto md:mx-0">
                         {description}
                     </p>
                 </div>
 
-                <div
-                    ref={scrollRef}
-                    className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-6 md:gap-8 pb-12 md:pb-0 scrollbar-none -mx-6 px-6 md:mx-0 md:px-0"
-                >
+                {/* Mobile: Vertical Stack, Tablet/Desktop: Grid */}
+                <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {mentors.map((mentor, index) => (
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -51,13 +49,13 @@ const MentorsSection = ({ title, description, mentors }: MentorsSectionProps) =>
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                             key={index}
-                            className="group relative shrink-0 w-[90vw] md:w-auto snap-center flex flex-col"
+                            className="group relative w-full flex flex-col"
                         >
-                            <div className="relative h-full bg-[#111] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-500/10">
+                            <div className="relative h-full bg-[#111] border border-white/5 rounded-2xl p-6 md:p-8 hover:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-500/10 flex flex-col">
                                 
                                 {/* Header: Photo + Info */}
-                                <div className="flex items-center gap-6 mb-8">
-                                    <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-indigo-500/50 transition-colors">
+                                <div className="flex items-center gap-4 md:gap-6 mb-4 md:mb-6">
+                                    <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-indigo-500/50 transition-colors">
                                         <Image
                                             src={mentor.photo}
                                             alt={mentor.name}
@@ -65,21 +63,21 @@ const MentorsSection = ({ title, description, mentors }: MentorsSectionProps) =>
                                             className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
                                         />
                                     </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-white group-hover:text-indigo-200 transition-colors">
+                                    <div className="min-w-0 flex-1">
+                                        <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-indigo-200 transition-colors truncate">
                                             {mentor.name}
                                         </h3>
-                                        <p className="text-indigo-400 text-sm font-medium mb-1">
+                                        <p className="text-indigo-400 text-sm font-medium mb-0.5 truncate">
                                             {mentor.role}
                                         </p>
-                                        <p className="text-neutral-500 text-xs uppercase tracking-wider font-semibold">
+                                        <p className="text-neutral-500 text-xs uppercase tracking-wider font-semibold truncate">
                                             {mentor.companyName || "Tech Leader"}
                                         </p>
                                     </div>
                                 </div>
 
                                 {/* Bio */}
-                                <p className="text-neutral-400 text-sm leading-relaxed mb-8 flex-grow">
+                                <p className="text-neutral-400 text-sm leading-relaxed mb-6 md:mb-8 flex-grow line-clamp-4">
                                     {mentor.bio}
                                 </p>
 

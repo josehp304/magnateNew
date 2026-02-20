@@ -55,12 +55,12 @@ const CareerPathsSection = ({ title, subtitle, description, careers, stats }: Ca
                     </div>
 
                     {/* Quick Stats Grid */}
-                    <div className="flex gap-6 shrink-0">
-                        <div className="p-6 rounded-2xl bg-[#111] border border-white/5 text-center min-w-[140px]">
+                    <div className="flex flex-wrap gap-6 shrink-0 w-full md:w-auto">
+                        <div className="flex-1 md:flex-none p-6 rounded-2xl bg-[#111] border border-white/5 text-center min-w-[140px]">
                             <div className="text-3xl font-bold text-emerald-400 mb-1">{stats.placementRate}</div>
                             <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">Placement Rate</div>
                         </div>
-                        <div className="p-6 rounded-2xl bg-[#111] border border-white/5 text-center min-w-[140px]">
+                        <div className="flex-1 md:flex-none p-6 rounded-2xl bg-[#111] border border-white/5 text-center min-w-[140px]">
                             <div className="text-3xl font-bold text-emerald-400 mb-1">{stats.avgSalary}</div>
                             <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">Avg Salary</div>
                         </div>

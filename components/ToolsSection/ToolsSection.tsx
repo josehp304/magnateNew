@@ -39,7 +39,7 @@ const ToolsSection = ({ title, description, tools }: ToolsSectionProps) => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05, duration: 0.4 }}
-                            className="group flex flex-col items-center justify-center p-8 bg-[#151515] border border-white/5 rounded-2xl hover:border-indigo-500/30 hover:bg-[#1a1a1a] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/10"
+                            className="group flex flex-col items-center justify-center p-6 md:p-8 bg-[#151515] border border-white/5 rounded-2xl hover:border-indigo-500/30 hover:bg-[#1a1a1a] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/10"
                         >
                             <div className={`relative w-12 h-12 md:w-16 md:h-16 mb-4 filter grayscale group-hover:grayscale-0 transition-all duration-300 ${tool.darkModeInvert ? 'dark:invert brightness-0 invert group-hover:invert-0' : ''}`}>
                                 <Image

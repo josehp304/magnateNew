@@ -131,7 +131,7 @@ export default function Loader({ onComplete }: LoaderProps) {
             ref={textRef}
             className="text-white text-sm md:text-base font-medium font-[family-name:var(--font-manrope)] uppercase tracking-[0.25em] text-center opacity-0"
         >
-            Magnate
+            Magnate Academy
         </h1>
       </div>
     </div>

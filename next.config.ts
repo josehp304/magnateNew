@@ -76,6 +76,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.yourstory.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.freepik.com',
+      }
     ],
   },
 };

@@ -28,7 +28,7 @@ import CourseDial from "@/components/CourseDial";
 import Testimonials from "@/components/Testimonials/Testimonials";
 
 const courseItems = [
-  { title: "Diploma in Finance", tags: "Business", src: "/img5.jpg", link: "/courses/finance" },
+  { title: "Diploma in Finance", tags: "Business", src: "https://img.freepik.com/free-vector/investor-with-laptop-monitoring-growth-dividends-trader-sitting-stack-money-investing-capital-analyzing-profit-graphs-vector-illustration-finance-stock-trading-investment_74855-8432.jpg?w=360", link: "/courses/finance" },
   { title: "AI Augmented Finance", tags: "FinTech", src: "https://3453376.fs1.hubspotusercontent-na1.net/hubfs/3453376/AdobeStock_580072131.jpeg", link: "/courses/ai-augmented-finance" },
   { title: "German Language", tags: "Language", src: "https://russianclassesindelhi.com/admin/public/blogs/1749584067_adfajbsfb.jpg", link: "/courses/german" },
   { title: "IELTS & PTE", tags: "Study Abroad", src: "https://i0.wp.com/pecpte.com/wp-content/uploads/2020/01/ielts-and-pte-difference.jpg?resize=1014%2C406&ssl=1", link: "/courses/ielts-pte" },

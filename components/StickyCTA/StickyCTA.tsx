@@ -58,7 +58,7 @@ export default function StickyCTA({ title, enquiryHref, price, ratingCount }: Pr
                                 </div>
                             )}
                             <Link
-                                href={enquiryHref || "/enroll"}
+                                href={enquiryHref || "/contact"}
                                 className="bg-[#ffc22a] text-black px-8 py-3 rounded-full font-bold hover:bg-white transition-colors duration-300 transform hover:scale-105"
                             >
                                 Enquire Now

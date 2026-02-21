@@ -24,7 +24,7 @@ const GuideSection = ({
     steps,
     ctaTitle,
     ctaButtonText,
-    ctaHref = "/enroll"
+    ctaHref = "/contact"
 }: GuideSectionProps) => {
     return (
         <section className="bg-[#0a0a0a] py-16 md:py-32 relative overflow-hidden">

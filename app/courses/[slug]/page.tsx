@@ -76,7 +76,7 @@ export default async function CoursePage({ params }: Props) {
             {/* Sticky CTA for Conversion */}
             <StickyCTA 
                 title={course.hero.title}
-                enquiryHref={course.hero.enquiryHref || "/enroll"}
+                enquiryHref={course.hero.enquiryHref || "/contact"}
                 ratingCount={course.hero.ratingCount}
             />
 
@@ -209,7 +209,7 @@ export default async function CoursePage({ params }: Props) {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <a 
-                                href={course.hero.enquiryHref || "/enroll"} 
+                                href={course.hero.enquiryHref || "/contact"} 
                                 className="w-full sm:w-auto px-10 py-4 bg-[#ffc22a] text-black font-bold rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,194,42,0.3)]"
                             >
                                 Enroll Now

@@ -111,7 +111,7 @@ export const courses: CourseData[] = [
             courseType: "Online Live",
             duration: "5 Months",
             imageSrc: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2232&auto=format&fit=crop",
-            enquiryHref: "/enroll",
+            enquiryHref: "/contact",
             syllabusHref: "/syllabus",
         },
         overview: {
@@ -188,7 +188,7 @@ export const courses: CourseData[] = [
             ],
             ctaTitle: "Ready to innovate?",
             ctaButtonText: "Start Learning",
-            ctaHref: "/enroll"
+            ctaHref: "/contact"
         },
         roadmap: {
             title: "Course Roadmap",
@@ -397,7 +397,7 @@ export const courses: CourseData[] = [
             courseType: "Online Live",
             duration: "3 Months",
             imageSrc: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2006&auto=format&fit=crop",
-            enquiryHref: "/enroll",
+            enquiryHref: "/contact",
             syllabusHref: "/syllabus",
         },
         overview: {
@@ -475,7 +475,7 @@ export const courses: CourseData[] = [
             ],
             ctaTitle: "Stop doing busy work",
             ctaButtonText: "Automate Now",
-            ctaHref: "/enroll"
+            ctaHref: "/contact"
         },
         roadmap: {
             title: "Learning Path",
@@ -684,7 +684,7 @@ export const courses: CourseData[] = [
             courseType: "Online Live",
             duration: "8 Months",
             imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-            enquiryHref: "/enroll",
+            enquiryHref: "/contact",
             syllabusHref: "/syllabus",
         },
         overview: {
@@ -762,7 +762,7 @@ export const courses: CourseData[] = [
             ],
             ctaTitle: "Ready to Innovate?",
             ctaButtonText: "Enroll Now",
-            ctaHref: "/enroll"
+            ctaHref: "/contact"
         },
         roadmap: {
             title: "Course Roadmap",
@@ -971,7 +971,7 @@ export const courses: CourseData[] = [
             courseType: "Online Live",
             duration: "6 Months",
             imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-            enquiryHref: "/enroll",
+            enquiryHref: "/contact",
             syllabusHref: "/syllabus",
         },
         overview: {
@@ -1049,7 +1049,7 @@ export const courses: CourseData[] = [
             ],
             ctaTitle: "Start Creating",
             ctaButtonText: "Join Now",
-            ctaHref: "/enroll"
+            ctaHref: "/contact"
         },
         roadmap: {
             title: "Course Roadmap",
@@ -1258,7 +1258,7 @@ export const courses: CourseData[] = [
             courseType: "Online / Hybrid",
             duration: "6 Months",
             imageSrc: "https://images.unsplash.com/photo-1611974765270-ca12586343bb?q=80&w=2070&auto=format&fit=crop",
-            enquiryHref: "/enroll",
+            enquiryHref: "/contact",
             syllabusHref: "/syllabus",
         },
         overview: {
@@ -1336,7 +1336,7 @@ export const courses: CourseData[] = [
             ],
             ctaTitle: "Start Your Career",
             ctaButtonText: "Apply Now",
-            ctaHref: "/enroll"
+            ctaHref: "/contact"
         },
         roadmap: {
             title: "Course Roadmap",
@@ -1545,7 +1545,7 @@ export const courses: CourseData[] = [
             courseType: "Online",
             duration: "8 Months",
             imageSrc: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=2070&auto=format&fit=crop",
-            enquiryHref: "/enroll",
+            enquiryHref: "/contact",
             syllabusHref: "/syllabus",
         },
         overview: {
@@ -1625,7 +1625,7 @@ export const courses: CourseData[] = [
             ],
             ctaTitle: "Code Your Future",
             ctaButtonText: "Enroll Now",
-            ctaHref: "/enroll"
+            ctaHref: "/contact"
         },
         roadmap: {
             title: "Course Roadmap",
@@ -1830,7 +1830,7 @@ export const courses: CourseData[] = [
             courseType: "Online / Offline",
             duration: "4-8 Months",
             imageSrc: "https://images.unsplash.com/photo-1467269204594-9661b4dc4dce?q=80&w=2070&auto=format&fit=crop",
-            enquiryHref: "/enroll",
+            enquiryHref: "/contact",
             syllabusHref: "/syllabus",
         },
         overview: {
@@ -1907,7 +1907,7 @@ export const courses: CourseData[] = [
             ],
             ctaTitle: "Start Speaking German",
             ctaButtonText: "Join a Batch",
-            ctaHref: "/enroll"
+            ctaHref: "/contact"
         },
         roadmap: {
             title: "CEFR Levels",
@@ -2116,7 +2116,7 @@ export const courses: CourseData[] = [
             courseType: "Online / Offline",
             duration: "4-8 Weeks",
             imageSrc: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop",
-            enquiryHref: "/enroll",
+            enquiryHref: "/contact",
             syllabusHref: "/syllabus",
         },
         overview: {
@@ -2193,7 +2193,7 @@ export const courses: CourseData[] = [
             ],
             ctaTitle: "Get your dream score",
             ctaButtonText: "Join Now",
-            ctaHref: "/enroll"
+            ctaHref: "/contact"
         },
         roadmap: {
             title: "Complete Roadmap",

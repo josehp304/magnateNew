@@ -95,7 +95,7 @@ const Preloader: React.FC<PreloaderProps> = ({
                             className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 overflow-hidden font-medium transition-all duration-300 bg-white text-black rounded-full hover:bg-[#f0f0f0] hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.4)]"
                         >
                             <span className="relative z-10 font-[family-name:var(--font-manrope)] font-bold tracking-widest uppercase text-xs md:text-sm">
-                                Start Your Journey
+                                Enroll to become magnate
                             </span>
                         </button>
                     </div>

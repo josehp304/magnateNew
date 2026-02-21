@@ -229,7 +229,7 @@ const CourseHero = ({
                         <div className="flex flex-wrap gap-4 pt-4">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="hero-btn">
                                 <Link
-                                    href={enquiryHref || "/enroll"}
+                                    href={enquiryHref || "/contact"}
                                     className="group relative px-8 py-4 bg-[#ffc22a] text-black rounded-full font-bold text-lg overflow-hidden flex items-center gap-2"
                                 >
                                     <span className="relative z-10">Start Learning Now</span>

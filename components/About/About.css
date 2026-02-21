@@ -6,8 +6,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--background);
-    /* Light beige/off-white from image */
-    color: #1a1a1a;
+    color: var(--foreground);
     position: relative;
     z-index: 10;
 }
@@ -19,7 +18,7 @@
 .about-label p {
     font-size: 12px;
     letter-spacing: 0.1em;
-    color: #666;
+    color: var(--text-muted);
     font-family: var(--font-geist-mono);
     /* Or custom mono */
     text-transform: uppercase;
@@ -33,11 +32,10 @@
 
 .about-quote h2 {
     font-family: var(--font-heading);
-    /* Using project's main serif/custom font */
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 400;
     line-height: 1.2;
-    color: #2a2a2a;
+    color: var(--foreground);
     letter-spacing: -0.02em;
 }
 

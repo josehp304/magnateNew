@@ -55,7 +55,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-[425px] bg-background text-foreground border-border">
+            <DialogContent className="sm:max-w-[425px] bg-[#0A1E5C] text-white border-[#01C5C1]/15 shadow-2xl shadow-[#011C77]/50">
                 <DialogHeader>
                     <DialogTitle>Contact Us</DialogTitle>
                     <DialogDescription>
@@ -119,7 +119,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         </div>
                     </div>
                     <DialogFooter>
-                        <Button type="submit" disabled={isLoading}>
+                        <Button type="submit" disabled={isLoading} className="bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white hover:from-[#03C5BD] hover:to-[#0069F9] border-0">
                             {isLoading ? "Sending..." : "Submit"}
                         </Button>
                     </DialogFooter>

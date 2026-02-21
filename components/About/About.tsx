@@ -105,12 +105,12 @@ const About = () => {
     return (
         <section
             ref={containerRef}
-            className="relative w-full min-h-[140vh] bg-[#0c0026] text-white px-6 md:px-20 py-32 overflow-hidden flex items-start"
+            className="relative w-full min-h-[140vh] bg-[#011C77] text-white px-6 md:px-20 py-32 overflow-hidden flex items-start"
             id="about"
         >
             {/* Ambient Background Glow */}
-            <div className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 -left-1/4 w-[600px] h-[600px] bg-blue-900/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-[#01C5C1]/8 rounded-full blur-[150px] pointer-events-none" />
+            <div className="absolute bottom-0 -left-1/4 w-[600px] h-[600px] bg-[#0069F9]/8 rounded-full blur-[120px] pointer-events-none" />
 
             {/* Background Typography */}
             <motion.div 
@@ -127,8 +127,8 @@ const About = () => {
                     className="md:col-span-3 h-fit md:h-screen md:sticky md:top-32 flex flex-col justify-start pt-4"
                 >
                     <div className="flex items-center gap-4 overflow-hidden">
-                        <span className="w-12 h-[1px] bg-white/30 hidden md:block"></span>
-                        <p className="text-sm font-medium tracking-[0.2em] uppercase text-white/50 font-[family-name:var(--font-manrope)]">
+                        <span className="w-12 h-[1px] bg-[#01C5C1]/30 hidden md:block"></span>
+                        <p className="text-sm font-medium tracking-[0.2em] uppercase text-[#01C5C1]/60 font-[family-name:var(--font-manrope)]">
                             Who We Are
                         </p>
                     </div>
@@ -152,7 +152,7 @@ const About = () => {
                     </h2>
 
                     {/* Divider */}
-                    <div className="divider w-full h-[1px] bg-white/10" />
+                    <div className="divider w-full h-[1px] bg-[#01C5C1]/15" />
 
                     {/* Editorial Statement */}
                     <div className="relative">
@@ -160,13 +160,13 @@ const About = () => {
                             ref={statementRef}
                             className="text-2xl md:text-3xl lg:text-4xl text-white/90 leading-[1.4] font-light font-[family-name:var(--font-manrope)] max-w-4xl"
                         >
-                            <span className="block mb-8 text-white/50 text-lg font-[family-name:var(--font-inter)] tracking-wide uppercase opacity-70">The Problem</span>
-                            Most people don’t struggle because they lack education. <span className="text-white font-normal italic font-serif">They struggle because application is missing.</span> <br/><br/>
+                            <span className="block mb-8 text-[#01C5C1]/70 text-lg font-[family-name:var(--font-inter)] tracking-wide uppercase">The Problem</span>
+                            Most people don't struggle because they lack education. <span className="text-[#6BE9E6] font-normal italic font-serif">They struggle because application is missing.</span> <br/><br/>
                             We replace theory with execution. Building careers defined by clarity, confidence, and the ability to make a real-world impact.
                         </p>
                         
                         <div className="mt-16 flex items-center gap-6 group cursor-pointer w-fit opacity-70 hover:opacity-100 transition-opacity duration-300">
-                             <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                             <div className="w-12 h-12 rounded-full border border-[#01C5C1]/30 flex items-center justify-center group-hover:scale-110 group-hover:border-[#01C5C1]/60 transition-all duration-300">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-white">
                                     <path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>

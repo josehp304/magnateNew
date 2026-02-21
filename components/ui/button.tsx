@@ -19,7 +19,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                         "border border-input bg-background hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-50": variant === "outline",
                         "hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-50": variant === "ghost",
                         "text-primary underline-offset-4 hover:underline": variant === "link",
-                        "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] active:scale-[0.98]": variant === "premium",
+                        "bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white shadow-lg hover:shadow-[#01C5C1]/25 hover:scale-[1.02] active:scale-[0.98]": variant === "premium",
                         "h-10 px-4 py-2": size === "default",
                         "h-9 rounded-md px-3": size === "sm",
                         "h-12 rounded-lg px-8 text-base": size === "lg",

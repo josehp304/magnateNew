@@ -75,10 +75,9 @@ const WhatsAppButton = () => {
 
   return (
     <div ref={containerRef} className="fixed bottom-8 right-8 z-[9999] flex items-center justify-center pointer-events-none">
-       {/* Glow Effect Layer */}
        <div 
         ref={glowRef}
-        className="absolute w-12 h-12 rounded-full bg-black opacity-0 blur-xl pointer-events-none"
+        className="absolute w-12 h-12 rounded-full bg-[#01C5C1] opacity-0 blur-xl pointer-events-none"
       />
 
       <Link
@@ -86,7 +85,7 @@ const WhatsAppButton = () => {
         href="https://wa.me/919207995577"
         target="_blank"
         rel="noopener noreferrer"
-        className="relative pointer-events-auto flex items-center justify-center w-14 h-14 bg-black rounded-full shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.2)] group border border-white/10"
+        className="relative pointer-events-auto flex items-center justify-center w-14 h-14 bg-[#011C77] rounded-full shadow-[0_4px_14px_rgba(1,28,119,0.3)] hover:shadow-[0_6px_20px_rgba(1,197,193,0.25)] group border border-[#01C5C1]/20"
         aria-label="Chat on WhatsApp"
         // Ensure no transform styles are applied via Tailwind that conflict
         style={{ transformOrigin: "center center" }} 

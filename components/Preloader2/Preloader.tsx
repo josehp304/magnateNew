@@ -43,7 +43,7 @@ const Preloader: React.FC<PreloaderProps> = ({
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="relative w-full h-screen overflow-hidden bg-[var(--background)]">
+        <div ref={containerRef} className="relative w-full h-screen overflow-hidden bg-[#020E3A]">
             {/* Background Layer */}
             <div className="absolute top-0 left-0 w-full h-full z-0">
                 <div className="hero-bg-img absolute inset-0 w-full h-full">
@@ -51,12 +51,16 @@ const Preloader: React.FC<PreloaderProps> = ({
                         src="/images/studio/hero.jpeg" 
                         alt="Hero Background" 
                         fill 
-                        className="object-cover opacity-60"
+                        className="object-cover opacity-50"
                         priority
                     />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[var(--background)] z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011C77]/80 via-[#020E3A]/70 to-[#020E3A] z-10" />
             </div>
+
+            {/* Ambient glow accents */}
+            <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] bg-[#01C5C1]/8 rounded-full blur-[150px] pointer-events-none z-[5]" />
+            <div className="absolute bottom-0 -left-32 w-[500px] h-[500px] bg-[#0069F9]/6 rounded-full blur-[120px] pointer-events-none z-[5]" />
 
             {/* Content Layer */}
             <div className="relative z-20 w-full h-full flex flex-col items-center justify-center text-center px-4 md:px-8">
@@ -75,7 +79,7 @@ const Preloader: React.FC<PreloaderProps> = ({
                             </span>
                         </div>
                         <div className="line overflow-hidden">
-                            <span className="line-inner block text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 tracking-tight">
+                            <span className="line-inner block text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] text-transparent bg-clip-text bg-gradient-to-r from-[#01C5C1] via-[#6BE9E6] to-[#4D99FB] tracking-tight">
                                 Learning Platform.
                             </span>
                         </div>
@@ -83,7 +87,7 @@ const Preloader: React.FC<PreloaderProps> = ({
 
                     {/* Supporting Text */}
                     <div className="hero-desc flex flex-col items-center justify-center gap-4 mb-10 md:mb-12 max-w-2xl mx-auto">
-                         <p className="text-base md:text-xl text-white/80 font-[family-name:var(--font-manrope)] leading-relaxed font-light tracking-wide">
+                         <p className="text-base md:text-xl text-[#CDDBE8]/90 font-[family-name:var(--font-manrope)] leading-relaxed font-light tracking-wide">
                             Think Bigger. Move Smarter. Become a Magnate.
                         </p>
                     </div>
@@ -92,7 +96,7 @@ const Preloader: React.FC<PreloaderProps> = ({
                     <div className="hero-cta">
                         <button
                             onClick={onEnrollClick}
-                            className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 overflow-hidden font-medium transition-all duration-300 bg-white text-black rounded-full hover:bg-[#f0f0f0] hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.4)]"
+                            className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 overflow-hidden font-medium transition-all duration-300 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white rounded-full hover:from-[#03C5BD] hover:to-[#0069F9] hover:scale-105 hover:shadow-[0_0_50px_-10px_rgba(1,197,193,0.5)]"
                         >
                             <span className="relative z-10 font-[family-name:var(--font-manrope)] font-bold tracking-widest uppercase text-xs md:text-sm">
                                 Enroll to become magnate

@@ -115,11 +115,11 @@ export default function CourseDial({ items }: CourseDialProps) {
     };
 
     return (
-        <div ref={wrapperRef} className="course-dial-wrapper bg-[#050505]">
+        <div ref={wrapperRef} className="course-dial-wrapper bg-[#020E3A]">
             <div ref={triggerRef} className="min-h-screen">
                 <main
                     ref={containerRef}
-                    className="relative w-full h-screen overflow-hidden bg-[#050505] text-white selection:bg-cyan-500/30"
+                    className="relative w-full h-screen overflow-hidden bg-[#020E3A] text-white selection:bg-[#01C5C1]/30"
                 >
                     {/* Background Images */}
                 {items.map((course, i) => (
@@ -129,7 +129,7 @@ export default function CourseDial({ items }: CourseDialProps) {
                             }`}
                     >
                         <Image src={course.src} alt="" fill className="object-cover" priority={i === 0} />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/60 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#020E3A] via-[#020E3A]/70 to-transparent" />
                     </div>
                 ))}
 
@@ -151,7 +151,7 @@ export default function CourseDial({ items }: CourseDialProps) {
                                 onClick={() => handleClick(i)}
                                 className="absolute left-0 -translate-y-1/2 cursor-pointer group py-4"
                             >
-                                <span className={`block text-[10px] uppercase tracking-[0.5em] mb-3 transition-all duration-700 ${i === index ? "text-cyan-400 opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                                <span className={`block text-[10px] uppercase tracking-[0.5em] mb-3 transition-all duration-700 ${i === index ? "text-[#01C5C1] opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
                                     }`}>
                                     {i === index ? "Exploring Course" : ""}
                                 </span>

@@ -19,56 +19,56 @@ const testimonials = [
         name: "Sarah Jenkins",
         role: "VP of Operations",
         quote: "Magnate's corporate training structure completely overhauled our leadership pipeline. The mentorship is real, practical, and immediately applicable.",
-        gradient: "linear-gradient(135deg, #3b82f6, #06b6d4)"
+        gradient: "linear-gradient(135deg, #01C5C1, #0095D7)"
     },
     {
         id: 2,
         name: "David Ross",
         role: "Director, FinCorp",
         quote: "We've tried multiple platforms, but none offered the depth of industry expertise that Magnate does. It's built for serious professionals.",
-        gradient: "linear-gradient(135deg, #a855f7, #ec4899)"
+        gradient: "linear-gradient(135deg, #5449CC, #8B81FB)"
     },
     {
         id: 3,
         name: "Emily Chen",
         role: "Head of Product",
         quote: "The career outcomes speak for themselves. Our team's efficiency and strategic thinking improved within weeks of enrollment.",
-        gradient: "linear-gradient(135deg, #f97316, #ef4444)"
+        gradient: "linear-gradient(135deg, #0069F9, #4D99FB)"
     },
     {
         id: 4,
         name: "Michael Scott",
         role: "Regional Manager",
         quote: "Exceptional quality. The 'Build Authority' track helped me pivot my career into a senior executive role seamlessly.",
-        gradient: "linear-gradient(135deg, #10b981, #0d9488)"
+        gradient: "linear-gradient(135deg, #16A5A3, #A1E2B8)"
     },
     {
         id: 5,
         name: "Jessica Pearson",
         role: "Managing Partner",
         quote: "A masterclass in modern corporate education. No fluff, just hard skills and high-level strategy.",
-        gradient: "linear-gradient(135deg, #6366f1, #3b82f6)"
+        gradient: "linear-gradient(135deg, #3429A3, #0069F9)"
     },
     {
         id: 6,
         name: "James Wilson",
         role: "CTO, TechWave",
         quote: "The technical depth and strategic oversight provided by Magnate are unmatched. It accelerated our digital transformation.",
-        gradient: "linear-gradient(135deg, #22c55e, #14b8a6)"
+        gradient: "linear-gradient(135deg, #03C5BD, #6BE9E6)"
     },
     {
         id: 7,
         name: "Anna Sergey",
         role: "Lead Designer",
         quote: "I found my creative voice through the specialized tracks. The community feedback loop is invaluable for rapid growth.",
-        gradient: "linear-gradient(135deg, #e11d48, #be123c)"
+        gradient: "linear-gradient(135deg, #0028A1, #5449CC)"
     },
     {
         id: 8,
         name: "Robert Fox",
         role: "Investment Analyst",
         quote: "The financial modeling modules are world-class. Better than what I learned during my MBA.",
-        gradient: "linear-gradient(135deg, #8b5cf6, #6d28d9)"
+        gradient: "linear-gradient(135deg, #011C77, #0095D7)"
     }
 ];
 
@@ -174,7 +174,7 @@ const Testimonials = () => {
     return (
         <section 
             ref={sectionRef} 
-            className="relative w-screen h-screen overflow-hidden bg-[#0c0026]"
+            className="relative w-screen h-screen overflow-hidden bg-[#020E3A]"
         >
             <style jsx global>{`
                 .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -189,8 +189,8 @@ const Testimonials = () => {
                     ref={wordRef}
                     className={`${playfair.className} absolute top-1/2 left-0 -translate-y-1/2 text-[45vh] md:text-[60vh] leading-none font-black text-white/5 whitespace-nowrap z-0 pointer-events-none select-none will-change-transform`}
                      style={{
-                         color: 'rgba(255, 255, 255, 0.08)',
-                         textShadow: '0 0 40px rgba(255,255,255,0.05)'
+                         color: 'rgba(1, 197, 193, 0.06)',
+                         textShadow: '0 0 60px rgba(1, 197, 193, 0.03)'
                     }}
                 >
                     TESTIMONIALS
@@ -212,10 +212,10 @@ const Testimonials = () => {
                             className={`
                                 flex-shrink-0 w-[340px] h-[240px] 
                                 rounded-3xl p-8
-                                bg-white/5 backdrop-blur-md border border-white/10
-                                shadow-[0_25px_80px_rgba(0,0,0,0.6)] 
+                                bg-[#011C77]/30 backdrop-blur-md border border-[#01C5C1]/10
+                                shadow-[0_25px_80px_rgba(0,0,0,0.5)] 
                                 flex flex-col justify-between
-                                relative group hover:bg-white/10 transition-colors duration-500
+                                relative group hover:bg-[#01C5C1]/10 hover:border-[#01C5C1]/20 transition-colors duration-500
                                 ${index % 2 === 0 ? '-translate-y-16' : 'translate-y-16'}
                             `}
                         >
@@ -225,7 +225,7 @@ const Testimonials = () => {
                                 </p>
                             </div>
 
-                            <div className="flex items-center gap-3 mt-4 border-t border-white/10 pt-4">
+                            <div className="flex items-center gap-3 mt-4 border-t border-[#01C5C1]/15 pt-4">
                                 <div 
                                     className="w-10 h-10 rounded-full shadow-lg flex-shrink-0"
                                     style={{ background: card.gradient }}

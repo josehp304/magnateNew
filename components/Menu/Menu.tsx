@@ -328,7 +328,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
             <div 
                 className={`nav-container transition-all duration-500 ease-out border-b ${
                     scrolled 
-                        ? "bg-[#0c0026]/70 backdrop-blur-md border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.3)] !mix-blend-normal" 
+                        ? "bg-[#020E3A]/80 backdrop-blur-md border-[#01C5C1]/10 shadow-[0_4px_30px_rgba(1,28,119,0.3)] !mix-blend-normal" 
                         : "bg-transparent border-transparent"
                 }`}
                 style={{ pointerEvents: scrolled ? "auto" : "none" }}
@@ -365,8 +365,8 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                         <div className="revealer">
                              <a
                                  href="/contact" 
-                                 className="px-6 py-2.5 bg-white text-black text-sm font-bold font-[family-name:var(--font-manrope)] rounded-full hover:bg-gray-200 transition-transform hover:scale-105 active:scale-95 shadow-lg"
-                                 style={{ color: 'black' }}
+                                 className="px-6 py-2.5 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white text-sm font-bold font-[family-name:var(--font-manrope)] rounded-full hover:from-[#03C5BD] hover:to-[#0069F9] transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-[#01C5C1]/20"
+                                 style={{ color: 'white' }}
                                  onClick={(e) => {
                                       e.preventDefault();
                                       navigateTo("/contact"); 
@@ -461,8 +461,8 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                      e.preventDefault();
                                      navigateTo("/contact");
                                  }}
-                                 className="inline-block px-8 py-3 bg-white text-black text-lg font-bold uppercase tracking-wide rounded-full hover:scale-105 transition-transform"
-                                 style={{ color: 'black' }}
+                                 className="inline-block px-8 py-3 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white text-lg font-bold uppercase tracking-wide rounded-full hover:scale-105 transition-transform shadow-lg shadow-[#01C5C1]/20"
+                                 style={{ color: 'white' }}
                              >
                                  Get Free Demo
                              </a>

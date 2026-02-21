@@ -100,7 +100,7 @@ export default function Loader({ onComplete }: LoaderProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#050014] overflow-hidden"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#020E3A] overflow-hidden"
     >
       {/* Background Ambience */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
@@ -110,7 +110,7 @@ export default function Loader({ onComplete }: LoaderProps) {
           {/* Soft Radial Gradient Glow */}
           <div 
             ref={glowRef}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(80,20,120,0.15)_0%,rgba(5,0,20,0)_70%)] blur-3xl rounded-full"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(1,197,193,0.12)_0%,rgba(2,14,58,0)_70%)] blur-3xl rounded-full"
           />
       </div>
 

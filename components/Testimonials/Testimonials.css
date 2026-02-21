@@ -3,7 +3,7 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background-color: #000; /* Or your dark theme background */
+    background-color: #020E3A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@
     font-size: 15vw;
     font-weight: 900;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.03); /* Very subtle watermark */
+    color: rgba(1, 197, 193, 0.04);
     white-space: nowrap;
     font-family: var(--font-heading, "Inter", sans-serif);
     letter-spacing: -0.02em;
@@ -59,11 +59,11 @@
     min-width: 300px;
     padding: 2rem;
     border-radius: 1.5rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(1, 28, 119, 0.25);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(1, 197, 193, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(2, 14, 58, 0.5);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

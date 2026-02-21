@@ -48,6 +48,34 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'logo.svgcdn.com',
       },
+      {
+        protocol: 'https',
+        hostname: '3453376.fs1.hubspotusercontent-na1.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'russianclassesindelhi.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i0.wp.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cms-artifacts.motionarray.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'encrypted-tbn0.gstatic.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.yourstory.com',
+      },
     ],
   },
 };

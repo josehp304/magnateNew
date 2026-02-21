@@ -25,10 +25,10 @@ const WhoWeAre = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
     return (
-        <section ref={containerRef} className="relative py-32 bg-[#0a0a0a] overflow-hidden">
+        <section ref={containerRef} className="relative py-32 bg-[#020E3A] overflow-hidden">
             {/* Ambient Background Glows */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-900/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#01C5C1]/8 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0028A1]/15 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid lg:grid-cols-12 gap-16 items-start">
@@ -41,18 +41,18 @@ const WhoWeAre = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <span className="inline-block px-4 py-1.5 rounded-full border border-purple-500/20 bg-purple-500/5 text-purple-400 text-sm font-medium mb-8 tracking-wide">
+                            <span className="inline-block px-4 py-1.5 rounded-full border border-[#01C5C1]/25 bg-[#01C5C1]/5 text-[#6BE9E6] text-sm font-medium mb-8 tracking-wide">
                                 WHO WE ARE
                             </span>
                             
                             <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
                                 Crafting the <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#01C5C1] to-[#4D99FB]">
                                     Future of Learning
                                 </span>
                             </h2>
 
-                            <div className="space-y-6 text-lg text-neutral-400 font-light leading-relaxed mb-10">
+                            <div className="space-y-6 text-lg text-[#CDDBE8]/80 font-light leading-relaxed mb-10">
                                 <p>
                                     At Magnate, we bridge the gap between academic theory and industry reality. We are a collective of educators, industry veterans, and technologists dedicated to transforming how the world learns.
                                 </p>
@@ -61,7 +61,7 @@ const WhoWeAre = () => {
                                 </p>
                             </div>
 
-                            <button className="group flex items-center gap-3 text-white border border-white/10 px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                            <button className="group flex items-center gap-3 text-white border border-[#01C5C1]/20 px-8 py-4 rounded-full hover:bg-gradient-to-r hover:from-[#01C5C1] hover:to-[#0095D7] hover:text-white hover:border-transparent transition-all duration-300">
                                 <span className="font-medium">Meet the Team</span>
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
@@ -74,7 +74,7 @@ const WhoWeAre = () => {
                             {teamMembers.map((member, idx) => (
                                 <motion.div
                                     key={idx}
-                                    className={`relative rounded-2xl overflow-hidden border border-white/5 hover:border-purple-500/20 transition-colors group ${member.className}`}
+                                    className={`relative rounded-2xl overflow-hidden border border-white/5 hover:border-[#01C5C1]/25 transition-colors group ${member.className}`}
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-10%" }}

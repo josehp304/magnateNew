@@ -16,35 +16,43 @@
 
 
 :root {
-  /* New Color Palette */
-  --primary-1: #5e0c5e;
-  --primary-2: #100624;
-  --secondary-white: #ffffff;
-  --secondary-cyan: #20ecff;
-  --secondary-magenta: #fb01ff;
+  /* Brand Color Palette — Magnate */
+  --primary-1: #011C77;          /* Infinity Navy */
+  --primary-2: #020E3A;          /* Deep Navy (background) */
+  --secondary-white: #ffffff;    /* Mont Blanc White */
+  --secondary-cyan: #01C5C1;     /* Tahoe Green */
+  --secondary-magenta: #03C5BD;  /* Tahoe Green accent */
+
+  /* Extended Palette */
+  --navy-deep: #0028A1;
+  --blue-bright: #0069F9;
+  --blue-light: #4D99FB;
+  --purple-deep: #3429A3;
+  --purple-mid: #5449CC;
+  --purple-light: #8B81FB;
+  --teal: #16A5A3;
+  --teal-light: #6BE9E6;
+  --water: #CDDBE8;
+  --green-soft: #A1E2B8;
+  --blue-expansion: #0095D7;
 
   --background: var(--primary-2);
-  /* --background: #e4e7df; */
   --background-200: var(--primary-1);
-  /* --background-200: #666666; */
   --foreground: var(--secondary-white);
-  --foreground-200: #cccccc;
+  --foreground-200: var(--water);
   --secondary: var(--primary-1);
 
-  --btn-icon: var(--secondary-magenta);
+  --btn-icon: var(--secondary-cyan);
 
   /* Course Hero Variables */
   --bg-dark: var(--primary-1);
-  /* Matches Preloader hero bg */
-  --bg-card: var(--primary-1);
+  --bg-card: #0A1E5C;
   --text-primary: var(--secondary-white);
-  --text-secondary: #d1d5db;
-  --text-muted: #9ca3af;
+  --text-secondary: var(--water);
+  --text-muted: #8BA3C7;
   --accent-primary: var(--secondary-cyan);
-  /* Yellow accent */
-  --border-light: var(--primary-1);
-  --border-color: #3b073b;
-  /* Darker shade of primary-1 for borders */
+  --border-light: #0A2460;
+  --border-color: #0A2460;
 }
 
 

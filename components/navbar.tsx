@@ -24,13 +24,13 @@ export default function Navbar() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out border-b",
                 scrolled
-                    ? "bg-[#0c0026]/70 backdrop-blur-md border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.3)] py-3"
+                    ? "bg-[#020E3A]/80 backdrop-blur-md border-[#01C5C1]/10 shadow-[0_4px_30px_rgba(1,28,119,0.3)] py-3"
                     : "bg-transparent border-transparent py-5"
             )}
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2 group">
-                    <div className="bg-white/10 text-white p-2 rounded-lg group-hover:scale-105 transition-transform">
+                    <div className="bg-[#01C5C1]/15 text-[#01C5C1] p-2 rounded-lg group-hover:scale-105 transition-transform">
                         <GraduationCap size={24} />
                     </div>
                     <span className="text-xl font-bold tracking-tight text-white">
@@ -70,7 +70,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-full left-0 right-0 bg-[#0c0026] border-b border-white/10 p-4 md:hidden shadow-xl"
+                        className="absolute top-full left-0 right-0 bg-[#020E3A] border-b border-[#01C5C1]/10 p-4 md:hidden shadow-xl"
                     >
                         <div className="flex flex-col gap-4">
                             {["Services", "Destinations", "Universities", "Testimonials"].map(

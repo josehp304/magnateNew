@@ -43,7 +43,7 @@ const Preloader: React.FC<PreloaderProps> = ({
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="relative w-full h-screen overflow-hidden bg-[#020E3A]">
+        <div ref={containerRef} className="relative w-full h-screen bg-[#020E3A]">
             {/* Background Layer */}
             <div className="absolute top-0 left-0 w-full h-full z-0">
                 <div className="hero-bg-img absolute inset-0 w-full h-full">
@@ -55,7 +55,7 @@ const Preloader: React.FC<PreloaderProps> = ({
                         priority
                     />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-b from-[#011C77]/80 via-[#020E3A]/70 to-[#020E3A] z-10" />
+                {/* <div className="absolute inset-0 bg-gradient-to-b from-[#011C77]/80 via-[#020E3A]/70 to-[#020E3A] z-10" /> */}
             </div>
 
             {/* Ambient glow accents */}
@@ -78,7 +78,7 @@ const Preloader: React.FC<PreloaderProps> = ({
                                 Career-Focused
                             </span>
                         </div>
-                        <div className="line overflow-hidden">
+                        <div className="line">
                             <span className="line-inner block text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] text-transparent bg-clip-text bg-gradient-to-r from-[#01C5C1] via-[#6BE9E6] to-[#4D99FB] tracking-tight">
                                 Learning Platform.
                             </span>
@@ -96,10 +96,10 @@ const Preloader: React.FC<PreloaderProps> = ({
                     <div className="hero-cta">
                         <button
                             onClick={onEnrollClick}
-                            className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 overflow-hidden font-medium transition-all duration-300 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white rounded-full hover:from-[#03C5BD] hover:to-[#0069F9] hover:scale-105 hover:shadow-[0_0_50px_-10px_rgba(1,197,193,0.5)]"
+                            className="group relative inline-flex items-center justify-center px-8 py-4 md:px-6 md:py-3 overflow-hidden font-medium transition-all duration-300 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white rounded-full hover:from-[#03C5BD] hover:to-[#0069F9] hover:scale-105 hover:shadow-[0_0_50px_-10px_rgba(1,197,193,0.5)]"
                         >
-                            <span className="relative z-10 font-[family-name:var(--font-manrope)] font-bold tracking-widest uppercase text-xs md:text-sm">
-                                Enroll to become magnate
+                            <span className="relative z-10 montserrat-magnate tracking-widest uppercase text-sm md:text-base">
+                                Enroll to become a magnate
                             </span>
                         </button>
                     </div>

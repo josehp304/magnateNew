@@ -14,7 +14,7 @@ const ContactPage = () => {
     const [formData, setFormData] = useState({
         fullName: "",
         phone: "",
-        course: "Course 1"
+        course: "AI Augmented Finance"
     });
 
     useGSAP(
@@ -104,18 +104,18 @@ const ContactPage = () => {
         // Temporary logic: Construct mailto link
         const subject = `Course Inquiry from ${formData.fullName}`;
         const body = `Name: ${formData.fullName}%0D%0APhone: ${formData.phone}%0D%0ACourse: ${formData.course}`;
-        window.location.href = `mailto:info@magnatestudyabroad.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:info@themagnateacademy.com?subject=${subject}&body=${body}`;
     };
 
     const handleWhatsApp = () => {
-        window.open("https://wa.me/919207995577", "_blank");
+        window.open("https://wa.me/918111995577", "_blank");
     };
 
     return (
         <div className="contact" ref={contactRef}>
             <div className="contact-map-wrapper">
                 <iframe
-                    src="https://maps.google.com/maps?q=Magnate%20Study%20Abroad%2C%20Jairaj%20Building%2C%20Kochi&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.451234567!2d76.3272!3d9.9956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTknNDQuMCJOIDc2wrAxOSczOC4wIkU!5e0!3m2!1sen!2sin!4v1234567890"
                     width="100%"
                     height="100%"
                     style={{ border: 0, filter: "grayscale(100%) invert(90%)" }}
@@ -126,6 +126,17 @@ const ContactPage = () => {
             </div>
 
             <div className="contact-form-container">
+                <div className="contact-address-top">
+                    <Copy delay={0.9}>
+                        <div className="address-top-inner">
+                            <p className="address-top-label">Address</p>
+                            <p className="address-top-text">
+                                1st Floor, Thykoottathil Square,<br /> Civil Line Rd, opp. St. Joseph Church,<br /> Vazhakkala, Kochi, Kakkanad,<br /> Kerala 682030
+                            </p>
+                        </div>
+                    </Copy>
+                </div>
+
                 <div className="contact-header">
                     <Copy delay={1}>
                         <h1 className="header-title">Start Your Journey</h1>
@@ -165,9 +176,14 @@ const ContactPage = () => {
                         <div className="form-group">
                             <label>Select Course</label>
                             <select name="course" title="Select Course" value={formData.course} onChange={handleChange}>
-                                <option value="Course 1">Design Fundamentals</option>
-                                <option value="Course 2">Advanced Development</option>
-                                <option value="Course 3">Full Stack Pro</option>
+                                <option value="AI Augmented Finance">AI Augmented Finance</option>
+                                <option value="AI Automation & Agents">AI Automation &amp; Agents</option>
+                                <option value="Data Analytics">Data Analytics (ML &amp; AI)</option>
+                                <option value="Digital Marketing">3D Digital Marketing</option>
+                                <option value="Finance & Investment Banking">Finance &amp; </option>
+                                <option value="Full Stack Development">Full Stack Development</option>
+                                <option value="German Language">German Language</option>
+                                <option value="IELTS & PTE">IELTS &amp; PTE</option>
                             </select>
                         </div>
                     </Copy>
@@ -191,20 +207,20 @@ const ContactPage = () => {
                     <Copy delay={1.6}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
                             <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Phone</p>
-                            <p className="sm" style={{ fontWeight: 400, fontSize: '1.1rem' }}>+91 9207995577</p>
+                            <p className="sm" style={{ fontWeight: 400, fontSize: '1.1rem' }}>+91 8111995577</p>
                         </div>
                     </Copy>
                     <Copy delay={1.7}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
                             <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Email</p>
-                            <a href="mailto:info@magnatestudyabroad.com" className="sm" style={{ fontWeight: 400, fontSize: '1.1rem', color: 'inherit', textDecoration: 'none' }}>info@magnatestudyabroad.com</a>
+                            <a href="mailto:info@themagnateacademy.com" className="sm" style={{ fontWeight: 400, fontSize: '1.1rem', color: 'inherit', textDecoration: 'none' }}>info@themagnateacademy.com</a>
                         </div>
                     </Copy>
                     <Copy delay={1.8}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
                             <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Address</p>
                             <p className="sm" style={{ maxWidth: '300px', lineHeight: '1.4', fontWeight: 400, fontSize: '1.1rem' }}>
-                                Magnate Study Abroad, 1st Floor,<br /> Jairaj Building, Kochi, India - 682024
+                                1st Floor, Thykoottathil Square,<br /> Civil Line Rd, opp. St. Joseph Church,<br /> Vazhakkala, Kochi, Kakkanad,<br /> Kerala 682030
                             </p>
                         </div>
                     </Copy>

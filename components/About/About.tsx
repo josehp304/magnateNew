@@ -115,7 +115,7 @@ const About = () => {
             {/* Background Typography */}
             <motion.div 
                 style={{ y: yBackground }}
-                className="absolute top-20 right-0 opacity-[0.03] text-[20vw] font-bold leading-none pointer-events-none select-none font-[family-name:var(--font-inter)] tracking-tighter"
+                className="absolute top-20 right-0 opacity-[0.07] text-[20vw] font-bold leading-none pointer-events-none select-none font-[family-name:var(--font-inter)] tracking-tighter"
             >
                 MAGNATE
             </motion.div>
@@ -126,9 +126,9 @@ const About = () => {
                     ref={leftColRef} 
                     className="md:col-span-3 h-fit md:h-screen md:sticky md:top-32 flex flex-col justify-start pt-4"
                 >
-                    <div className="flex items-center gap-4 overflow-hidden">
+                    <div className="flex items-center gap-4 ">
                         <span className="w-12 h-[1px] bg-[#01C5C1]/30 hidden md:block"></span>
-                        <p className="text-sm font-medium tracking-[0.2em] uppercase text-[#01C5C1]/60 font-[family-name:var(--font-manrope)]">
+                        <p className="text-3xl md:text-[32px] font-medium tracking-[0.2em] uppercase text-[#01C5C1]/60 font-[family-name:var(--font-manrope)]">
                             Who We Are
                         </p>
                     </div>
@@ -138,7 +138,7 @@ const About = () => {
                 <div ref={rightColRef} className="md:col-span-9 flex flex-col gap-16 md:gap-24 pb-32">
                     
                     {/* Main Heading */}
-                    <h2 
+                    {/* <h2 
                         ref={headingRef}
                         className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] tracking-tight font-[family-name:var(--font-inter)] text-white"
                     >
@@ -149,7 +149,7 @@ const About = () => {
                                 </span>
                             </span>
                         ))}
-                    </h2>
+                    </h2> */}
 
                     {/* Divider */}
                     <div className="divider w-full h-[1px] bg-[#01C5C1]/15" />
@@ -160,9 +160,13 @@ const About = () => {
                             ref={statementRef}
                             className="text-2xl md:text-3xl lg:text-4xl text-white/90 leading-[1.4] font-light font-[family-name:var(--font-manrope)] max-w-4xl"
                         >
-                            <span className="block mb-8 text-[#01C5C1]/70 text-lg font-[family-name:var(--font-inter)] tracking-wide uppercase">The Problem</span>
-                            Most people don't struggle because they lack education. <span className="text-[#6BE9E6] font-normal italic font-serif">They struggle because application is missing.</span> <br/><br/>
-                            We replace theory with execution. Building careers defined by clarity, confidence, and the ability to make a real-world impact.
+                            {/* <span className="block mb-8 text-[#01C5C1]/70 text-lg font-[family-name:var(--font-inter)] tracking-wide uppercase">The Problem</span> */}
+                            Most people don't struggle because they lack education. <span className="text-[#6BE9E6] ">They struggle because what they
+learn doesn’t translate into real work.</span> <br/><br/>
+                            We exist to change that. Our programs are built around
+practical skills, industry expectations, and hands-on execution. Learners don’t simply
+complete a course; they move forward with clarity, confidence, and the ability to step into
+meaningful professional roles.
                         </p>
                         
                         <div className="mt-16 flex items-center gap-6 group cursor-pointer w-fit opacity-70 hover:opacity-100 transition-opacity duration-300">

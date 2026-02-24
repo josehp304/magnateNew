@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ViewTransitions } from "next-view-transitions";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Manrope, Montserrat } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
 import "./globals.css";
 import "./storage-polyfill";
@@ -14,6 +14,12 @@ const inter = Inter({
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -31,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased ${inter.variable} ${manrope.variable}`}
+        className={`antialiased ${inter.variable} ${manrope.variable} ${montserrat.variable}`}
         suppressHydrationWarning
       >
         <ViewTransitions>

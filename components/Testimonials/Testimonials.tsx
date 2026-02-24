@@ -19,56 +19,56 @@ const testimonials = [
         name: "Sarah Jenkins",
         role: "VP of Operations",
         quote: "Magnate's corporate training structure completely overhauled our leadership pipeline. The mentorship is real, practical, and immediately applicable.",
-        gradient: "linear-gradient(135deg, #01C5C1, #0095D7)"
+        gradient: "linear-gradient(135deg, #20ecff, #fb01ff)"
     },
     {
         id: 2,
         name: "David Ross",
         role: "Director, FinCorp",
         quote: "We've tried multiple platforms, but none offered the depth of industry expertise that Magnate does. It's built for serious professionals.",
-        gradient: "linear-gradient(135deg, #5449CC, #8B81FB)"
+        gradient: "linear-gradient(135deg, #5e0c5e, #fb01ff)"
     },
     {
         id: 3,
         name: "Emily Chen",
         role: "Head of Product",
         quote: "The career outcomes speak for themselves. Our team's efficiency and strategic thinking improved within weeks of enrollment.",
-        gradient: "linear-gradient(135deg, #0069F9, #4D99FB)"
+        gradient: "linear-gradient(135deg, #20ecff, #5e0c5e)"
     },
     {
         id: 4,
         name: "Michael Scott",
         role: "Regional Manager",
         quote: "Exceptional quality. The 'Build Authority' track helped me pivot my career into a senior executive role seamlessly.",
-        gradient: "linear-gradient(135deg, #16A5A3, #A1E2B8)"
+        gradient: "linear-gradient(135deg, #fb01ff, #20ecff)"
     },
     {
         id: 5,
         name: "Jessica Pearson",
         role: "Managing Partner",
         quote: "A masterclass in modern corporate education. No fluff, just hard skills and high-level strategy.",
-        gradient: "linear-gradient(135deg, #3429A3, #0069F9)"
+        gradient: "linear-gradient(135deg, #100624, #5e0c5e)"
     },
     {
         id: 6,
         name: "James Wilson",
         role: "CTO, TechWave",
         quote: "The technical depth and strategic oversight provided by Magnate are unmatched. It accelerated our digital transformation.",
-        gradient: "linear-gradient(135deg, #03C5BD, #6BE9E6)"
+        gradient: "linear-gradient(135deg, #20ecff, #100624)"
     },
     {
         id: 7,
         name: "Anna Sergey",
         role: "Lead Designer",
         quote: "I found my creative voice through the specialized tracks. The community feedback loop is invaluable for rapid growth.",
-        gradient: "linear-gradient(135deg, #0028A1, #5449CC)"
+        gradient: "linear-gradient(135deg, #5e0c5e, #20ecff)"
     },
     {
         id: 8,
         name: "Robert Fox",
         role: "Investment Analyst",
         quote: "The financial modeling modules are world-class. Better than what I learned during my MBA.",
-        gradient: "linear-gradient(135deg, #011C77, #0095D7)"
+        gradient: "linear-gradient(135deg, #fb01ff, #5e0c5e)"
     }
 ];
 
@@ -174,7 +174,15 @@ const Testimonials = () => {
     return (
         <section 
             ref={sectionRef} 
-            className="relative w-screen h-screen overflow-hidden bg-[#020E3A]"
+            className="relative w-screen h-screen overflow-hidden"
+            style={{
+                background: `
+                    radial-gradient(ellipse 80% 50% at 15% 40%, rgba(3, 14, 59, 0.9) 0%, transparent 60%),
+                    radial-gradient(ellipse 60% 60% at 80% 70%, rgba(94, 12, 94, 0.55) 0%, transparent 55%),
+                    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(251, 1, 255, 0.12) 0%, transparent 60%),
+                    linear-gradient(170deg, #030E3B 0%, #07093a 18%, #0d0630 38%, #100624 58%, #16052e 75%, #1e0538 90%, #250640 100%)
+                `
+            }}
         >
             <style jsx global>{`
                 .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -182,15 +190,51 @@ const Testimonials = () => {
             `}</style>
             
             <div ref={containerRef} className="relative h-full w-full">
-                
+
+                {/* Dot grid pattern */}
+                <div
+                    className="absolute inset-0 z-0 pointer-events-none"
+                    aria-hidden
+                    style={{
+                        backgroundImage: 'radial-gradient(circle, rgba(32, 236, 255, 0.18) 1px, transparent 1px)',
+                        backgroundSize: '28px 28px',
+                        maskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 30%, transparent 100%)',
+                        WebkitMaskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 30%, transparent 100%)',
+                    }}
+                />
+
+                {/* Celestial nebula glow layers */}
+                <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
+                    {/* Top-left blue nebula */}
+                    <div style={{
+                        position: 'absolute', top: '-10%', left: '-5%',
+                        width: '55%', height: '70%',
+                        background: 'radial-gradient(ellipse, rgba(32, 100, 255, 0.18) 0%, rgba(3, 14, 59, 0.08) 50%, transparent 75%)',
+                        filter: 'blur(40px)',
+                    }} />
+                    {/* Bottom-right purple nebula */}
+                    <div style={{
+                        position: 'absolute', bottom: '-5%', right: '5%',
+                        width: '60%', height: '65%',
+                        background: 'radial-gradient(ellipse, rgba(47, 16, 47, 0.08) 0%, rgba(251, 1, 255, 0.04) 40%, transparent 70%)',
+                        filter: 'blur(1500px)',
+                    }} />
+                    {/* Centre soft transition band */}
+                    <div style={{
+                        position: 'absolute', top: '30%', left: '20%',
+                        width: '60%', height: '50%',
+                        background: 'radial-gradient(ellipse, rgba(32, 236, 255, 0.04) 0%, rgba(94, 12, 94, 0.06) 50%, transparent 80%)',
+                        filter: 'blur(60px)',
+                    }} />
+                </div>
 
                 {/* Background Word Layer */}
                 <div 
                     ref={wordRef}
                     className={`${playfair.className} absolute top-1/2 left-0 -translate-y-1/2 text-[45vh] md:text-[60vh] leading-none font-black text-white/5 whitespace-nowrap z-0 pointer-events-none select-none will-change-transform`}
                      style={{
-                         color: 'rgba(1, 197, 193, 0.06)',
-                         textShadow: '0 0 60px rgba(1, 197, 193, 0.03)'
+                         color: 'rgba(32, 236, 255, 0.06)',
+                         textShadow: '0 0 60px rgba(251, 1, 255, 0.03)'
                     }}
                 >
                     TESTIMONIALS
@@ -212,10 +256,10 @@ const Testimonials = () => {
                             className={`
                                 flex-shrink-0 w-[340px] h-[240px] 
                                 rounded-3xl p-8
-                                bg-[#011C77]/30 backdrop-blur-md border border-[#01C5C1]/10
+                                bg-[#5e0c5e]/20 backdrop-blur-md border border-[#20ecff]/10
                                 shadow-[0_25px_80px_rgba(0,0,0,0.5)] 
                                 flex flex-col justify-between
-                                relative group hover:bg-[#01C5C1]/10 hover:border-[#01C5C1]/20 transition-colors duration-500
+                                relative group hover:bg-[#fb01ff]/10 hover:border-[#20ecff]/20 transition-colors duration-500
                                 ${index % 2 === 0 ? '-translate-y-16' : 'translate-y-16'}
                             `}
                         >
@@ -225,7 +269,7 @@ const Testimonials = () => {
                                 </p>
                             </div>
 
-                            <div className="flex items-center gap-3 mt-4 border-t border-[#01C5C1]/15 pt-4">
+                            <div className="flex items-center gap-3 mt-4 border-t border-[#20ecff]/15 pt-4">
                                 <div 
                                     className="w-10 h-10 rounded-full shadow-lg flex-shrink-0"
                                     style={{ background: card.gradient }}

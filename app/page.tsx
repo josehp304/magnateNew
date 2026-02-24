@@ -113,9 +113,9 @@ export default function Home() {
       </section>
 
       {/* Kept other sections */}
-      <div id="who-we-are">
+      {/* <div id="who-we-are">
         <WhoWeAre />
-      </div>
+      </div> */}
       <div id="about">
         <About />
       </div>

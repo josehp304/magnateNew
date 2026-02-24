@@ -72,9 +72,9 @@ const Footer = () => {
             <ul className="space-y-4 font-[family-name:var(--font-inter)]">
               {[
                 { name: 'AI Automation',                        href: '/courses/ai-automation' },
-                { name: 'Data Analytics + AI + Agentic AI',    href: '/courses/data-analytics' },
-                { name: 'Data Science + AI / ML + Gen AI',     href: '/courses/data-analytics' },
-                { name: 'AI Automation + Agentic AI',          href: '/courses/ai-automation' },
+                { name: 'Data Analytics',    href: '/courses/data-analytics' },
+                { name: 'Data Science ',     href: '/courses/data-analytics' },
+                { name: 'AI Automation ',          href: '/courses/ai-automation' },
                 { name: 'DevOps / Cloud Engineering',          href: '/courses' },
                 { name: '3D Digital Marketing',                href: '/courses/digital-marketing' },
                 { name: 'Full Stack Development',              href: '/courses/full-stack' },

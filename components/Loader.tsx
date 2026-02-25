@@ -116,9 +116,9 @@ export default function Loader({ onComplete }: LoaderProps) {
 
       <div ref={contentRef} className="relative z-10 flex flex-col items-center justify-center gap-8">
         {/* Logo */}
-        <div className="relative w-28 md:w-36 aspect-square drop-shadow-[0_0_25px_rgba(255,255,255,0.1)]">
+        <div className="relative w-126 md:w-200 aspect-[3/1] drop-shadow-[0_0_25px_rgba(255,255,255,0.1)]">
           <Image
-            src="/logo.svg"
+            src="/3D Logo - White Font (1) (1).png"
             alt="Magnate Logo"
             fill
             className="object-contain"
@@ -126,13 +126,13 @@ export default function Loader({ onComplete }: LoaderProps) {
           />
         </div>
 
-        {/* Brand Name */}
-        <h1 
+        {/* Brand Name — commented out: the 3D logo already includes the title */}
+        {/* <h1 
             ref={textRef}
             className="inter-magnate text-white text-sm md:text-base font-medium uppercase tracking-[0.25em] text-center opacity-0"
         >
             Magnate Academy
-        </h1>
+        </h1> */}
       </div>
     </div>
   );

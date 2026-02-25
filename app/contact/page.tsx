@@ -115,7 +115,7 @@ const ContactPage = () => {
         <div className="contact" ref={contactRef}>
             <div className="contact-map-wrapper">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.451234567!2d76.3272!3d9.9956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTknNDQuMCJOIDc2wrAxOSczOC4wIkU!5e0!3m2!1sen!2sin!4v1234567890"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7858.108076358495!2d76.3278995!3d10.0123953!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d510a5ad137%3A0xcaf2ecb4d0caf6e0!2sMagnate%20Academy!5e0!3m2!1sen!2sin!4v1771957814244!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0, filter: "grayscale(100%) invert(90%)" }}

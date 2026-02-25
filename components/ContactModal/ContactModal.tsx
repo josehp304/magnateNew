@@ -1,19 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { useToast } from "@/components/ui/use-toast"
+import { User, Mail, Phone, MessageSquare } from "lucide-react"
 
 interface ContactModalProps {
     isOpen: boolean
@@ -40,10 +30,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsLoading(true)
-
-        // Simulate API call
         await new Promise((resolve) => setTimeout(resolve, 1000))
-
         setIsLoading(false)
         onClose()
         toast({
@@ -55,75 +42,84 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-[425px] bg-[#0A1E5C] text-white border-[#01C5C1]/15 shadow-2xl shadow-[#011C77]/50">
-                <DialogHeader>
-                    <DialogTitle>Contact Us</DialogTitle>
-                    <DialogDescription>
-                        Enter your details below and we&apos;ll get back to you shortly.
-                    </DialogDescription>
-                </DialogHeader>
-                <form onSubmit={handleSubmit}>
-                    <div className="grid gap-4 py-4">
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right">
-                                Name
-                            </Label>
-                            <Input
+            <DialogContent className="sm:max-w-[500px] bg-white text-slate-900 border-0 shadow-2xl rounded-2xl p-0 overflow-hidden">
+                <div className="px-8 py-8">
+                    {/* Header */}
+                    <div className="mb-6">
+                        <h2 className="text-2xl font-bold text-slate-900 mb-1">Contact Us</h2>
+                        <p className="text-sm text-slate-500">Enter your details below and we&apos;ll get back to you shortly.</p>
+                    </div>
+
+                    {/* Form */}
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        {/* Full Name */}
+                        <div className="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus-within:border-blue-400 transition-colors">
+                            <User size={18} className="text-slate-400 shrink-0" />
+                            <input
                                 id="name"
                                 name="name"
+                                type="text"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="col-span-3"
+                                placeholder="Full Name"
                                 required
+                                className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
                             />
                         </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="email" className="text-right">
-                                Email
-                            </Label>
-                            <Input
+
+                        {/* Email Address */}
+                        <div className="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus-within:border-blue-400 transition-colors">
+                            <Mail size={18} className="text-slate-400 shrink-0" />
+                            <input
                                 id="email"
                                 name="email"
                                 type="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="col-span-3"
+                                placeholder="Email Address"
                                 required
+                                className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
                             />
                         </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="phone" className="text-right">
-                                Phone
-                            </Label>
-                            <Input
+
+                        {/* Phone Number */}
+                        <div className="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus-within:border-blue-400 transition-colors">
+                            <Phone size={18} className="text-slate-400 shrink-0" />
+                            <input
                                 id="phone"
                                 name="phone"
                                 type="tel"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                className="col-span-3"
+                                placeholder="Phone Number"
+                                className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
                             />
                         </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="message" className="text-right">
-                                Message
-                            </Label>
-                            <Textarea
+
+                        {/* Message */}
+                        <div className="flex gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus-within:border-blue-400 transition-colors">
+                            <MessageSquare size={18} className="text-slate-400 shrink-0 mt-0.5" />
+                            <textarea
                                 id="message"
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                className="col-span-3"
+                                placeholder="How can we help you?"
                                 rows={4}
+                                className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none resize-none"
                             />
                         </div>
-                    </div>
-                    <DialogFooter>
-                        <Button type="submit" disabled={isLoading} className="bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white hover:from-[#03C5BD] hover:to-[#0069F9] border-0">
-                            {isLoading ? "Sending..." : "Submit"}
-                        </Button>
-                    </DialogFooter>
-                </form>
+
+                        {/* Submit Button */}
+                        <button
+                            type="submit"
+                            disabled={isLoading}
+                            className="w-full bg-[#1a9de8] hover:bg-[#1389d0] disabled:opacity-60 transition-colors text-white font-semibold text-sm rounded-xl py-3.5 mt-2"
+                        >
+                            {isLoading ? "Sending..." : "Send Message"}
+                        </button>
+                    </form>
+                </div>
             </DialogContent>
         </Dialog>
     )

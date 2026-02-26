@@ -39,16 +39,26 @@ const About = () => {
                         scrub: true,
                         anticipatePin: 1,
                     });
+
+                    // Fade out on scroll - matching mobile behavior
+                    gsap.to(leftColRef.current, {
+                        opacity: 0,
+                        scrollTrigger: {
+                            trigger: containerRef.current,
+                            start: "top top",
+                            end: "+=200",
+                            scrub: true,
+                        }
+                    });
                 },
                 // Mobile sizing - fade out left column on scroll
                 "(max-width: 768px)": function() {
                     gsap.to(leftColRef.current, {
                         opacity: 0,
-                        duration: 0.5,
                         scrollTrigger: {
                             trigger: containerRef.current,
-                            start: "top top",      // Start animating right when the top of About section hits the top viewport
-                            end: "+=200",          // Finish fading after 200px of scrolling
+                            start: "top top",
+                            end: "+=200",
                             scrub: true,
                         }
                     });

@@ -31,17 +31,15 @@ const Footer = () => {
 
           {/* Column 1 — Platform */}
           <div>
-            <h3 className="text-xs uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">Platform</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">Platform</h3>
             <ul className="space-y-4 font-[family-name:var(--font-inter)]">
               {[
                 { name: 'About Us',       href: '/aboutus' },
-                { name: 'Success Stories',href: '/work' },
-                { name: 'Studio',         href: '/studio' },
-                { name: 'Archive',        href: '/archive' },
+                { name: 'Success Stories',href: '/#testimonials' },
                 { name: 'Contact',        href: '/contact' },
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-base text-[#CDDBE8]/70 hover:text-[#01C5C1] transition-all duration-300 hover:translate-x-1 inline-block">
+                  <Link href={item.href} className="text-lg text-[#CDDBE8]/70 hover:text-[#01C5C1] transition-all duration-300 hover:translate-x-1 inline-block">
                     {item.name}
                   </Link>
                 </li>
@@ -51,14 +49,14 @@ const Footer = () => {
 
           {/* Column 2 — Commerce */}
           <div>
-            <h3 className="text-xs uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">Commerce</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">Commerce</h3>
             <ul className="space-y-4 font-[family-name:var(--font-inter)]">
               {[
                 { name: 'AI Augmented Finance', href: '/courses/ai-augmented-finance' },
                 { name: 'Diploma in Finance',   href: '/courses/finance' },
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-[#CDDBE8]/70 hover:text-[#01C5C1] transition-all duration-300 hover:translate-x-1 inline-block leading-snug">
+                  <Link href={item.href} className="text-base text-[#CDDBE8]/70 hover:text-[#01C5C1] transition-all duration-300 hover:translate-x-1 inline-block leading-snug">
                     {item.name}
                   </Link>
                 </li>
@@ -68,7 +66,7 @@ const Footer = () => {
 
           {/* Column 3 — IT */}
           <div>
-            <h3 className="text-xs uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">IT</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">IT</h3>
             <ul className="space-y-4 font-[family-name:var(--font-inter)]">
               {[
                 { name: 'AI Automation',                        href: '/courses/ai-automation' },
@@ -80,7 +78,7 @@ const Footer = () => {
                 { name: 'Full Stack Development',              href: '/courses/full-stack' },
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-[#CDDBE8]/70 hover:text-[#01C5C1] transition-all duration-300 hover:translate-x-1 inline-block leading-snug">
+                  <Link href={item.href} className="text-base text-[#CDDBE8]/70 hover:text-[#01C5C1] transition-all duration-300 hover:translate-x-1 inline-block leading-snug">
                     {item.name}
                   </Link>
                 </li>
@@ -90,7 +88,7 @@ const Footer = () => {
 
           {/* Column 4 — Language */}
           <div>
-            <h3 className="text-xs uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">Language</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">Language</h3>
             <ul className="space-y-4 font-[family-name:var(--font-inter)]">
               {[
                 { name: 'German', href: '/courses/german' },
@@ -98,7 +96,7 @@ const Footer = () => {
                 { name: 'PTE',    href: '/courses/ielts-pte' },
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-[#CDDBE8]/70 hover:text-[#01C5C1] transition-all duration-300 hover:translate-x-1 inline-block leading-snug">
+                  <Link href={item.href} className="text-base text-[#CDDBE8]/70 hover:text-[#01C5C1] transition-all duration-300 hover:translate-x-1 inline-block leading-snug">
                     {item.name}
                   </Link>
                 </li>
@@ -108,15 +106,10 @@ const Footer = () => {
 
           {/* Column 5 — Connect */}
           <div>
-            <h3 className="text-xs uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">Connect</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] opacity-50 mb-8 font-[family-name:var(--font-manrope)]">Connect</h3>
             <div className="space-y-6 font-[family-name:var(--font-inter)] text-[#CDDBE8]/70">
-              <p>
-                <a href="mailto:info@themagnateacademy.com" className="hover:text-[#01C5C1] transition-colors text-lg">
-                  info@themagnateacademy.com
-                </a>
-              </p>
-              <div className="flex flex-col md:flex-row gap-4 items-start">
-                <p className="leading-relaxed flex-1">
+              <div className="flex flex-col xl:flex-row gap-4 items-start">
+                <p className="leading-relaxed flex-1 text-base">
                   1st Floor, Thykoottathil Square, Civil Line Rd,<br />
                   opp. St. Joseph Church, Vazhakkala,<br />
                   Kochi, Kakkanad, Kerala 682030
@@ -133,8 +126,13 @@ const Footer = () => {
                 ></iframe>
               </div>
               <p>
-                 <a href="tel:+918111995577" className="hover:text-[#01C5C1] transition-colors">
+                 <a href="tel:+918111995577" className="hover:text-[#01C5C1] transition-colors text-lg">
                   +91 8111995577
+                </a>
+              </p>
+              <p>
+                <a href="mailto:info@themagnateacademy.com" className="hover:text-[#01C5C1] transition-colors text-lg">
+                  info@themagnateacademy.com
                 </a>
               </p>
             </div>

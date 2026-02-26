@@ -47,25 +47,25 @@ export default function Loader({ onComplete }: LoaderProps) {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 1.2,
+          duration: 1.0,
           ease: "power3.out",
         })
         .to(glowRef.current, {
           opacity: 0.6,
           scale: 1.2,
-          duration: 2,
+          duration: 1.5,
           ease: "power2.inOut",
-        }, "-=1.0")
+        }, "-=0.8")
         .to(textRef.current, {
           opacity: 0.9,
           y: 0,
           letterSpacing: "0.25em",
-          duration: 1.5,
+          duration: 1.2,
           ease: "power2.out",
-        }, "-=1.2")
+        }, "-=1.0")
         
         // 2. Pause for impact
-        .to({}, { duration: 0.5 }) 
+        .to({}, { duration: 0.3 }) 
 
         // 3. Exit Animation
         .to([contentRef.current, textRef.current], {
@@ -82,9 +82,9 @@ export default function Loader({ onComplete }: LoaderProps) {
         }, "<")
         .to(containerRef.current, {
             opacity: 0,
-            duration: 1,
+            duration: 0.8,
             ease: "power2.inOut",
-        }, "-=0.2");
+        }, "-=0.1");
 
     }, containerRef);
 

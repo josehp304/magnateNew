@@ -328,7 +328,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
             <div 
                 className={`nav-container transition-all duration-500 ease-out border-b ${
                     scrolled 
-                        ? "bg-[#020E3A]/80 backdrop-blur-md border-[#01C5C1]/10 shadow-[0_4px_30px_rgba(1,28,119,0.3)] !mix-blend-normal" 
+                        ? "bg-[#020E3A]/80 backdrop-blur-md border-[#01C5C1]/10 shadow-[0_4px_30px_rgba(1,28,119,0.3)]" 
                         : "bg-transparent border-transparent"
                 }`}
                 style={{ pointerEvents: scrolled ? "auto" : "none" }}
@@ -348,10 +348,10 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                             { path: "/#about", label: "About Us" },
                             { path: "/student-login", label: "Student Login" },
                         ].map((item) => (
-                            <div className="revealer" key={item.path}>
+                            <div className="relative w-max" key={item.path}>
                                 <a
                                     href={item.path}
-                                    className="relative text-white/80 hover:text-white text-sm font-[family-name:var(--font-inter)] font-semibold tracking-wide transition-all duration-300 ease-out py-1 group"
+                                    className={`relative text-white hover:text-white text-sm font-[family-name:var(--font-inter)] font-semibold tracking-wide transition-all duration-300 ease-out py-1 group ${!scrolled ? "mix-blend-difference" : ""}`}
                                     onClick={(e) => {
                                         e.preventDefault();
                                         navigateTo(item.path);
@@ -362,7 +362,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 </a>
                             </div>
                         ))}
-                        <div className="revealer">
+                        <div className="relative w-max">
                              <a
                                  href="/contact" 
                                  className="px-6 py-2.5 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white text-sm font-bold font-[family-name:var(--font-manrope)] rounded-full hover:from-[#03C5BD] hover:to-[#0069F9] transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-[#01C5C1]/20"
@@ -381,7 +381,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                     <div className="flex-1 flex justify-end lg:hidden pointer-events-auto">
                         <div className="nav-menu-toggle-open">
                             <div className="revealer" onClick={openMenu}>
-                                <p className="sm caps mono" ref={menuBtnRef}>
+                                <p className={`sm caps mono ${!scrolled ? "mix-blend-difference text-white" : ""}`} ref={menuBtnRef}>
                                     Menu
                                 </p>
                             </div>
@@ -392,11 +392,11 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
 
             </div>
             <div 
-                className={`nav-logo mix-blend-difference transition-all duration-500 ease-out z-[20001] fixed ${
-                    scrolled ? "!top-4 !left-4" : "!top-6 !left-6"
+                className={`nav-logo transition-all duration-500 ease-out z-[20001] fixed ${
+                    scrolled ? "!top-4 !left-4" : "!top-6 !left-6 mix-blend-difference"
                 }`}
             >
-                <div className="revealer">
+                <div className="relative w-max">
                     <a
                         href="/"
                         ref={navLogoRef}
@@ -454,7 +454,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 </a>
                             </div>
                         ))}
-                        <div className="revealer" style={{ marginTop: '2rem' }}>
+                        <div className="revealer" style={{ marginTop: '2rem', clipPath: 'polygon(-20% -50%, 120% -50%, 120% 150%, -20% 150%)' }}>
                              <a
                                  href="/contact"
                                  onClick={(e) => {

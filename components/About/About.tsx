@@ -27,15 +27,32 @@ const About = () => {
         () => {
             if (!containerRef.current || !leftColRef.current || !rightColRef.current) return;
 
-            // 1. Pinning the left column
-            ScrollTrigger.create({
-                trigger: containerRef.current,
-                start: "top top",
-                end: "bottom bottom",
-                pin: leftColRef.current,
-                pinSpacing: false,
-                scrub: true,
-                anticipatePin: 1,
+            ScrollTrigger.matchMedia({
+                // Desktop sizing - standard pinning
+                "(min-width: 769px)": function() {
+                    ScrollTrigger.create({
+                        trigger: containerRef.current,
+                        start: "top top",
+                        end: "bottom bottom",
+                        pin: leftColRef.current,
+                        pinSpacing: false,
+                        scrub: true,
+                        anticipatePin: 1,
+                    });
+                },
+                // Mobile sizing - fade out left column on scroll
+                "(max-width: 768px)": function() {
+                    gsap.to(leftColRef.current, {
+                        opacity: 0,
+                        duration: 0.5,
+                        scrollTrigger: {
+                            trigger: containerRef.current,
+                            start: "top top",      // Start animating right when the top of About section hits the top viewport
+                            end: "+=200",          // Finish fading after 200px of scrolling
+                            scrub: true,
+                        }
+                    });
+                }
             });
 
             // 2. Heading Reveal - Staggered lines
@@ -128,7 +145,7 @@ const About = () => {
                 >
                     <div className="flex items-center gap-4 ">
                         <span className="w-12 h-[1px] bg-[#01C5C1]/30 hidden md:block"></span>
-                        <p className="text-3xl md:text-[32px] font-medium tracking-[0.2em] uppercase text-[#01C5C1]/60 font-[family-name:var(--font-manrope)]">
+                        <p className="text-3xl md:text-7xl lg:text-[60px] font-medium tracking-[0.1em] uppercase text-[#01C5C1]/60 font-[family-name:var(--font-manrope)] whitespace-nowrap leading-none">
                             Who We Are
                         </p>
                     </div>

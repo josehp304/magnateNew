@@ -68,18 +68,18 @@ const Preloader: React.FC<PreloaderProps> = ({
                     
                     {/* Main Title */}
                     <h1 className="hero-title flex flex-col items-center justify-center font-bold text-white tracking-tighter leading-[0.95] md:leading-[1] mb-8 md:mb-12 w-full text-center">
-                        <div className="line overflow-hidden">
-                            <span className="line-inner block text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] tracking-tight">
+                        <div className="line overflow-hidden pb-1">
+                            <span className="line-inner block pb-2 md:pb-3 text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] tracking-tight">
                                 India&apos;s Top
                             </span>
                         </div>
-                        <div className="line overflow-hidden">
-                            <span className="line-inner block text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] text-white/90 tracking-tight">
+                        <div className="line overflow-hidden pb-1">
+                            <span className="line-inner block pb-2 md:pb-3 text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] text-white/90 tracking-tight">
                                 Career-Focused
                             </span>
                         </div>
-                        <div className="line">
-                            <span className="line-inner block text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] text-transparent bg-clip-text bg-gradient-to-r from-[#01C5C1] via-[#6BE9E6] to-[#4D99FB] tracking-tight">
+                        <div className="line pb-1">
+                            <span className="line-inner block pb-2 md:pb-3 text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] text-transparent bg-clip-text bg-gradient-to-r from-[#01C5C1] via-[#6BE9E6] to-[#4D99FB] tracking-tight">
                                 Learning Platform.
                             </span>
                         </div>

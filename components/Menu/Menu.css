@@ -1,205 +1,199 @@
 .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100svh;
-    pointer-events: none;
-    z-index: 10000;
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  pointer-events: none;
+  z-index: 10000;
 }
 
 .menu a,
 .menu p {
-    position: relative;
-    color: var(--foreground);
-    display: block;
-    text-decoration: none;
-    line-height: 1;
-    will-change: transform;
-    -webkit-font-smoothing: antialiased;
+  position: relative;
+  color: var(--foreground);
+  display: block;
+  text-decoration: none;
+  line-height: 1;
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
 }
 
 .nav-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    z-index: 20000;
-    mix-blend-mode: difference;
-    pointer-events: none;
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 20000;
+  pointer-events: none;
 }
 
 .nav {
-    pointer-events: all;
-    position: relative;
-    width: 100%;
-    padding: 1.5rem;
-    display: flex;
-    gap: 1.5rem;
-    justify-content: space-between;
+  pointer-events: all;
+  position: relative;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
 }
 
 .nav a,
 .nav p {
-    position: relative;
-    color: var(--foreground);
-    display: block;
-    text-decoration: none;
-    line-height: 1;
-    will-change: transform;
-    -webkit-font-smoothing: antialiased;
+  position: relative;
+  color: var(--foreground);
+  display: block;
+  text-decoration: none;
+  line-height: 1;
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
 }
 
 .nav-logo {
-    flex: 2;
-    position: fixed;
+  flex: 2;
+  position: fixed;
 
-    top: 1.5rem;
-    left: 1.5rem;
-    z-index: 20001;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 20001;
 }
 
 .dummy {
-    width: 10rem;
+  width: 10rem;
 }
 
 /* Removed .nav-items to use Tailwind classes instead */
 
-
-
 .nav-menu-toggle-open,
 .nav-menu-demo {
-    flex: 1;
+  flex: 1;
 }
 
 .nav-menu-demo {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .nav-menu-toggle-open {
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    height: max-content;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  height: max-content;
 }
 
 .nav-menu-toggle-open .revealer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 img.logo-img {
-    width: 2rem;
-    /* mix-blend-mode: normal; */
+  width: 2rem;
+  /* mix-blend-mode: normal; */
 }
 
 .menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100svh;
-    overflow: hidden;
-    background-color: var(--background-200);
-    will-change: opacity;
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  /* overflow: hidden; */
+  background-color: var(--background-200);
+  will-change: opacity;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
 }
 
 .menu-overlay-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem;
-    display: flex;
-    gap: 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .menu-overlay-nav-toggle-close {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    height: max-content;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  height: max-content;
 }
 
 .menu-overlay-nav-toggle-close .revealer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .menu-overlay a,
 .menu-overlay p {
-    color: var(--foreground);
+  color: var(--foreground);
 }
 
 .menu-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 1.5rem;
-    display: flex;
-    align-items: flex-end;
-    gap: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
 }
 
 .menu-footer-col:nth-child(1) {
-    flex: 2;
+  flex: 2;
 }
 
 .menu-footer-col:nth-child(2) {
-    flex: 1;
+  flex: 1;
 }
 
 .socials {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1em;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
 }
 
 .menu-overlay-items {
-    width: 75%;
-    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-    gap: 0rem 1rem;
-    align-items: flex-start;
-    margin-top: 10vh;
+  width: 75%;
+  padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  gap: 0rem 1rem;
+  align-items: flex-start;
+  margin-top: 10vh;
 }
 
 .menu-overlay-items .revealer {
-    flex: 0 0 auto;
-    min-width: max-content;
+  flex: 0 0 auto;
+  min-width: max-content;
 }
 
 .revealer {
-    position: relative;
-    width: max-content;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-
+  position: relative;
+  width: max-content;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .menu-overlay-items h1 {
-    font-size: 5rem;
-    font-weight: 400;
-    margin: 0;
-    line-height: 1.1;
-    text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .menu-overlay-items div:last-child {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .menu-overlay-items div:last-child h1 {
-    font-size: 1rem;
-    border-radius: 50px;
-    padding: 10px;
-    border: solid white 1px
+  font-size: 1rem;
+  border-radius: 50px;
+  padding: 10px;
+  border: solid white 1px;
 }
 
 /* .free-demo-menu h1 {
@@ -212,24 +206,23 @@ img.logo-img {
 } */
 
 @media (max-width: 1000px) {
+  .nav-menu-time,
+  .nav-menu-demo {
+    display: none;
+  }
 
-    .nav-menu-time,
-    .nav-menu-demo {
-        display: none;
-    }
+  .menu-overlay-items {
+    flex-direction: column;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+  }
 
-    .menu-overlay-items {
-        flex-direction: column;
-        padding: 1rem 1.5rem 1.5rem 1.5rem;
-    }
+  .menu-overlay-items h1 {
+    font-size: 3rem;
+  }
 
-    .menu-overlay-items h1 {
-        font-size: 3rem;
-    }
-
-    .socials {
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 0.5rem;
-    }
+  .socials {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
 }

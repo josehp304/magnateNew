@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-4">
           
           {/* Column 1 — Platform */}
-          <div className="flex-1 min-w-[150px]">
+          <div className="flex-auto lg:flex-[0.7] min-w-[100px]">
             <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Platform</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
@@ -39,7 +39,7 @@ const Footer = () => {
           <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
 
           {/* Column 2 — Commerce */}
-          <div className="flex-1 min-w-[180px]">
+          <div className="flex-auto lg:flex-[0.9] min-w-[140px]">
             <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Commerce</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
@@ -58,7 +58,7 @@ const Footer = () => {
           <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
 
           {/* Column 3 — IT */}
-          <div className="flex-1 min-w-[200px]">
+          <div className="flex-auto lg:flex-[1] min-w-[160px]">
             <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">IT</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
@@ -82,7 +82,7 @@ const Footer = () => {
           <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
 
           {/* Column 4 — Language */}
-          <div className="flex-1 min-w-[100px]">
+          <div className="flex-auto lg:flex-[0.6] min-w-[80px]">
             <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Language</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
@@ -102,7 +102,7 @@ const Footer = () => {
           <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
 
           {/* Column 5 — Connect */}
-          <div className="flex-[1.5] min-w-[280px]">
+          <div className="flex-auto lg:flex-[2.5] min-w-[320px]">
             <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Connect</h3>
             <div className="space-y-6 text-base opacity-70">
               <a href="mailto:info@themagnateacademy.com" className="block hover:text-white transition-colors">
@@ -115,7 +115,7 @@ const Footer = () => {
                   opp. St. Joseph Church, Vazhakkala,<br />
                   Kochi, Kakkanad, Kerala 682030
                 </p>
-                <div className="relative w-48 h-32 rounded-xl overflow-hidden shadow-2xl group border border-white/10">
+                <div className="relative w-32 sm:w-48 h-28 sm:h-32 rounded-xl overflow-hidden shadow-2xl group border border-white/10 shrink-0">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.451!2d76.3272!3d9.9956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTknNDQuMCJOIDc2wrAxOSczOC4wIkU!5e0!3m2!1sen!2sin!4v1234567890"
                     width="100%"

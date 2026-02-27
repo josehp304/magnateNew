@@ -36,7 +36,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="hidden lg:block w-px h-32 bg-white/20 self-center mx-4"></div>
+          <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
 
           {/* Column 2 — Commerce */}
           <div className="flex-1 min-w-[180px]">
@@ -55,7 +55,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="hidden lg:block w-px h-32 bg-white/20 self-center mx-4"></div>
+          <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
 
           {/* Column 3 — IT */}
           <div className="flex-1 min-w-[200px]">
@@ -79,10 +79,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="hidden lg:block w-px h-32 bg-white/20 self-center mx-4"></div>
+          <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
 
           {/* Column 4 — Language */}
-          <div className="flex-1 min-w-[150px]">
+          <div className="flex-1 min-w-[100px]">
             <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Language</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
@@ -99,7 +99,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="hidden lg:block w-px h-32 bg-white/20 self-center mx-4"></div>
+          <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
 
           {/* Column 5 — Connect */}
           <div className="flex-[1.5] min-w-[280px]">

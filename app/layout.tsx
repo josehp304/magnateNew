@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ViewTransitions } from "next-view-transitions";
-import { Inter, Manrope, Montserrat } from "next/font/google";
+import { Inter, Manrope, Montserrat, Philosopher } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
 import "./globals.css";
 import "./storage-polyfill";
@@ -23,6 +23,13 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+const philosopher = Philosopher({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-philosopher",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Magnate",
   description: "India's Top Career-Focused Learning Platform",
@@ -37,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased ${inter.variable} ${manrope.variable} ${montserrat.variable}`}
+        className={`antialiased ${inter.variable} ${manrope.variable} ${montserrat.variable} ${philosopher.variable}`}
         suppressHydrationWarning
       >
         <ViewTransitions>

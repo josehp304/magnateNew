@@ -417,7 +417,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                  priority
                              />
                          </div>
-                        <span className="text-xl md:text-2xl font-extrabold tracking-widest text-white uppercase font-[family-name:var(--font-manrope)] leading-none">
+                        <span className="text-xl md:text-2xl font-extrabold tracking-widest text-white uppercase philosopher-bold leading-none">
                             Magnate
                         </span>
                     </a>

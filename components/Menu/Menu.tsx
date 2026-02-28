@@ -412,9 +412,15 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                         className="flex items-center gap-3 no-underline group"
                         onClick={(e) => {
                             e.preventDefault();
-                            router.push("/", {
-                                onTransitionReady: slideInOut,
-                            });
+                            if (typeof window !== "undefined" && window.location.pathname === "/") {
+                                closeMenu();
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            } else {
+                                closeMenu();
+                                router.push("/", {
+                                    onTransitionReady: slideInOut,
+                                });
+                            }
                         }}
                     >
                          <div className="relative w-10 h-10 md:w-14 md:h-14 transition-transform duration-300 group-hover:scale-105">

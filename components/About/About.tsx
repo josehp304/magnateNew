@@ -27,41 +27,14 @@ const About = () => {
         () => {
             if (!containerRef.current || !leftColRef.current || !rightColRef.current) return;
 
-            ScrollTrigger.matchMedia({
-                // Desktop sizing - standard pinning
-                "(min-width: 769px)": function() {
-                    ScrollTrigger.create({
-                        trigger: containerRef.current,
-                        start: "top top",
-                        end: "bottom bottom",
-                        pin: leftColRef.current,
-                        pinSpacing: false,
-                        scrub: true,
-                        anticipatePin: 1,
-                    });
-
-                    // Fade out on scroll - matching mobile behavior
-                    gsap.to(leftColRef.current, {
-                        opacity: 0,
-                        scrollTrigger: {
-                            trigger: containerRef.current,
-                            start: "top top",
-                            end: "+=200",
-                            scrub: true,
-                        }
-                    });
-                },
-                // Mobile sizing - fade out left column on scroll
-                "(max-width: 768px)": function() {
-                    gsap.to(leftColRef.current, {
-                        opacity: 0,
-                        scrollTrigger: {
-                            trigger: containerRef.current,
-                            start: "top top",
-                            end: "+=200",
-                            scrub: true,
-                        }
-                    });
+            // Fade out left column on scroll (matches mobile behavior across all viewports)
+            gsap.to(leftColRef.current, {
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "+=200",
+                    scrub: true,
                 }
             });
 
@@ -148,10 +121,10 @@ const About = () => {
             </motion.div>
 
             <div className="max-w-[1600px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 relative z-10">
-                {/* Left Column - Sticky Label */}
+                {/* Left Column - Label */}
                 <div 
                     ref={leftColRef} 
-                    className="md:col-span-3 h-fit md:h-screen md:sticky md:top-32 flex flex-col justify-start pt-4"
+                    className="md:col-span-3 h-fit flex flex-col justify-start pt-4"
                 >
                     <div className="flex items-center gap-4 ">
                         <span className="w-12 h-[1px] bg-[#01C5C1]/30 hidden md:block"></span>

@@ -2,17 +2,16 @@
 
 import React, { useRef } from 'react';
 import Image from "next/image";
+import Link from "next/link";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from './Preloader.module.css';
 
 interface PreloaderProps {
     onComplete?: () => void;
-    onEnrollClick?: () => void;
 }
 
 const Preloader: React.FC<PreloaderProps> = ({
-    onEnrollClick
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -88,20 +87,20 @@ const Preloader: React.FC<PreloaderProps> = ({
                     {/* Supporting Text */}
                     <div className="hero-desc flex flex-col items-center justify-center gap-4 mb-10 md:mb-12 max-w-2xl mx-auto">
                          <p className="text-base md:text-xl text-[#CDDBE8]/90 font-[family-name:var(--font-manrope)] leading-relaxed font-light tracking-wide">
-                            Think Bigger. Move Smarter. Become a Magnate.
+                            Refined. Recognised. Reinvention.
                         </p>
                     </div>
 
                     {/* CTA Button */}
                     <div className="hero-cta">
-                        <button
-                            onClick={onEnrollClick}
+                        <Link
+                            href="/contact"
                             className="group relative inline-flex items-center justify-center px-8 py-4 md:px-6 md:py-3 overflow-hidden font-medium transition-all duration-300 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white rounded-full hover:from-[#03C5BD] hover:to-[#0069F9] hover:scale-105 hover:shadow-[0_0_50px_-10px_rgba(1,197,193,0.5)]"
                         >
                             <span className="relative z-10 montserrat-magnate tracking-widest uppercase text-sm md:text-base">
                                 Enroll to become a magnate
                             </span>
-                        </button>
+                        </Link>
                     </div>
 
                 </div>

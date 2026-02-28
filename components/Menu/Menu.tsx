@@ -46,6 +46,14 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
     }, []);
 
     useEffect(() => {
+        return () => {
+            if (typeof document !== "undefined") {
+                document.body.style.overflow = "";
+            }
+        };
+    }, []);
+
+    useEffect(() => {
         if (typeof window !== "undefined") {
             setCurrentPath(window.location.pathname);
         }
@@ -183,6 +191,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
         if (isAnimating || !menuBtnRef.current || !menuOverlayRef.current || !navRef.current) return;
 
         onMenuStateChange?.(true);
+        document.body.style.overflow = "hidden";
 
         setIsAnimating(true);
         const tl = gsap.timeline({
@@ -250,6 +259,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
         if (isAnimating || !menuOverlayRef.current) return;
 
         onMenuStateChange?.(false);
+        document.body.style.overflow = "";
 
         setIsAnimating(true);
         const tl = gsap.timeline({
@@ -342,11 +352,10 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                     {/* Desktop Navigation */}
                     <div className="flex-1 hidden lg:flex justify-end items-center gap-10 pointer-events-auto">
                         {[
-                            { path: "/", label: "Home" },
                             { path: "/#course-dial", label: "Courses" },
-                            { path: "/#testimonials", label: "Testimonials" },
                             { path: "/#about", label: "About Us" },
-                            { path: "/student-login", label: "Student Login" },
+                            { path: "/#testimonials", label: "Testimonials" },
+                            { path: "/#student-life", label: "Student life" },
                         ].map((item) => (
                             <div className="relative w-max" key={item.path}>
                                 <a
@@ -436,11 +445,10 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                     </div>
                     <div className="menu-overlay-items" ref={menuItemsRef}>
                         {[
-                            { path: "/", label: "Home" },
                             { path: "/#course-dial", label: "Courses" },
-                            { path: "/#testimonials", label: "Testimonials" },
                             { path: "/#about", label: "About Us" },
-                            { path: "/student-login", label: "Student Login" },
+                            { path: "/#testimonials", label: "Testimonials" },
+                            { path: "/#student-life", label: "Student life" },
                         ].map((item) => (
                             <div className="revealer" key={item.path}>
                                 <a
@@ -479,7 +487,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 <div className="revealer">
                                     <a
                                         className="sm caps mono"
-                                        href="https://www.youtube.com/@codegrid"
+                                        href="https://www.youtube.com/@The_Magnates_Academy"
                                     >
                                         YouTube
                                     </a>
@@ -487,14 +495,14 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 <div className="revealer">
                                     <a
                                         className="sm caps mono"
-                                        href="https://www.instagram.com/codegridweb/"
+                                        href="https://www.instagram.com/magnate.academy/"
                                     >
                                         Instagram
                                     </a>
                                 </div>
                                 <div className="revealer">
-                                    <a className="sm caps mono" href="https://x.com/codegridweb">
-                                        X
+                                    <a className="sm caps mono" href="https://www.linkedin.com/company/magnateacademy/?originalSubdomain=in">
+                                        LinkedIn
                                     </a>
                                 </div>
                             </div>

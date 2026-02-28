@@ -63,7 +63,7 @@ export default function Home() {
 
   return (
     <>
-      <Preloader onEnrollClick={() => setContactModalOpen(true)} />
+      <Preloader />
 
       {/* Existing content below */}
       <section className="hero" style={{ height: 'auto', minHeight: '100vh', display: 'none' }}>

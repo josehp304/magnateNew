@@ -112,7 +112,7 @@ const Footer = () => {
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                  <p className="leading-relaxed flex-1">
                   1st Floor, Thykoottathil Square, Civil Line Rd,<br />
-                  opp. St. Joseph Church, Vazhakkala,<br />
+                  Opp. St. Joseph Church, Vazhakkala,<br />
                   Kochi, Kakkanad, Kerala 682030
                 </p>
                 <div className="relative w-32 sm:w-48 h-28 sm:h-32 rounded-xl overflow-hidden shadow-2xl group border border-white/10 shrink-0">

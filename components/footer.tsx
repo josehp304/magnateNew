@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GraduationCap, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { GraduationCap, Youtube, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -43,10 +43,9 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Connect</h3>
                         <div className="flex gap-4">
-                            <Link href="#" className="hover:text-white transition-colors"><Facebook size={20} /></Link>
-                            <Link href="#" className="hover:text-white transition-colors"><Twitter size={20} /></Link>
-                            <Link href="#" className="hover:text-white transition-colors"><Instagram size={20} /></Link>
-                            <Link href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></Link>
+                            <Link href="https://www.youtube.com/@The_Magnates_Academy" className="hover:text-white transition-colors"><Youtube size={20} /></Link>
+                            <Link href="https://www.instagram.com/magnate.academy/" className="hover:text-white transition-colors"><Instagram size={20} /></Link>
+                            <Link href="https://www.linkedin.com/company/magnateacademy/?originalSubdomain=in" className="hover:text-white transition-colors"><Linkedin size={20} /></Link>
                         </div>
                     </div>
                 </div>

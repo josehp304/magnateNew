@@ -62,7 +62,9 @@ export default function CourseDial({ items }: CourseDialProps) {
             });
         };
 
-        const totalScrollDistance = items.length * 1000;
+        const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+        const distancePerItem = isMobile ? 300 : 1000;
+        const totalScrollDistance = items.length * distancePerItem;
 
         const tl = gsap.timeline({
             scrollTrigger: {

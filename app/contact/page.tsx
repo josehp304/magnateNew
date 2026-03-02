@@ -175,15 +175,19 @@ const ContactPage = () => {
                     <Copy delay={1.3}>
                         <div className="form-group">
                             <label>Select Course</label>
-                            <select name="course" title="Select Course" value={formData.course} onChange={handleChange}>
+                            <select name="course" title="Select Course" value={formData.course} onChange={handleChange} required>
+                                <option value="" disabled>Select a course</option>
+                                <option value="Diploma in Finance">Diploma in Finance</option>
                                 <option value="AI Augmented Finance">AI Augmented Finance</option>
-                                <option value="AI Automation & Agents">AI Automation &amp; Agents</option>
-                                <option value="Data Analytics">Data Analytics (ML &amp; AI)</option>
-                                <option value="Digital Marketing">3D Digital Marketing</option>
-                                <option value="Finance & Investment Banking">Finance &amp; </option>
-                                <option value="Full Stack Development">Full Stack Development</option>
-                                <option value="German Language">German Language</option>
+                                <option value="German">German</option>
                                 <option value="IELTS & PTE">IELTS &amp; PTE</option>
+                                <option value="Ai Automation">Ai Automation</option>
+                                <option value="Data Analytics + Ai + Agentic Ai">Data Analytics + Ai + Agentic Ai</option>
+                                <option value="Data Science + Ai / Ml + Gen Ai">Data Science + Ai / Ml + Gen Ai</option>
+                                <option value="Ai Automation + Agentic Ai">Ai Automation + Agentic Ai</option>
+                                <option value="Devops Engineering / Cloud Engineering">Devops Engineering / Cloud Engineering</option>
+                                <option value="3d Digital Marketing">3d Digital Marketing</option>
+                                <option value="Full Stack Development">Full Stack Development</option>
                             </select>
                         </div>
                     </Copy>

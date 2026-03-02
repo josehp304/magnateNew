@@ -78,7 +78,7 @@ const Preloader: React.FC<PreloaderProps> = ({
                             </span>
                         </div>
                         <div className="line pb-1">
-                            <span className="line-inner block pb-2 md:pb-3 text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] text-transparent bg-clip-text bg-gradient-to-r from-[#01C5C1] via-[#6BE9E6] to-[#4D99FB] tracking-tight">
+                            <span className="line-inner block pb-2 md:pb-3 text-[13vw] md:text-[8vw] lg:text-[7vw] font-[family-name:var(--font-inter)] text-transparent bg-clip-text bg-gradient-to-r from-[#00DED9] via-[#8FF8F5] to-[#5EA8FF] tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
                                 Learning Platform.
                             </span>
                         </div>

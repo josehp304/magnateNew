@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin, Instagram, Twitter } from "lucide-react";
+import { Linkedin, Instagram, Twitter, Phone, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Footer = () => {
@@ -18,13 +18,11 @@ const Footer = () => {
           
           {/* Column 1 — Platform */}
           <div className="flex-auto lg:flex-[0.7] min-w-[100px]">
-            <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Platform</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Platform</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
                 { name: 'About Us',       href: '/aboutus' },
                 { name: 'Success Stories',href: '/#testimonials' },
-                { name: 'Studio',        href: '/studio' },
-                { name: 'Archive',       href: '/archive' },
                 { name: 'Contact',       href: '/contact' },
               ].map((item) => (
                 <li key={item.name}>
@@ -36,11 +34,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
+          <div className="hidden lg:block w-px h-32 bg-white/20 self-center mx-4"></div>
 
           {/* Column 2 — Commerce */}
           <div className="flex-auto lg:flex-[0.9] min-w-[140px]">
-            <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Commerce</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Commerce</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
                 { name: 'AI Augmented Finance', href: '/courses/ai-augmented-finance' },
@@ -55,11 +53,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
+          <div className="hidden lg:block w-px h-32 bg-white/20 self-center mx-4"></div>
 
           {/* Column 3 — IT */}
           <div className="flex-auto lg:flex-[1] min-w-[160px]">
-            <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">IT</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] font-bold mb-10 opacity-80">IT</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
                 { name: 'AI Automation', href: '/courses/ai-automation' },
@@ -79,11 +77,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
+          <div className="hidden lg:block w-px h-32 bg-white/20 self-center mx-4"></div>
 
           {/* Column 4 — Language */}
           <div className="flex-auto lg:flex-[0.6] min-w-[80px]">
-            <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Language</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Language</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
                 { name: 'German', href: '/courses/german' },
@@ -99,15 +97,13 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="hidden lg:block w-px h-64 bg-white/20 self-center mx-4"></div>
+          <div className="hidden lg:block w-px h-32 bg-white/20 self-center mx-4"></div>
 
           {/* Column 5 — Connect */}
           <div className="flex-auto lg:flex-[2.5] min-w-[320px]">
-            <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Connect</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Contact Us</h3>
             <div className="space-y-6 text-base opacity-70">
-              <a href="mailto:info@themagnateacademy.com" className="block hover:text-white transition-colors">
-                info@themagnateacademy.com
-              </a>
+
               
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                  <p className="leading-relaxed flex-1">
@@ -128,8 +124,13 @@ const Footer = () => {
                 </div>
               </div>
 
-              <a href="tel:+918111995577" className="block hover:text-white transition-colors text-lg font-medium">
-                +91 8111995577
+              <a href="tel:+918111995577" className="flex w-fit items-center gap-3 hover:text-white transition-colors text-lg font-medium">
+                <Phone className="w-5 h-5 shrink-0" />
+                <span>+91 8111995577</span>
+              </a>
+              <a href="mailto:info@themagnateacademy.com" className="flex w-fit items-center gap-3 hover:text-white transition-colors">
+                <Mail className="w-5 h-5 shrink-0" />
+                <span>info@themagnateacademy.com</span>
               </a>
             </div>
           </div>

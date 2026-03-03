@@ -27,17 +27,32 @@ const About = () => {
         () => {
             if (!containerRef.current || !leftColRef.current || !rightColRef.current) return;
 
-            // Fade out left column on scroll (matches mobile behavior across all viewports)
-            gsap.to(leftColRef.current, {
-                opacity: 0,
-                scrollTrigger: {
+            // 1. Pinning the left column (Desktop only) and Fade out (Mobile)
+            let mm = gsap.matchMedia();
+
+            mm.add("(min-width: 768px)", () => {
+                ScrollTrigger.create({
                     trigger: containerRef.current,
                     start: "top top",
-                    end: "+=200",
+                    end: "bottom bottom",
+                    pin: leftColRef.current,
+                    pinSpacing: false,
                     scrub: true,
-                }
+                    anticipatePin: 1,
+                });
             });
 
+            mm.add("(max-width: 767px)", () => {
+                gsap.to(leftColRef.current, {
+                    opacity: 0,
+                    scrollTrigger: {
+                        trigger: leftColRef.current,
+                        start: "top 30%",
+                        end: "bottom top",
+                        scrub: true,
+                    }
+                });
+            });
             // 2. Heading Reveal - Staggered lines
             const headingWords = headingRef.current?.querySelectorAll(".word");
             if (headingWords) {
@@ -121,14 +136,14 @@ const About = () => {
             </motion.div>
 
             <div className="max-w-[1600px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 relative z-10">
-                {/* Left Column - Label */}
+                {/* Left Column - Sticky Label */}
                 <div 
                     ref={leftColRef} 
-                    className="md:col-span-3 h-fit flex flex-col justify-start pt-4"
+                    className="md:col-span-3 h-fit md:h-screen md:sticky md:top-32 flex flex-col justify-start pt-4"
                 >
                     <div className="flex items-center gap-4 ">
                         <span className="w-12 h-[1px] bg-[#01C5C1]/30 hidden md:block"></span>
-                        <p className="text-3xl md:text-7xl lg:text-[60px] font-medium tracking-[0.1em] uppercase text-[#01C5C1]/60 font-[family-name:var(--font-manrope)] whitespace-nowrap leading-none">
+                        <p className="text-2xl md:text-[28px] font-medium tracking-[0.2em] uppercase text-[#01C5C1]/60 font-[family-name:var(--font-manrope)] whitespace-nowrap">
                             Who We Are
                         </p>
                     </div>

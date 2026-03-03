@@ -127,11 +127,11 @@ export default function CourseDial({ items }: CourseDialProps) {
                 {items.map((course, i) => (
                     <div
                         key={i}
-                        className={`absolute inset-0 transition-all duration-1000 ease-out ${i === index ? "opacity-40 scale-105" : "opacity-0 scale-100"
+                        className={`absolute inset-0 transition-all duration-1000 ease-out ${i === index ? "opacity-100 scale-105" : "opacity-0 scale-100"
                             }`}
                     >
                         <Image src={course.src} alt="" fill className="object-cover" priority={i === 0} />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#020E3A] via-[#020E3A]/70 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#020E3A]/70 via-[#020E3A]/10 to-transparent" />
                     </div>
                 ))}
 

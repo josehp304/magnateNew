@@ -1,14 +1,13 @@
 .contact {
     position: relative;
     width: 100vw;
-    height: 100%;
+    height: auto;
     min-height: 100svh;
     background-color: var(--background);
     color: var(--foreground);
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    align-items: flex-start;
 }
 
 /* Map Section (Left) */
@@ -21,7 +20,8 @@
     width: 100%;
     padding-top: 5rem;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    /* Initial visible state, animation handles transitions */
+    position: sticky;
+    top: 0;
 }
 
 /* Form Section (Right) */
@@ -32,11 +32,10 @@
     justify-content: flex-start;
     gap: 2rem;
     padding: 8rem 4rem 2rem 4rem;
-    height: 100svh;
+    min-height: 100svh;
     position: relative;
     z-index: 2;
     background-color: var(--background);
-    overflow-y: auto; 
 }
 
 .contact-address-top {
@@ -201,6 +200,8 @@
         height: 50vh;
         width: 100vw;
         flex: none;
+        position: relative;
+        top: auto;
     }
 
     .contact-form-container {

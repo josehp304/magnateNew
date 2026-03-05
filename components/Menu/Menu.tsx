@@ -360,7 +360,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                             <div className="relative w-max" key={item.path}>
                                 <a
                                     href={item.path}
-                                    className={`relative text-white hover:text-white text-sm font-[family-name:var(--font-inter)] font-semibold tracking-wide transition-all duration-300 ease-out py-1 group ${!scrolled ? "mix-blend-difference" : ""}`}
+                                    className="relative text-white hover:text-white text-sm font-[family-name:var(--font-inter)] font-semibold tracking-wide transition-all duration-300 ease-out py-1 group"
                                     onClick={(e) => {
                                         e.preventDefault();
                                         navigateTo(item.path);
@@ -390,7 +390,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                     <div className="flex-1 flex justify-end lg:hidden pointer-events-auto">
                         <div className="nav-menu-toggle-open">
                             <div className="revealer" onClick={openMenu}>
-                                <p className={`sm caps mono ${!scrolled ? "mix-blend-difference text-white" : ""}`} ref={menuBtnRef}>
+                                <p className={`sm caps mono ${!scrolled ? "text-white" : ""}`} ref={menuBtnRef}>
                                     Menu
                                 </p>
                             </div>
@@ -402,7 +402,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
             </div>
             <div 
                 className={`nav-logo transition-all duration-500 ease-out z-[20001] fixed ${
-                    scrolled ? "!top-4 !left-4" : "!top-6 !left-6 mix-blend-difference"
+                    scrolled ? "!top-4 !left-4" : "!top-6 !left-6"
                 }`}
             >
                 <div className="relative w-max">

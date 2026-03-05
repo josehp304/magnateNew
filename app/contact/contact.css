@@ -197,11 +197,16 @@
     }
 
     .contact-map-wrapper {
-        height: 50vh;
+        height: auto;
         width: 100vw;
         flex: none;
         position: relative;
         top: auto;
+    }
+
+    .contact-map-wrapper > div:first-child {
+        height: 50vh;
+        min-height: 50vh;
     }
 
     .contact-form-container {

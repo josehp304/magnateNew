@@ -113,20 +113,45 @@ const ContactPage = () => {
 
     return (
         <div className="contact" ref={contactRef}>
-            <div className="contact-map-wrapper">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7858.108076358495!2d76.3278995!3d10.0123953!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d510a5ad137%3A0xcaf2ecb4d0caf6e0!2sMagnate%20Academy!5e0!3m2!1sen!2sin!4v1771957814244!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, filter: "grayscale(100%) invert(90%)" }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+            <div className="contact-map-wrapper" style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ flex: 1, width: '100%', position: 'relative' }}>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7858.108076358495!2d76.3278995!3d10.0123953!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d510a5ad137%3A0xcaf2ecb4d0caf6e0!2sMagnate%20Academy!5e0!3m2!1sen!2sin!4v1771957814244!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style={{ position: 'absolute', top: 0, left: 0, border: 0, filter: "grayscale(100%) invert(90%)" }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                </div>
+                
+                <div className="contact-details" style={{ padding: '2rem 4rem', display: 'flex', flexDirection: 'row', gap: '2rem', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' }}>
+                    <Copy delay={1.6}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
+                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Phone</p>
+                            <p className="sm" style={{ fontWeight: 400, fontSize: '1.1rem' }}>+91 8111995577</p>
+                        </div>
+                    </Copy>
+                    <Copy delay={1.7}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
+                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Email</p>
+                            <a href="mailto:info@themagnateacademy.com" className="sm" style={{ fontWeight: 400, fontSize: '1.1rem', color: 'inherit', textDecoration: 'none' }}>info@themagnateacademy.com</a>
+                        </div>
+                    </Copy>
+                    <Copy delay={1.8}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
+                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Address</p>
+                            <p className="sm" style={{ maxWidth: '300px', lineHeight: '1.4', fontWeight: 400, fontSize: '1.1rem' }}>
+                                1st Floor, Thykoottathil Square,<br /> Civil Line Rd, Opp. St. Joseph Church,<br /> Vazhakkala, Kochi, Kakkanad,<br /> Kerala 682030
+                            </p>
+                        </div>
+                    </Copy>
+                </div>
             </div>
 
             <div className="contact-form-container">
-                <div className="contact-address-top">
+                {/* <div className="contact-address-top">
                     <Copy delay={0.9}>
                         <div className="address-top-inner">
                             <p className="address-top-label">Address</p>
@@ -135,7 +160,7 @@ const ContactPage = () => {
                             </p>
                         </div>
                     </Copy>
-                </div>
+                </div> */}
 
                 <div className="contact-header">
                     <Copy delay={1}>
@@ -204,29 +229,6 @@ const ContactPage = () => {
                         <button className="whatsapp-btn" onClick={handleWhatsApp}>
                             Chat on WhatsApp
                         </button>
-                    </Copy>
-                </div>
-
-                <div className="contact-details" style={{ marginTop: '3rem', display: 'flex', flexDirection: 'column', gap: '1.5em' }}>
-                    <Copy delay={1.6}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
-                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Phone</p>
-                            <p className="sm" style={{ fontWeight: 400, fontSize: '1.1rem' }}>+91 8111995577</p>
-                        </div>
-                    </Copy>
-                    <Copy delay={1.7}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
-                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Email</p>
-                            <a href="mailto:info@themagnateacademy.com" className="sm" style={{ fontWeight: 400, fontSize: '1.1rem', color: 'inherit', textDecoration: 'none' }}>info@themagnateacademy.com</a>
-                        </div>
-                    </Copy>
-                    <Copy delay={1.8}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
-                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Address</p>
-                            <p className="sm" style={{ maxWidth: '300px', lineHeight: '1.4', fontWeight: 400, fontSize: '1.1rem' }}>
-                                1st Floor, Thykoottathil Square,<br /> Civil Line Rd, opp. St. Joseph Church,<br /> Vazhakkala, Kochi, Kakkanad,<br /> Kerala 682030
-                            </p>
-                        </div>
                     </Copy>
                 </div>
             </div>

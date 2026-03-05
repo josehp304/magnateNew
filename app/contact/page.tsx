@@ -181,12 +181,12 @@ const ContactPage = () => {
                                 <option value="AI Augmented Finance">AI Augmented Finance</option>
                                 <option value="German">German</option>
                                 <option value="IELTS & PTE">IELTS &amp; PTE</option>
-                                <option value="Ai Automation">Ai Automation</option>
-                                <option value="Data Analytics + Ai + Agentic Ai">Data Analytics + Ai + Agentic Ai</option>
-                                <option value="Data Science + Ai / Ml + Gen Ai">Data Science + Ai / Ml + Gen Ai</option>
-                                <option value="Ai Automation + Agentic Ai">Ai Automation + Agentic Ai</option>
+                                <option value="AI Automation">AI Automation</option>
+                                <option value="Data Analytics + AI + Agentic AI">Data Analytics + AI + Agentic AI</option>
+                                <option value="Data Science + AI / ML + Gen AI">Data Science + AI / ML + Gen AI</option>
+                                <option value="AI Automation + Agentic AI">AI Automation + Agentic AI</option>
                                 <option value="Devops Engineering / Cloud Engineering">Devops Engineering / Cloud Engineering</option>
-                                <option value="3d Digital Marketing">3d Digital Marketing</option>
+                                <option value="3D Digital Marketing">3D Digital Marketing</option>
                                 <option value="Full Stack Development">Full Stack Development</option>
                             </select>
                         </div>

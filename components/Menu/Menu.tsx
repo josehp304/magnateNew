@@ -355,7 +355,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                             { path: "/#course-dial", label: "Courses" },
                             { path: "/#about", label: "About Us" },
                             { path: "/#testimonials", label: "Testimonials" },
-                            { path: "/#student-life", label: "Student life" },
+                            { path: "/#student-life", label: "Beyond Academics" },
                         ].map((item) => (
                             <div className="relative w-max" key={item.path}>
                                 <a
@@ -454,7 +454,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                             { path: "/#course-dial", label: "Courses" },
                             { path: "/#about", label: "About Us" },
                             { path: "/#testimonials", label: "Testimonials" },
-                            { path: "/#student-life", label: "Student life" },
+                            { path: "/#student-life", label: "Beyond Academics" },
                         ].map((item) => (
                             <div className="revealer" key={item.path}>
                                 <a

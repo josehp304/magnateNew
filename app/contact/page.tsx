@@ -216,21 +216,24 @@ const ContactPage = () => {
                             </select>
                         </div>
                     </Copy>
+                    <div className="sm:flex gap-1">
+                        <Copy delay={1.4}>
+                            <button type="submit" className="submit-btn">
+                                Submit Application
+                            </button>
+                        </Copy>
+                        <div className="contact-actions">
+                            <Copy delay={1.5}>
+                                <button className="whatsapp-btn" onClick={handleWhatsApp}>
+                                    Chat on WhatsApp
+                                </button>
+                            </Copy>
+                        </div>
 
-                    <Copy delay={1.4}>
-                        <button type="submit" className="submit-btn">
-                            Submit Application
-                        </button>
-                    </Copy>
+                    </div>
+
                 </form>
 
-                <div className="contact-actions">
-                    <Copy delay={1.5}>
-                        <button className="whatsapp-btn" onClick={handleWhatsApp}>
-                            Chat on WhatsApp
-                        </button>
-                    </Copy>
-                </div>
             </div>
 
             <div className="contact-footer">

@@ -1,0 +1,238 @@
+.marquee-section {
+    position: relative;
+    padding: 8rem 0 6rem;
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marquee-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4rem;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.marquee-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    color: #a3a3a3;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.marquee-badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #4385ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4385ff;
+}
+
+.marquee-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.marquee-title-highlight {
+    background: linear-gradient(135deg, #4385ff 0%, #00e1ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.marquee-desc {
+    color: #888888;
+    font-size: 1.1rem;
+    max-width: 500px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.marquee-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
+.marquee-row {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    /* We make sure to use mask-image to fade the left and right sides so it looks like they are fading in out of thin air */
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(0, 0, 0, 1) 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(0, 0, 0, 1) 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.marquee-content {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 0.75rem;
+    width: max-content;
+}
+
+.scroll-left {
+    animation: scrollLeft 45s linear infinite;
+}
+
+.scroll-right {
+    animation: scrollRight 45s linear infinite;
+}
+
+.marquee-row:hover .scroll-left,
+.marquee-row:hover .scroll-right {
+    animation-play-state: paused;
+}
+
+.marquee-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.75rem 0.75rem 0.75rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 12px;
+    height: 70px;
+    color: #e5e5e5;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.marquee-card:hover {
+    background-color: transparent;
+    transform: translateY(-2px);
+}
+
+.marquee-initial-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    border-radius: 8px;
+    color: #4385ff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.marquee-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.marquee-card:hover .marquee-initial-wrapper {
+    background-color: transparent;
+}
+
+.marquee-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Add a subtle glow inside the card on hover */
+.marquee-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(0, 86, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.marquee-card:hover .marquee-glow {
+    opacity: 1;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* We move completely half the width to create absolute seamless infinite loop since we duplicated the array by *4 */
+        transform: translateX(calc(-25% - 0.375rem));
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(calc(-25% - 0.375rem));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .marquee-title {
+        font-size: 2.2rem;
+    }
+    .marquee-desc {
+        font-size: 1rem;
+    }
+    
+    .marquee-card {
+        height: 60px;
+        padding: 0.5rem 1.25rem 0.5rem 0.5rem;
+    }
+    
+    .marquee-initial-wrapper {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+    }
+    
+    .marquee-name {
+        font-size: 0.95rem;
+    }
+}

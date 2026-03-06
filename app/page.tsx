@@ -8,6 +8,7 @@ import WhoWeAre from "../components/WhoWeAre/WhoWeAre";
 import Footer from "../components/Footer/Footer";
 import ProcessCards from "../components/ProcessCards/ProcessCards";
 import About from "../components/About/About"
+import Marquee from "../components/Marquee/Marquee";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -122,6 +123,9 @@ export default function Home() {
       {/* <ProcessCards /> */}
       <div id="course-dial">
         <CourseDial items={courseItems} />
+      </div>
+      <div id="marquee">
+        <Marquee />
       </div>
       <div id="testimonials">
         <Testimonials />

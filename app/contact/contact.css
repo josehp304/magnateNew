@@ -130,7 +130,7 @@
     border: 1px solid var(--foreground);
     background: transparent;
     color: var(--foreground);
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     width: fit-content;
 }
 

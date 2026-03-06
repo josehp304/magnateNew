@@ -32,7 +32,7 @@ const courseItems = [
   { title: "Diploma in Finance", tags: "Business", src: "/courses/Diploma_in_Finance.png", link: "/courses/finance" },
   { title: "AI Augmented Finance", tags: "FinTech", src: "/courses/Ai_Finance_2.png", link: "/courses/ai-augmented-finance" },
   { title: "German Language", tags: "Language", src: "/courses/german_Final.png", link: "/courses/german" },
-  { title: "IELTS & PTE", tags: "Language", src: "https://i0.wp.com/pecpte.com/wp-content/uploads/2020/01/ielts-and-pte-difference.jpg?resize=1014%2C406&ssl=1", link: "/courses/ielts-pte" },
+  { title: "IELTS & PTE", tags: "Language", src: "/courses/iltes-pte.png", link: "/courses/ielts-pte" },
   { title: "3D Digital Marketing", tags: "Creative Marketing", src: "https://cms-artifacts.motionarray.com/content/motion_array/2051040/Digital_Marketing_3D_Illustration_high_resolution_preview_2051040.jpg", link: "/courses/digital-marketing" },
   { title: "Data Analytics (ML & AI)", tags: "Data Science", src: "https://media.licdn.com/dms/image/v2/D4E12AQGTAN13FzzQ9w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1695888362411?e=2147483647&v=beta&t=F2oLzRQTn2W4w98iUc1K4pO1-g8se8OrN_O7Eh5vRyA", link: "/courses/data-analytics" },
   { title: "AI Automation", tags: "Artificial Intelligence", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe14ZlXWg1RVMZGxInqARHj_O5ryfegSkclg&s", link: "/courses/ai-automation" },

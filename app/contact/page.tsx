@@ -119,14 +119,14 @@ const ContactPage = () => {
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7858.108076358495!2d76.3278995!3d10.0123953!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d510a5ad137%3A0xcaf2ecb4d0caf6e0!2sMagnate%20Academy!5e0!3m2!1sen!2sin!4v1771957814244!5m2!1sen!2sin"
                         width="100%"
                         height="100%"
-                        style={{ position: 'absolute', top: 0, left: 0, border: 0, filter: "grayscale(100%) invert(90%)" }}
+                        style={{ position: 'absolute', top: 0, left: 0, border: 0, filter: "saturate(100%)" }}
                         allowFullScreen={true}
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
                 
-                <div className="contact-details" style={{ padding: '2rem 4rem', display: 'flex', flexDirection: 'row', gap: '2rem', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' }}>
+                <div className="contact-details desktop-contact-details" style={{ padding: '2rem 4rem', display: 'flex', flexDirection: 'row', gap: '2rem', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' }}>
                     <Copy delay={1.6}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
                             <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Phone</p>
@@ -233,6 +233,29 @@ const ContactPage = () => {
                     </div>
 
                 </form>
+
+                <div className="contact-details mobile-contact-details" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%', marginTop: '1rem' }}>
+                    <Copy delay={1.6}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
+                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Phone</p>
+                            <p className="sm" style={{ fontWeight: 400, fontSize: '1.1rem' }}>+91 8111995577</p>
+                        </div>
+                    </Copy>
+                    <Copy delay={1.7}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
+                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Email</p>
+                            <a href="mailto:info@themagnateacademy.com" className="sm" style={{ fontWeight: 400, fontSize: '1.1rem', color: 'inherit', textDecoration: 'none' }}>info@themagnateacademy.com</a>
+                        </div>
+                    </Copy>
+                    <Copy delay={1.8}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
+                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Address</p>
+                            <p className="sm" style={{ maxWidth: '300px', lineHeight: '1.4', fontWeight: 400, fontSize: '1.1rem' }}>
+                                1st Floor, Thykoottathil Square,<br /> Civil Line Rd, Opp. St. Joseph Church,<br /> Vazhakkala, Kochi, Kakkanad,<br /> Kerala 682030
+                            </p>
+                        </div>
+                    </Copy>
+                </div>
 
             </div>
 

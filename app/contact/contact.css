@@ -231,3 +231,20 @@
         pointer-events: auto;
     }
 }
+
+.desktop-contact-details {
+    display: flex !important;
+}
+
+.mobile-contact-details {
+    display: none !important;
+}
+
+@media (max-width: 1000px) {
+    .desktop-contact-details {
+        display: none !important;
+    }
+    .mobile-contact-details {
+        display: flex !important;
+    }
+}

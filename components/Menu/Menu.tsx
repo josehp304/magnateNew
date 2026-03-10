@@ -7,7 +7,6 @@ import { useTransitionRouter } from "next-view-transitions";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
-import { Youtube, Instagram, Linkedin } from "lucide-react";
 
 gsap.registerPlugin(CustomEase);
 try {
@@ -372,17 +371,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 </a>
                             </div>
                         ))}
-                        <div className="flex items-center gap-3 mr-4">
-                            <a href="https://www.youtube.com/@The_Magnates_Academy" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#ff0000] transition-colors rounded-full p-2 hover:bg-white/5">
-                                <Youtube size={20} />
-                            </a>
-                            <a href="https://www.instagram.com/magnate.academy/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#E1306C] transition-colors rounded-full p-2 hover:bg-white/5">
-                                <Instagram size={20} />
-                            </a>
-                            <a href="https://www.linkedin.com/company/magnateacademy/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#0077B5] transition-colors rounded-full p-2 hover:bg-white/5">
-                                <Linkedin size={20} />
-                            </a>
-                        </div>
+
                         <div className="flex items-center gap-4">
                              <a
                                  href="/login" 

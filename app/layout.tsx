@@ -33,6 +33,9 @@ const philosopher = Philosopher({
 export const metadata: Metadata = {
   title: "Magnate",
   description: "India's Top Career-Focused Learning Platform",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

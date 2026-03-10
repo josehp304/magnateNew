@@ -34,9 +34,9 @@ const courseItems = [
   { title: "German Language", tags: "Language", src: "/courses/german_Final.png", link: "/courses/german" },
   { title: "IELTS & PTE", tags: "Language", src: "/courses/iltes-pte.png", link: "/courses/ielts-pte" },
   { title: "3D Digital Marketing", tags: "Creative Marketing", src: "https://cms-artifacts.motionarray.com/content/motion_array/2051040/Digital_Marketing_3D_Illustration_high_resolution_preview_2051040.jpg", link: "/courses/digital-marketing" },
-  { title: "Data Analytics (ML & AI)", tags: "Data Science", src: "https://media.licdn.com/dms/image/v2/D4E12AQGTAN13FzzQ9w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1695888362411?e=2147483647&v=beta&t=F2oLzRQTn2W4w98iUc1K4pO1-g8se8OrN_O7Eh5vRyA", link: "/courses/data-analytics" },
+  { title: "Data Science + AI Engineering", tags: "Data Science", src: "https://images.yourstory.com/cs/1/6b460cd040d711e994bbefffe3577d8b/full-stack-web-development-1586433444650.png", link: "/courses/data-science-ai-engineering" },
+  { title: "AI Integrated Data Analytics", tags: "Data Analytics", src: "https://media.licdn.com/dms/image/v2/D4E12AQGTAN13FzzQ9w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1695888362411?e=2147483647&v=beta&t=F2oLzRQTn2W4w98iUc1K4pO1-g8se8OrN_O7Eh5vRyA", link: "/courses/ai-integrated-data-analytics" },
   { title: "AI Automation", tags: "Artificial Intelligence", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe14ZlXWg1RVMZGxInqARHj_O5ryfegSkclg&s", link: "/courses/ai-automation" },
-  { title: "Full Stack Development", tags: "Web Development", src: "https://images.yourstory.com/cs/1/6b460cd040d711e994bbefffe3577d8b/full-stack-web-development-1586433444650.png", link: "/courses/full-stack" },
 ];
 
 export default function Home() {

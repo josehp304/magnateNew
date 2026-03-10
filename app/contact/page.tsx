@@ -204,15 +204,12 @@ const ContactPage = () => {
                                 <option value="" disabled>Select a course</option>
                                 <option value="Diploma in Finance">Diploma in Finance</option>
                                 <option value="AI Augmented Finance">AI Augmented Finance</option>
-                                <option value="German">German</option>
+                                <option value="German Language">German Language</option>
                                 <option value="IELTS & PTE">IELTS &amp; PTE</option>
-                                <option value="AI Automation">AI Automation</option>
-                                <option value="Data Analytics + AI + Agentic AI">Data Analytics + AI + Agentic AI</option>
-                                <option value="Data Science + AI / ML + Gen AI">Data Science + AI / ML + Gen AI</option>
-                                <option value="AI Automation + Agentic AI">AI Automation + Agentic AI</option>
-                                <option value="Devops Engineering / Cloud Engineering">Devops Engineering / Cloud Engineering</option>
                                 <option value="3D Digital Marketing">3D Digital Marketing</option>
-                                <option value="Full Stack Development">Full Stack Development</option>
+                                <option value="Data Science + AI Engineering">Data Science + AI Engineering</option>
+                                <option value="AI Integrated Data Analytics">AI Integrated Data Analytics</option>
+                                <option value="AI Automation">AI Automation</option>
                             </select>
                         </div>
                     </Copy>

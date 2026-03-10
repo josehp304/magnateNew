@@ -2,13 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 
 const courses = [
-    { title: "Full-Stack Web Development", color: "#FFD700", link: "/courses/full-stack" },
     { title: "Diploma in Finance", color: "#FFD700", link: "/courses/finance" },
     { title: "AI Augmented Finance", color: "#FFD700", link: "/courses/ai-augmented-finance" },
     { title: "German Language", color: "#FFD700", link: "/courses/german" },
     { title: "IELTS & PTE", color: "#FFD700", link: "/courses/ielts-pte" },
     { title: "3D Digital Marketing", color: "#FFD700", link: "/courses/digital-marketing" },
-    { title: "Data Analytics (ML & AI)", color: "#FFD700", link: "/courses/data-analytics" },
+    { title: "Data Science + AI Engineering", color: "#FFD700", link: "/courses/data-science-ai-engineering" },
+    { title: "AI Integrated Data Analytics", color: "#FFD700", link: "/courses/ai-integrated-data-analytics" },
     { title: "AI Automation", color: "#FFD700", link: "/courses/ai-automation" },
 ];
 

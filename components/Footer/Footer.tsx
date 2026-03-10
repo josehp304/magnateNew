@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin, Instagram, Twitter, Phone, Mail } from "lucide-react";
+import { Linkedin, Instagram, Youtube, Phone, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Footer = () => {
@@ -41,8 +41,8 @@ const Footer = () => {
             <h3 className="text-sm uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Commerce</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
-                { name: 'AI Augmented Finance', href: '/courses/ai-augmented-finance' },
                 { name: 'Diploma in Finance',   href: '/courses/finance' },
+                { name: 'AI Augmented Finance', href: '/courses/ai-augmented-finance' },
               ].map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:text-white transition-colors leading-tight block">
@@ -60,13 +60,10 @@ const Footer = () => {
             <h3 className="text-sm uppercase tracking-[0.2em] font-bold mb-10 opacity-80">IT</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
-                { name: 'AI Automation', href: '/courses/ai-automation' },
-                { name: 'Data Analytics', href: '/courses/data-analytics' },
-                { name: 'Data Science', href: '/courses/data-analytics' },
-                { name: 'AI Automation', href: '/courses/ai-automation' },
-                { name: 'DevOps / Cloud Engineering', href: '/courses' },
                 { name: '3D Digital Marketing', href: '/courses/digital-marketing' },
-                { name: 'Full Stack Development', href: '/courses/full-stack' },
+                { name: 'Data Science + AI Engineering', href: '/courses/data-science-ai-engineering' },
+                { name: 'AI Integrated Data Analytics', href: '/courses/ai-integrated-data-analytics' },
+                { name: 'AI Automation', href: '/courses/ai-automation' },
               ].map((item, index) => (
                 <li key={`${item.name}-${index}`}>
                   <Link href={item.href} className="hover:text-white transition-colors leading-tight block">
@@ -84,9 +81,8 @@ const Footer = () => {
             <h3 className="text-sm uppercase tracking-[0.2em] font-bold mb-10 opacity-80">Language</h3>
             <ul className="space-y-4 text-base opacity-70">
               {[
-                { name: 'German', href: '/courses/german' },
-                { name: 'IELTS',  href: '/courses/ielts-pte' },
-                { name: 'PTE',    href: '/courses/ielts-pte' },
+                { name: 'German Language', href: '/courses/german' },
+                { name: 'IELTS & PTE',  href: '/courses/ielts-pte' },
               ].map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:text-white transition-colors">
@@ -132,6 +128,18 @@ const Footer = () => {
                 <Mail className="w-5 h-5 shrink-0" />
                 <span>info@themagnateacademy.com</span>
               </a>
+
+              <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/10">
+                <a href="https://www.youtube.com/@The_Magnates_Academy" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#ff0000] rounded-full transition-all duration-300 hover:scale-110 group">
+                  <Youtube className="w-5 h-5 opacity-80 group-hover:opacity-100" />
+                </a>
+                <a href="https://www.instagram.com/magnate.academy/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#E1306C] rounded-full transition-all duration-300 hover:scale-110 group">
+                  <Instagram className="w-5 h-5 opacity-80 group-hover:opacity-100" />
+                </a>
+                <a href="https://www.linkedin.com/company/magnateacademy/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#0077B5] rounded-full transition-all duration-300 hover:scale-110 group">
+                  <Linkedin className="w-5 h-5 opacity-80 group-hover:opacity-100" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

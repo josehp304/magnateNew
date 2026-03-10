@@ -7,6 +7,7 @@ import { useTransitionRouter } from "next-view-transitions";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
+import { Youtube, Instagram, Linkedin } from "lucide-react";
 
 gsap.registerPlugin(CustomEase);
 try {
@@ -371,7 +372,28 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 </a>
                             </div>
                         ))}
-                        <div className="relative w-max">
+                        <div className="flex items-center gap-3 mr-4">
+                            <a href="https://www.youtube.com/@The_Magnates_Academy" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#ff0000] transition-colors rounded-full p-2 hover:bg-white/5">
+                                <Youtube size={20} />
+                            </a>
+                            <a href="https://www.instagram.com/magnate.academy/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#E1306C] transition-colors rounded-full p-2 hover:bg-white/5">
+                                <Instagram size={20} />
+                            </a>
+                            <a href="https://www.linkedin.com/company/magnateacademy/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#0077B5] transition-colors rounded-full p-2 hover:bg-white/5">
+                                <Linkedin size={20} />
+                            </a>
+                        </div>
+                        <div className="flex items-center gap-4">
+                             <a
+                                 href="/login" 
+                                 className="px-6 py-2.5 border border-white/40 text-white text-sm font-bold font-[family-name:var(--font-manrope)] rounded-full hover:bg-white hover:text-[#020E3A] transition-all hover:scale-105 active:scale-95 backdrop-blur-sm"
+                                 onClick={(e) => {
+                                      e.preventDefault();
+                                      navigateTo("/login"); 
+                                 }}
+                             >
+                                 Student Login
+                             </a>
                              <a
                                  href="/contact" 
                                  className="px-6 py-2.5 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white text-sm font-bold font-[family-name:var(--font-manrope)] rounded-full hover:from-[#03C5BD] hover:to-[#0069F9] transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-[#01C5C1]/20"
@@ -402,7 +424,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
             </div>
             <div 
                 className={`nav-logo transition-all duration-500 ease-out z-[20001] fixed ${
-                    scrolled ? "!top-4 !left-4" : "!top-6 !left-6"
+                    scrolled ? "!top-4 !left-8 md:!left-12" : "!top-6 !left-10 md:!left-16"
                 }`}
             >
                 <div className="relative w-max">
@@ -468,19 +490,33 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 </a>
                             </div>
                         ))}
-                        <div className="revealer" style={{ marginTop: '2rem', clipPath: 'polygon(-20% -50%, 120% -50%, 120% 150%, -20% 150%)' }}>
-                             <a
-                                 href="/contact"
-                                 onClick={(e) => {
-                                     e.preventDefault();
-                                     navigateTo("/contact");
-                                 }}
-                                 className="inline-block px-8 py-3 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white text-lg font-bold uppercase tracking-wide rounded-full hover:scale-105 transition-transform shadow-lg shadow-[#01C5C1]/20"
-                                 style={{ color: 'white' }}
-                             >
-                                 Get Free Demo
-                             </a>
-                         </div>
+                        <div className="flex flex-col items-center gap-4 mt-8">
+                            <div className="revealer" style={{ clipPath: 'polygon(-20% -50%, 120% -50%, 120% 150%, -20% 150%)' }}>
+                                 <a
+                                     href="/login"
+                                     onClick={(e) => {
+                                         e.preventDefault();
+                                         navigateTo("/login");
+                                     }}
+                                     className="inline-block px-8 py-3 border-2 border-white/40 text-white text-lg font-bold uppercase tracking-wide rounded-full hover:bg-white hover:text-[#020E3A] hover:scale-105 transition-all shadow-lg shadow-[#01C5C1]/20"
+                                 >
+                                     Student Login
+                                 </a>
+                            </div>
+                            <div className="revealer" style={{ clipPath: 'polygon(-20% -50%, 120% -50%, 120% 150%, -20% 150%)' }}>
+                                 <a
+                                     href="/contact"
+                                     onClick={(e) => {
+                                         e.preventDefault();
+                                         navigateTo("/contact");
+                                     }}
+                                     className="inline-block px-8 py-3 bg-gradient-to-r from-[#01C5C1] to-[#0095D7] text-white text-lg font-bold uppercase tracking-wide rounded-full hover:scale-105 transition-transform shadow-lg shadow-[#01C5C1]/20"
+                                     style={{ color: 'white' }}
+                                 >
+                                     Get Free Demo
+                                 </a>
+                             </div>
+                        </div>
                     </div>
                     <div className="menu-footer" ref={menuFooterColsRef}>
                         <div className="menu-footer-col">

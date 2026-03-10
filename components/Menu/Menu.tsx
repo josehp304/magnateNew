@@ -375,7 +375,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                         <div className="flex items-center gap-4">
                              <a
                                  href="/login" 
-                                 className="px-6 py-2.5 border border-white/40 text-white text-sm font-bold font-[family-name:var(--font-manrope)] rounded-full hover:bg-white hover:text-[#020E3A] transition-all hover:scale-105 active:scale-95 backdrop-blur-sm"
+                                 className="px-6 py-2.5 border border-white/40 text-white text-sm font-bold font-[family-name:var(--font-manrope)] rounded-full hover:bg-white hover:!text-[#020E3A] transition-all hover:scale-105 active:scale-95 backdrop-blur-sm"
                                  onClick={(e) => {
                                       e.preventDefault();
                                       navigateTo("/login"); 
@@ -487,7 +487,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                          e.preventDefault();
                                          navigateTo("/login");
                                      }}
-                                     className="inline-block px-8 py-3 border-2 border-white/40 text-white text-lg font-bold uppercase tracking-wide rounded-full hover:bg-white hover:text-[#020E3A] hover:scale-105 transition-all shadow-lg shadow-[#01C5C1]/20"
+                                     className="inline-block px-8 py-3 border-2 border-white/40 text-white text-lg font-bold uppercase tracking-wide rounded-full hover:bg-white hover:!text-[#020E3A] hover:scale-105 transition-all shadow-lg shadow-[#01C5C1]/20"
                                  >
                                      Student Login
                                  </a>
@@ -515,6 +515,14 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                         </div>
                         <div className="menu-footer-col">
                             <div className="socials">
+                                <div className="revealer">
+                                    <a
+                                        className="sm caps mono"
+                                        href="https://www.facebook.com/profile.php?id=61573093928818"
+                                    >
+                                        Facebook
+                                    </a>
+                                </div>
                                 <div className="revealer">
                                     <a
                                         className="sm caps mono"

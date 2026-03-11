@@ -52,7 +52,8 @@ const testimonials = [
         name: "Alan Mathew",
         role: "Success Story",
         quote: "I want to sincerely thank my tutor, Miss. Anjali. Her guidance helped me grow both academically and personally. She was very funny and brilliant at the same time. Today, I'm in the UK, and I truly believe her academic and emotional support played a role in this journey. Highly recommend her.",
-        gradient: "linear-gradient(135deg, #100624, #5e0c5e)"
+        gradient: "linear-gradient(135deg, #100624, #5e0c5e)",
+        image: "/images/testimonials/ALAN.jpg"
     },
     {
         id: 6,

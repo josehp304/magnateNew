@@ -86,18 +86,6 @@ const Testimonials = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const wordRef = useRef<HTMLDivElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
-    const [gap, setGap] = useState(120);
-
-    // Calculate Gap Logic
-    useEffect(() => {
-        const updateGap = () => {
-            const calculatedGap = Math.max(120, window.innerWidth / (testimonials.length + 1));
-            setGap(calculatedGap);
-        };
-        updateGap();
-        window.addEventListener("resize", updateGap);
-        return () => window.removeEventListener("resize", updateGap);
-    }, []);
 
 
     useEffect(() => {
@@ -108,33 +96,16 @@ const Testimonials = () => {
             const section = sectionRef.current;
 
             if (word && cards && section) {
-                // Determine widths
-                const wordWidth = word.scrollWidth;
-                const cardsWidth = cards.scrollWidth;
-                const viewportWidth = window.innerWidth;
+                const getWordScroll = () => Math.max(0, word.scrollWidth - window.innerWidth);
+                const getCardsScroll = () => Math.max(0, cards.scrollWidth - window.innerWidth);
+                const getMaxScroll = () => Math.max(getWordScroll(), getCardsScroll());
 
-                // 2) Stop Condition (IMPORTANT)
-                // The animation must stop when the last letter of “TESTIMONIALS”
-                // aligns exactly with the right edge of the screen.
-                // Formula: Total Width of Word - Viewport Width
-                // If wordWidth < viewportWidth, result is negative, meaning no scroll needed.
-                const wordScrollDistance = Math.max(0, wordWidth - viewportWidth);
-
-                // Calculate horizontal scroll distance for cards
-                // We want to scroll enough so the last card is fully visible
-                // Adding some padding (e.g., 100px) ensures the last card isn't stuck at the exact edge
-                const cardsScrollDistance = Math.max(0, cardsWidth - viewportWidth + 100);
-
-                // Use the larger distance to determine the total scroll height of the section
-                const maxScroll = Math.max(wordScrollDistance, cardsScrollDistance);
-
-                // 4) Edge Cases: Only animate if there is distance to scroll
-                if (maxScroll > 0) {
+                if (getMaxScroll() > 0) {
                     const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: section,
                             start: "top top",
-                            end: () => `+=${maxScroll}`, 
+                            end: () => `+=${getMaxScroll()}`, 
                             scrub: 1, 
                             pin: true,
                             invalidateOnRefresh: true,
@@ -142,28 +113,17 @@ const Testimonials = () => {
                         }
                     });
 
-                    // Animate Word
-                    // Force the duration to be proportional to distance so it feels consistent
-                    // But effectively we want the animation to complete exactly when we scroll 'maxScroll' amount.
-                    // Since both are inserted at 0, they both span whatever explicit duration we give.
-                    // If we want them to finish at exactly the same time (end of scroll), we just let them both run for duration: 1.
-                    
-                    if (wordScrollDistance > 0) {
-                        tl.to(word, {
-                            x: -wordScrollDistance, 
-                            ease: "none",
-                            duration: 1
-                        }, 0);
-                    }
+                    tl.to(word, {
+                        x: () => -getWordScroll(), 
+                        ease: "none",
+                        duration: 1
+                    }, 0);
 
-                    // Animate Cards
-                    if (cardsScrollDistance > 0) {
-                        tl.to(cards, {
-                            x: -cardsScrollDistance, 
-                            ease: "none",
-                            duration: 1
-                        }, 0);
-                    }
+                    tl.to(cards, {
+                        x: () => -getCardsScroll(), 
+                        ease: "none",
+                        duration: 1
+                    }, 0);
                 }
             }
         }, sectionRef);
@@ -171,7 +131,7 @@ const Testimonials = () => {
         return () => {
             ctx.revert();
         };
-    }, []); // Removed [gap] dependency to avoid re-running mid-scroll unnecessarily, or rely on resize listener inside.
+    }, []);
 
     // Handle Resize separately to refresh ST
     useEffect(() => {
@@ -252,8 +212,8 @@ const Testimonials = () => {
                 {/* Cards Layer */}
                 <div 
                     ref={cardsRef}
-                    className="absolute top-0 left-0 h-full flex items-center z-10 pl-[15vw] pr-[10vw] will-change-transform"
-                    style={{ gap: `${gap}px` }}
+                    className="absolute top-0 left-0 h-full flex items-center z-10 pl-[15vw] will-change-transform"
+                    style={{ gap: "max(120px, 11.11vw)" }}
                 >
                     {testimonials.map((card, index) => (
                         <motion.div
@@ -301,6 +261,8 @@ const Testimonials = () => {
                             </div>
                         </motion.div>
                     ))}
+                    {/* Final spacer to ensure complete horizontal scroll logic registers the visual padding */}
+                    <div className="w-[10vw] flex-shrink-0" />
                 </div>
             </div>
         </section>

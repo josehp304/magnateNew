@@ -20,28 +20,32 @@ const testimonials = [
         name: "Shafeena Ch",
         role: "Finance Graduate",
         quote: "I came here without any basic knowledge about accounting, but after attending the classes here I got some clear ideas. Madam teaches in a simple and timely manner, and along with that, the soft skills classes given here have been very helpful to me. Thank you, Magnate.",
-        gradient: "linear-gradient(135deg, #20ecff, #fb01ff)"
+        gradient: "linear-gradient(135deg, #20ecff, #fb01ff)",
+        image: "/images/testimonials/shafeena.jpeg"
     },
     {
         id: 2,
         name: "Arunima Thara",
         role: "Spoken English",
         quote: "The English class was really amazing, all thanks to Anjali ma’am. Her classes were absolutely wonderful. I truly enjoyed that one hour, especially because of her teaching style. She doesn’t just teach English; she builds my confidence, corrects me with kindness, and motivates me to believe in myself.",
-        gradient: "linear-gradient(135deg, #5e0c5e, #fb01ff)"
+        gradient: "linear-gradient(135deg, #5e0c5e, #fb01ff)",
+        image: "/images/testimonials/ARUNIMA.jpeg"
     },
     {
         id: 3,
         name: "Sanika Paulose",
         role: "Finance Graduate",
         quote: "Best classes are provided in a perfect leaning atmosphere. Faculities are providing the best practical exposure with a complete package of soft skills and all essentials for a job seeker and career upgraders. IDCAF is perfect for accountant job seekers. Highly recommended.",
-        gradient: "linear-gradient(135deg, #20ecff, #5e0c5e)"
+        gradient: "linear-gradient(135deg, #20ecff, #5e0c5e)",
+        image: "/images/testimonials/SANIKA.jpeg"
     },
     {
         id: 4,
         name: "Mohammed Zamil T.M",
         role: "German Aspirant",
         quote: "I had a very good experience learning German at this institute. The classes are well organized and the learning environment is very supportive. I would especially like to thank Elba Miss and Fathima Miss for their excellent teaching. Their encouragement has helped me improve my German skills.",
-        gradient: "linear-gradient(135deg, #fb01ff, #20ecff)"
+        gradient: "linear-gradient(135deg, #fb01ff, #20ecff)",
+        image: "/images/testimonials/ZHAMIL.jpeg"
     },
     {
         id: 5,
@@ -53,23 +57,26 @@ const testimonials = [
     {
         id: 6,
         name: "Farsana Nailoofar",
-        role: "(Finance Graduate)",
+        role: "Finance Graduate",
         quote: "Completed my International Diploma in Computerized Accounting and Finance at The Magnate Academy, it was a wonderful learning journey. Nisha Ma’am’s clear teaching made every concept easy to understand. Anjali Ma’am’s interview training improved my confidence. Highly recommended...♥️🔥🙌🏻",
-        gradient: "linear-gradient(135deg, #20ecff, #100624)"
+        gradient: "linear-gradient(135deg, #20ecff, #100624)",
+        image: "/images/testimonials/FARSANA.jpeg"
     },
     {
         id: 7,
         name: "Dayana Sara",
-        role: "(PTE Achiever)",
+        role: "PTE Achiever",
         quote: "I had a great experience with Magnate Academy while preparing for my PTE exam. The coaching was well-structured, and my trainer Ms.Anjali was extremely supportive and knowledgeable. Her guidance and strategies helped me achieve a very good score. Highly recommend Magnate Academy.",
-        gradient: "linear-gradient(135deg, #5e0c5e, #20ecff)"
+        gradient: "linear-gradient(135deg, #5e0c5e, #20ecff)",
+        image: "/images/testimonials/DAYANA.jpeg"
     },
     {
         id: 8,
         name: "Rony Sunny",
-        role: "(German Aspirant)",
+        role: "German Aspirant",
         quote: "I joined magnate academy in November last year, I aced my A1 and on the path of clearing further with the guidance of brilliant and experienced teachers here. I would recommend Magnate academy to anyone looking for great and wonderful trainers.",
-        gradient: "linear-gradient(135deg, #fb01ff, #5e0c5e)"
+        gradient: "linear-gradient(135deg, #fb01ff, #5e0c5e)",
+        image: "/images/testimonials/rony.jpg"
     }
 ];
 
@@ -276,10 +283,16 @@ const Testimonials = () => {
                             </div>
 
                             <div className="flex items-center gap-3 mt-4 border-t border-[#20ecff]/15 pt-4">
-                                <div 
-                                    className="w-10 h-10 rounded-full shadow-lg flex-shrink-0"
-                                    style={{ background: card.gradient }}
-                                />
+                                {card.image ? (
+                                    <div className="w-10 h-10 rounded-full shadow-lg flex-shrink-0 relative overflow-hidden">
+                                        <Image src={card.image} alt={card.name} fill className="object-cover" />
+                                    </div>
+                                ) : (
+                                    <div 
+                                        className="w-10 h-10 rounded-full shadow-lg flex-shrink-0"
+                                        style={{ background: card.gradient }}
+                                    />
+                                )}
                                 <div>
                                     <h4 className="text-white font-bold text-sm">{card.name}</h4>
                                     <p className="text-amber-400/80 text-[11px] font-medium tracking-wide uppercase">{card.role}</p>

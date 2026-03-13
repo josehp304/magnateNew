@@ -132,7 +132,7 @@ const Footer = () => {
           </div>
         </div>
                       <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/10">
-                <a href="https://www.facebook.com/profile.php?id=61573093928818" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#1877F2] rounded-full transition-all duration-300 hover:scale-110 group">
+                <a href="https://www.facebook.com/profile.php?id=61576355188179&locale=ga_IE" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#1877F2] rounded-full transition-all duration-300 hover:scale-110 group">
                   <Facebook className="w-5 h-5 opacity-80 group-hover:opacity-100" />
                 </a>
                 <a href="https://www.youtube.com/@The_Magnates_Academy" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#ff0000] rounded-full transition-all duration-300 hover:scale-110 group">

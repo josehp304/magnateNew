@@ -518,7 +518,7 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 <div className="revealer">
                                     <a
                                         className="sm caps mono"
-                                        href="https://www.facebook.com/profile.php?id=61573093928818"
+                                        href="https://www.facebook.com/profile.php?id=61576355188179&locale=ga_IE"
                                     >
                                         Facebook
                                     </a>
